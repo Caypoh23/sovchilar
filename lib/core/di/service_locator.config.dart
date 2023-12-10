@@ -12,14 +12,17 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../../config/router/navigation_service.dart' as _i10;
-import '../../data/datasource/local/auth_local_db.dart' as _i5;
-import '../../data/datasource/remote/auth_api.dart' as _i4;
-import '../../data/datasource/remote/contacts_api.dart' as _i7;
-import '../../data/datasource/remote/premade_messages_api.dart' as _i11;
-import '../../domain/repositories/auth_repository.dart' as _i6;
-import '../../domain/repositories/contacts_repository.dart' as _i8;
-import '../../domain/repositories/premade_messages_repository.dart' as _i12;
-import '../../presentation/main_screen/bloc/main_screen_bloc.dart' as _i9;
+import '../../features/data/datasource/local/auth_local_db.dart' as _i5;
+import '../../features/data/datasource/remote/auth_api.dart' as _i4;
+import '../../features/data/datasource/remote/contacts_api.dart' as _i7;
+import '../../features/data/datasource/remote/premade_messages_api.dart'
+    as _i11;
+import '../../features/domain/repositories/auth_repository.dart' as _i6;
+import '../../features/domain/repositories/contacts_repository.dart' as _i8;
+import '../../features/domain/repositories/premade_messages_repository.dart'
+    as _i12;
+import '../../features/presentation/main_screen/bloc/main_screen_bloc.dart'
+    as _i9;
 import '../network/api_service.dart' as _i3;
 
 extension GetItInjectableX on _i1.GetIt {

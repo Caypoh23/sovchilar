@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 class MediaHelper {
+  //
   MediaHelper._();
 
   static late Size size;

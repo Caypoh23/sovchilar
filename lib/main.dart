@@ -12,8 +12,8 @@ import 'package:sovchilar/app.dart';
 import 'package:sovchilar/localization.dart';
 import 'config/values/system_ui_overlay_style_constants.dart';
 import 'core/di/service_locator.dart';
-import 'data/datasource/local/storage_constants.dart';
-import 'data/model/user/user_status.dart';
+import 'features/data/datasource/local/storage_constants.dart';
+import 'features/data/model/user/user_status.dart';
 import 'utils/shared_preference_helper.dart';
 
 void main() async {

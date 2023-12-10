@@ -2,9 +2,8 @@
 import 'package:auto_route/auto_route.dart';
 
 // Project imports:
-import 'route_constants.dart';
-
 import 'app_router.gr.dart';
+import 'route_constants.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page|View,Route')
 class AppRouter extends $AppRouter {

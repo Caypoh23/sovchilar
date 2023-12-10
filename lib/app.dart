@@ -9,8 +9,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
 import 'config/router/navigation_service.dart';
 import 'config/theme/app_theme.dart';
-import 'presentation/main_screen/bloc/main_screen_bloc.dart';
-import 'utils/custom_widgets/scroll_behavior.dart';
+import 'config/values/strings_constants.dart';
+import 'custom_widgets/scroll_behavior.dart';
+import 'features/presentation/main_screen/bloc/main_screen_bloc.dart';
 import 'utils/media_helper.dart';
 
 class MyApp extends StatefulWidget {
@@ -65,6 +66,7 @@ class MyAppState extends State<MyApp> with WidgetsBindingObserver {
       child: MaterialApp.router(
         builder: builder,
         locale: context.locale,
+        title: MyStrings.appName,
         theme: AppTheme.lightTheme,
         themeMode: ThemeMode.light,
         routerConfig: appRouter.config(),
