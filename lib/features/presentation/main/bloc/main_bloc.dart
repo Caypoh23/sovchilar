@@ -7,11 +7,11 @@ import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'package:sovchilar/utils/generic_bloc_state.dart';
-import 'main_screen_event.dart';
+import 'main_event.dart';
 
 @injectable
-class MainScreenBloc extends Bloc<MainScreenEvent, GenericBlocState<int>> {
-  MainScreenBloc() : super(GenericBlocState.success(0)) {
+class MainBloc extends Bloc<MainEvent, GenericBlocState<int>> {
+  MainBloc() : super(GenericBlocState.success(0)) {
     on<OnItemPressed>(_onItemPressed);
   }
 
@@ -21,6 +21,11 @@ class MainScreenBloc extends Bloc<MainScreenEvent, GenericBlocState<int>> {
   }
 
   Future<bool> onWillPop() async {
-    return true;
+    if (state.data == 0) {
+      return true;
+    } else {
+      add(OnItemPressed(newIndex: 0));
+      return false;
+    }
   }
 }

@@ -8,22 +8,25 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
+// Package imports:
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
+// Project imports:
 import '../../config/router/navigation_service.dart' as _i10;
 import '../../features/data/datasource/local/auth_local_db.dart' as _i5;
 import '../../features/data/datasource/remote/auth_api.dart' as _i4;
 import '../../features/data/datasource/remote/contacts_api.dart' as _i7;
-import '../../features/data/datasource/remote/premade_messages_api.dart'
-    as _i11;
 import '../../features/domain/repositories/auth_repository.dart' as _i6;
 import '../../features/domain/repositories/contacts_repository.dart' as _i8;
+import '../../features/presentation/main/bloc/main_bloc.dart' as _i9;
+import '../network/api_service.dart' as _i3;
+
+import '../../features/data/datasource/remote/premade_messages_api.dart'
+    as _i11;
 import '../../features/domain/repositories/premade_messages_repository.dart'
     as _i12;
-import '../../features/presentation/main_screen/bloc/main_screen_bloc.dart'
-    as _i9;
-import '../network/api_service.dart' as _i3;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -43,7 +46,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i7.ContactsApi>(() => _i7.ContactsApiImpl());
     gh.lazySingleton<_i8.ContactsRepository>(
         () => _i8.ContactsRepositoryImpl());
-    gh.factory<_i9.MainScreenBloc>(() => _i9.MainScreenBloc());
+    gh.factory<_i9.MainBloc>(() => _i9.MainBloc());
     gh.singleton<_i10.NavigationService>(_i10.NavigationService());
     gh.lazySingleton<_i11.PremadeMessagesApi>(
         () => _i11.PremadeMessagesApiImpl());

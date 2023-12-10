@@ -11,7 +11,7 @@ import 'config/router/navigation_service.dart';
 import 'config/theme/app_theme.dart';
 import 'config/values/strings_constants.dart';
 import 'custom_widgets/scroll_behavior.dart';
-import 'features/presentation/main_screen/bloc/main_screen_bloc.dart';
+import 'features/presentation/main/bloc/main_bloc.dart';
 import 'utils/media_helper.dart';
 
 class MyApp extends StatefulWidget {
@@ -59,8 +59,8 @@ class MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
     return MultiBlocProvider(
       providers: [
-        BlocProvider<MainScreenBloc>(
-          create: (context) => MainScreenBloc(),
+        BlocProvider<MainBloc>(
+          create: (context) => MainBloc(),
         ),
       ],
       child: MaterialApp.router(

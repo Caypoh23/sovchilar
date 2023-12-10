@@ -13,7 +13,7 @@ class SplashScreenBloc {
       const Duration(seconds: 2),
     );
 
-    getIt<NavigationService>().push(const MainScreen());
+    getIt<NavigationService>().replace(const MainScreen());
 
     // // final UserStatus status = authRepository.getUserStatus();
     // // Future.delayed(const Duration(seconds: 3)).then((_) async {

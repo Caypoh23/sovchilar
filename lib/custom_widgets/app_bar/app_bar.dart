@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
 // Project imports:
-import 'package:sovchilar/config/assets/icon_constants.dart';
 import 'package:sovchilar/config/router/navigation_service.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
 
@@ -49,7 +48,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               child: Padding(
                 padding: const EdgeInsets.only(left: 16.0),
                 child: SvgPicture.asset(
-                  MyIcons.arrowLeft,
+                  '',
                   width: 24,
                   height: 24,
                   colorFilter: const ColorFilter.mode(

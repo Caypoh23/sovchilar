@@ -17,7 +17,9 @@ class AppTheme {
       onPrimary: Colors.white,
       //
       secondary: MyColors.secondary,
-      onSecondary: Colors.white,
+      onSecondary: MyColors.onSecondary,
+      //
+      tertiary: MyColors.tertiary,
       //
       background: MyColors.grey,
       onBackground: MyColors.onBackground,
@@ -38,26 +40,26 @@ class AppTheme {
     textTheme: const TextTheme(
       titleLarge: TextStyle(
         fontSize: 34,
-        color: Colors.white,
+        color: MyColors.grey,
         fontWeight: FontWeight.w700,
       ),
       titleMedium: TextStyle(
         fontSize: 28,
-        color: Colors.white,
+        color: MyColors.grey,
         fontWeight: FontWeight.w700,
       ),
       titleSmall: TextStyle(
         fontSize: 20,
-        color: Colors.white,
+        color: MyColors.grey,
         fontWeight: FontWeight.w700,
       ),
       bodyMedium: TextStyle(
         fontSize: 16,
-        color: Colors.white,
+        color: MyColors.grey,
       ),
       bodyLarge: TextStyle(
         fontSize: 16,
-        color: Colors.white,
+        color: MyColors.grey,
         fontWeight: FontWeight.w700,
       ),
     ),
