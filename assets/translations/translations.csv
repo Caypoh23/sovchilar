@@ -1,0 +1,33 @@
+key,ru
+appName,Сваты
+name,Имя
+yourName,Ваше Имя
+age,Возраст
+yourAge,Ваш возраст
+residency,Место жительства
+nationality,Национальность
+familyStatus,Семейное положение
+divorced,Разведен(а)
+notMarried,Не был(а) женат(замужем)
+children,Дети
+haveChildren,У меня есть ребенок
+noChildren,У меня нет детей
+ageLimit,Возрастное ограничение
+additionalInfoShort,Доп. информация
+additionalInfo,Дополнительная информация
+telegram,Телеграм
+yourTelegram,Ваш телеграм
+password,Пароль
+loginOrSignUp,Войти или Зарегистрироваться
+postAd,Разместить объявление
+yourSex,Ваш пол
+man,Мужчина
+woman,Женщина
+from,От
+to,До
+country,Страна
+city,Город
+pay,Оплатить
+cancel,Отмена
+cardNumber,Номер карты (Uzcard/Humo)
+dateOfExpiry,Срок действия
