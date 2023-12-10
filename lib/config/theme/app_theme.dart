@@ -16,6 +16,9 @@ class AppTheme {
       primary: MyColors.primary,
       onPrimary: Colors.white,
       //
+      primaryContainer: MyColors.primaryContainer,
+      onPrimaryContainer: MyColors.onPrimaryContainer,
+      //
       secondary: MyColors.secondary,
       onSecondary: MyColors.onSecondary,
       //
@@ -38,29 +41,64 @@ class AppTheme {
     //
     //
     textTheme: const TextTheme(
+      ///
+      /// Title
+      ///
+
       titleLarge: TextStyle(
-        fontSize: 34,
+        fontSize: 28,
         color: MyColors.grey,
         fontWeight: FontWeight.w700,
       ),
       titleMedium: TextStyle(
         fontSize: 28,
         color: MyColors.grey,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w500,
       ),
       titleSmall: TextStyle(
-        fontSize: 20,
+        fontSize: 28,
+        color: MyColors.grey,
+        fontWeight: FontWeight.w400,
+      ),
+
+      ///
+      /// Body
+      ///
+
+      bodyLarge: TextStyle(
+        fontSize: 16,
         color: MyColors.grey,
         fontWeight: FontWeight.w700,
       ),
       bodyMedium: TextStyle(
         fontSize: 16,
         color: MyColors.grey,
+        fontWeight: FontWeight.w500,
       ),
-      bodyLarge: TextStyle(
+      bodySmall: TextStyle(
         fontSize: 16,
         color: MyColors.grey,
+        fontWeight: FontWeight.w400,
+      ),
+
+      ///
+      /// Label
+      ///
+
+      labelLarge: TextStyle(
+        fontSize: 12,
+        color: MyColors.grey,
         fontWeight: FontWeight.w700,
+      ),
+      labelMedium: TextStyle(
+        fontSize: 12,
+        color: MyColors.grey,
+        fontWeight: FontWeight.w500,
+      ),
+      labelSmall: TextStyle(
+        fontSize: 12,
+        color: MyColors.grey,
+        fontWeight: FontWeight.w400,
       ),
     ),
   );

@@ -1,32 +1,28 @@
 // Flutter imports:
 
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Project imports:
+import 'color_constants.dart';
+
 class MyGradients {
   ///
-  // static const LinearGradient stepHeader = LinearGradient(
-  //   begin: Alignment.topCenter,
-  //   end: Alignment.bottomCenter,
-  //   colors: <Color>[
-  //     MyColors.white,
-  //     MyColors.transparent,
-  //   ],
-  // );
+  static const LinearGradient primary = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: [
+      MyColors.tertiary,
+      MyColors.onSecondary,
+    ],
+  );
 
-  // static const LinearGradient white = LinearGradient(
-  //   colors: [
-  //     MyColors.transparent,
-  //     MyColors.white,
-  //   ],
-  //   stops: [0.0, 0.2],
-  //   begin: Alignment.bottomCenter,
-  //   end: Alignment.topCenter,
-  // );
-
-  // static const LinearGradient greenLiner = LinearGradient(
-  //   colors: [
-  //     MyColors.primary,
-  //     MyColors.emeraldLight,
-  //   ],
-  //   begin: Alignment.topLeft,
-  //   end: Alignment.bottomRight,
-  // );
+  static const LinearGradient secondary = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: [
+      MyColors.primaryContainer,
+      MyColors.onPrimaryContainer,
+    ],
+  );
 }

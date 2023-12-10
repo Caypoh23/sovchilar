@@ -8,6 +8,9 @@ abstract class MyColors {
   //
   static const primary = Color(0xFF326AFA);
 
+  static const primaryContainer = Color(0xFF30CFD0);
+  static const onPrimaryContainer = Color(0xFF330867);
+
   static const secondary = Color(0xFFF994A5);
   static const onSecondary = Color(0xFFF5576C);
 

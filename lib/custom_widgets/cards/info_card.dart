@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 // Project imports:
 import 'package:sovchilar/config/values/duration_constants.dart';
 
-class MyInfocard extends StatelessWidget {
+class MyInfoCard extends StatelessWidget {
   //
   final List<Widget> children;
 
@@ -17,7 +17,7 @@ class MyInfocard extends StatelessWidget {
   final double? height;
   final double borderRadius;
 
-  const MyInfocard({
+  const MyInfoCard({
     super.key,
     required this.children,
     //
@@ -50,6 +50,7 @@ class MyInfocard extends StatelessWidget {
         ),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ...children,
         ],

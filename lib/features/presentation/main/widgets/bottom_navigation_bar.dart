@@ -22,6 +22,7 @@ class MainBottomNavigationBar extends StatelessWidget {
     return BlocBuilder<MainBloc, GenericBlocState<int>>(
       builder: (context, state) {
         return NavigationBar(
+          height: 60,
           backgroundColor: Colors.white,
           surfaceTintColor: Theme.of(context).colorScheme.primary,
           indicatorColor: Theme.of(context).colorScheme.secondary,
