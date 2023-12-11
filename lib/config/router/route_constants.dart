@@ -5,4 +5,6 @@ class RouteConstants {
   static const splash = 'splash';
 
   static const main = 'main';
+
+  static const postEditor = 'post_editor';
 }

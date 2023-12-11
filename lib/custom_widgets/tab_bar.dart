@@ -27,7 +27,7 @@ class MyTabBar extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Colors.transparent,
-          borderRadius: BorderRadius.circular(50),
+          borderRadius: BorderRadius.circular(16),
         ),
         padding: const EdgeInsets.symmetric(vertical: 12),
         child: TabBar(
@@ -41,9 +41,9 @@ class MyTabBar extends StatelessWidget {
           unselectedLabelColor: Colors.white,
           indicator: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(50),
+            borderRadius: BorderRadius.circular(16),
           ),
-          splashBorderRadius: BorderRadius.circular(50),
+          splashBorderRadius: BorderRadius.circular(16),
           labelStyle: Theme.of(context).textTheme.bodyMedium,
           unselectedLabelStyle: Theme.of(context).textTheme.bodyMedium,
           overlayColor: MaterialStateProperty.all(Colors.transparent),

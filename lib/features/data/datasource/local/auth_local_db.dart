@@ -3,14 +3,9 @@ import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 
 // Project imports:
-import 'package:sovchilar/features/data/model/user/user_status.dart';
 import 'storage_constants.dart';
 
 abstract class AuthLocalStorage {
-  void setUserStatus(UserStatus userStatus);
-
-  UserStatus getUserStatus();
-
   void setToken(String token);
 
   String getToken();
@@ -34,25 +29,7 @@ abstract class AuthLocalStorage {
 
 @LazySingleton(as: AuthLocalStorage)
 class AuthLocalStorageImpl implements AuthLocalStorage {
-  @override
-  UserStatus getUserStatus() {
-    final box = Hive.box(StorageConstants.userStatusBox);
-    if (box.isEmpty) {
-      return UserStatus.newUser;
-    }
-    return box.getAt(0);
-  }
-
-  @override
-  void setUserStatus(UserStatus userStatus) {
-    final box = Hive.box(StorageConstants.userStatusBox);
-    if (box.isEmpty) {
-      box.add(userStatus);
-    } else {
-      box.putAt(0, userStatus);
-    }
-  }
-
+  //
   @override
   String getToken() {
     final box = Hive.box(StorageConstants.appBox);

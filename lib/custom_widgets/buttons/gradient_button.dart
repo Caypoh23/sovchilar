@@ -1,0 +1,110 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Project imports:
+import 'package:sovchilar/config/values/color_constants.dart';
+import 'package:sovchilar/config/values/duration_constants.dart';
+import 'package:sovchilar/config/values/gradient_constants.dart';
+import 'package:sovchilar/custom_widgets/loading/loader.dart';
+import 'default_ink_well.dart';
+
+class MyGradientButton extends StatelessWidget {
+  //
+  final String label;
+  final TextStyle labelStyle;
+
+  final Color enabledColor;
+  final Color disabledColor;
+  final Color? color;
+
+  final void Function() onTap;
+  final void Function()? onLongPress;
+
+  final Widget? iconLeft;
+  final Widget? iconRight;
+
+  final EdgeInsets padding;
+  final EdgeInsets margin;
+
+  final bool isLoading;
+  final bool enable;
+
+  final double? width;
+
+  const MyGradientButton({
+    super.key,
+    required this.label,
+    required this.onTap,
+    this.labelStyle = const TextStyle(
+      fontSize: 16,
+      color: Colors.white,
+      fontWeight: FontWeight.w500,
+    ),
+    this.onLongPress,
+    //
+    this.iconLeft,
+    this.iconRight,
+    //
+    this.padding = const EdgeInsets.symmetric(
+      vertical: 12,
+      horizontal: 32,
+    ),
+    this.margin = EdgeInsets.zero,
+    //
+    this.isLoading = false,
+    this.enable = true,
+    //
+    this.width,
+    this.color,
+  })  : enabledColor = MyColors.grey,
+        disabledColor = MyColors.grey;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedSwitcher(
+      duration: MyDurations.ms250,
+      child: MyInkWell(
+        width: width,
+        margin: margin,
+        gradient: MyGradients.primary,
+        padding: padding,
+        borderRadius: BorderRadius.circular(16),
+        onTap: enable && !isLoading ? onTap : null,
+        child: Stack(
+          children: [
+            if (!isLoading)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (iconLeft != null) ...[
+                    iconLeft!,
+                    const SizedBox(width: 8),
+                  ],
+                  Text(
+                    label,
+                    style: labelStyle,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  if (iconRight != null) ...[
+                    const SizedBox(width: 8),
+                    iconRight!,
+                  ],
+                ],
+              )
+            else
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 18,
+                    width: 18,
+                    child: LoaderWidget(),
+                  ),
+                ],
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}

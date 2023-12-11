@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
+import 'package:sovchilar/features/presentation/home/bloc/home_bloc.dart';
+import 'package:sovchilar/features/presentation/home/bloc/home_event.dart';
 import 'splash_screen_bloc.dart';
 
 @RoutePage()
@@ -24,6 +27,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
     final bloc = SplashScreenBloc();
     bloc.checkStatus();
+
+    context.read<HomeBloc>().add(OnFetchUsers());
   }
 
   @override

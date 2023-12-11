@@ -23,6 +23,13 @@ class AppRouter extends $AppRouter {
           path: '/${RouteConstants.main}',
           page: MainScreen.page,
           transitionsBuilder: TransitionsBuilders.fadeIn,
+          children: [
+            CustomRoute(
+              path: RouteConstants.postEditor,
+              page: PostEditorScreen.page,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+            ),
+          ],
         ),
       ];
 }

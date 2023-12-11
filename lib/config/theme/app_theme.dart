@@ -9,7 +9,7 @@ class AppTheme {
   //
   static final ThemeData lightTheme = ThemeData(
     fontFamily: MyFonts.main,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: MyColors.secondary,
     colorScheme: const ColorScheme(
       brightness: Brightness.dark,
       //

@@ -18,8 +18,11 @@ import '../../config/router/navigation_service.dart' as _i10;
 import '../../features/data/datasource/local/auth_local_db.dart' as _i5;
 import '../../features/data/datasource/remote/auth_api.dart' as _i4;
 import '../../features/data/datasource/remote/contacts_api.dart' as _i7;
+import '../../features/data/datasource/remote/user_api.dart' as _i13;
 import '../../features/domain/repositories/auth_repository.dart' as _i6;
 import '../../features/domain/repositories/contacts_repository.dart' as _i8;
+import '../../features/domain/user_repository.dart' as _i14;
+import '../../features/presentation/home/bloc/home_bloc.dart' as _i15;
 import '../../features/presentation/main/bloc/main_bloc.dart' as _i9;
 import '../network/api_service.dart' as _i3;
 
@@ -39,7 +42,7 @@ extension GetItInjectableX on _i1.GetIt {
       environment,
       environmentFilter,
     );
-    gh.lazySingleton<_i3.AppApi>(() => _i3.AppApi());
+    gh.singleton<_i3.AppApi>(_i3.AppApi());
     gh.lazySingleton<_i4.AuthApi>(() => _i4.AuthApiImpl());
     gh.lazySingleton<_i5.AuthLocalStorage>(() => _i5.AuthLocalStorageImpl());
     gh.lazySingleton<_i6.AuthRepository>(() => _i6.AuthRepositoryImpl());
@@ -52,6 +55,10 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i11.PremadeMessagesApiImpl());
     gh.lazySingleton<_i12.PremadeMessagesRepository>(() =>
         _i12.PremadeMessagesRepositoryImpl(api: gh<_i11.PremadeMessagesApi>()));
+    gh.lazySingleton<_i13.UserApi>(() => _i13.UserApiImpl(gh<_i3.AppApi>()));
+    gh.lazySingleton<_i14.UserRepository>(
+        () => _i14.UserRepositoryImpl(gh<_i13.UserApi>()));
+    gh.factory<_i15.HomeBloc>(() => _i15.HomeBloc(gh<_i14.UserRepository>()));
     return this;
   }
 }

@@ -1,8 +1,13 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 // Project imports:
 import 'package:sovchilar/custom_widgets/refresher.dart';
+import 'package:sovchilar/features/presentation/home/bloc/home_bloc.dart';
+import 'package:sovchilar/features/presentation/home/bloc/home_event.dart';
 import 'package:sovchilar/features/presentation/home/widgets/card.dart';
 
 class HomeMenPage extends StatelessWidget {
@@ -11,26 +16,27 @@ class HomeMenPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MyRefresher(
-      onRefresh: () {},
-      child: ListView.builder(
-        itemCount: 10,
-        padding: const EdgeInsets.symmetric(
-          vertical: 20,
-          horizontal: 20,
-        ),
-        itemBuilder: (_, int index) {
-          return const HomeCard(
-            name: 'name',
-            address: 'sadf',
-            nationality: 'afsd',
-            familyStatus: 'asfd',
-            ageLimit: 'fdsa',
-            additionalInfo: 'asdf',
-            telegram: '@123',
-          );
-        },
-      ),
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        final list = state.userList;
+
+        return MyRefresher(
+          onRefresh: () => context.read<HomeBloc>().add(OnFetchUsers()),
+          child: ListView.builder(
+            itemCount: list.length,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
+            itemBuilder: (_, int index) {
+              final model = list[index];
+
+              return HomeCard(
+                model: model,
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }

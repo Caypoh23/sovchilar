@@ -66,74 +66,8 @@ class NetworkConstants {
   static String editpremadeMessage(int id) => '$premadeMessage$id/';
 
   ///
-  ///  second version reports
+  /// Personals
   ///
-  static String createReport = 'v2/api/create/accident/adriver/';
-  static String accidentTimeAndPlace(accidentId) =>
-      '/v2/api/adriver/accident/$accidentId/date_time_country_place/';
-  static String accidentSketch(accidentId) =>
-      '/v2/api/abdriver/accident/$accidentId/sketch/';
-  static String accidentCircumstances(accidentId) =>
-      '/v2/api/abdriver/accident/$accidentId/circumstances/';
-  static String uploadFile = 'v2/api/files/';
 
-  static String accidentStatus(accidentId) =>
-      'v2/api/get/accident/$accidentId/status/';
-
-  ///driver a
-  static String injury(accidentId) =>
-      '/v2/api/adriver/accident/$accidentId/injury/';
-  static String witnesses(accidentId) =>
-      '/v2/api/adriver/accident/$accidentId/witnesses/';
-  static String visibleDamage(accidentId) =>
-      '/v2/api/adriver/accident/$accidentId/visible_damage/';
-  static String initialImpactPoint(accidentId) =>
-      '/v2/api/adriver/accident/$accidentId/initial_impact_point/';
-  static String myRemarks(accidentId) =>
-      '/v2/api/adriver/accident/$accidentId/my_remarks/';
-  static String damagePoints(accidentId) =>
-      '/v2/api/adriver/accident/$accidentId/damage_points/';
-  static String uploadMedia(accidentId) =>
-      '/v2/api/adriver/accident/$accidentId/upload_media/';
-  static String sign(accidentId) =>
-      '/v2/api/adriver/accident/$accidentId/sign/';
-
-  /// Driver b
-
-  static String connectToNosovchilarDriver(accidentId) =>
-      '/v2/api/bdriver/accident/$accidentId/no_sovchilar_user_connect/';
-  static String injuryB(accidentId) =>
-      '/v2/api/bdriver/accident/$accidentId/injury/';
-  static String witnessesB(accidentId) =>
-      '/v2/api/bdriver/accident/$accidentId/witnesses/';
-  static String visibleDamageB(accidentId) =>
-      '/v2/api/bdriver/accident/$accidentId/visible_damage/';
-  static String initialImpactPointB(accidentId) =>
-      '/v2/api/bdriver/accident/$accidentId/initial_impact_point/';
-  static String myRemarksB(accidentId) =>
-      '/v2/api/bdriver/accident/$accidentId/my_remarks/';
-  static String damagePointsB(accidentId) =>
-      '/v2/api/bdriver/accident/$accidentId/damage_points/';
-  static String uploadMediaB(accidentId) =>
-      '/v2/api/bdriver/accident/$accidentId/upload_media/';
-  static String signB(accidentId) =>
-      '/v2/api/bdriver/accident/$accidentId/sign/';
-
-  static String getPdf(int accidentId) =>
-      '/v2/api/accident/$accidentId/get_pdf/';
-
-  static String sendToInsurance =
-      'v1/api/accident/send/breakdown/report/to/insurance/';
-
-  static String updateCarB(accidentId) =>
-      '/v2/api/bdriver/accident/$accidentId/about_car/';
-  static String updateDriverB(accidentId) =>
-      '/v2/api/bdriver/accident/$accidentId/about_driver/';
-  static String updateInsuranceCompanyB(accidentId) =>
-      '/v2/api/bdriver/accident/$accidentId/insurance_company/';
-  static String updatePolicyHolderB(accidentId) =>
-      '/v2/api/bdriver/accident/$accidentId/policy_holder/';
-
-  static String secondDriverVehicleType(accidentId) =>
-      '/v2/api/bdriver/accident/$accidentId/vehicle_type/';
+  static String personals([int page = 1]) => 'api/personals/all';
 }

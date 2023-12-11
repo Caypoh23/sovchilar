@@ -44,19 +44,25 @@ class _HomeScreenState extends State<HomeScreen>
         appBar: const MyNoAppBar(),
         body: Column(
           children: [
-            MyTabBar(
-              tabLabels: [
-                MyStrings.man,
-                MyStrings.woman,
-              ],
-              tabController: _tabController,
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+              ),
+              child: MyTabBar(
+                tabLabels: [
+                  MyStrings.women,
+                  MyStrings.men,
+                ],
+                tabController: _tabController,
+              ),
             ),
             Expanded(
               child: TabBarView(
                 controller: _tabController,
+                physics: const NeverScrollableScrollPhysics(),
                 children: const [
-                  HomeMenPage(),
                   HomeWomenPage(),
+                  HomeMenPage(),
                 ],
               ),
             )

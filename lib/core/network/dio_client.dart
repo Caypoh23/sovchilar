@@ -9,17 +9,18 @@ class DioClient {
   static Dio? _myDio;
 
   static final myDioOptions = BaseOptions(
-      baseUrl: 'http://testingsovchilar.urinboev.uz/',
-      connectTimeout: const Duration(minutes: 2),
-      receiveTimeout: const Duration(minutes: 2),
-      // queryParameters: {
-      //   'lang': NavigationService
-      //           .navigatorKey.currentContext?.locale.languageCode ??
-      //       'ru'
-      // },
-      // headers: {'Content-Type': 'application/json; charset=utf-8'},
-      // headers: {'Content-Type': 'charset=utf-8'},
-      responseType: ResponseType.json);
+    baseUrl: 'http://176.96.241.238:3333/',
+    connectTimeout: const Duration(minutes: 2),
+    receiveTimeout: const Duration(minutes: 2),
+    // queryParameters: {
+    //   'lang': NavigationService
+    //           .navigatorKey.currentContext?.locale.languageCode ??
+    //       'ru'
+    // },
+    // headers: {'Content-Type': 'application/json; charset=utf-8'},
+    // headers: {'Content-Type': 'charset=utf-8'},
+    responseType: ResponseType.json,
+  );
 
   static final logInterceptor = LogInterceptor(
     request: true,

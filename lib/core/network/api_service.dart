@@ -9,7 +9,7 @@ import 'package:injectable/injectable.dart';
 // Project imports:
 import 'dio_client.dart';
 
-@lazySingleton
+@singleton
 class AppApi {
   // Get
   Future<dynamic> get(

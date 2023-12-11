@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$HomeState {
   Status get status => throw _privateConstructorUsedError;
+  List<UserResponseModel> get userList => throw _privateConstructorUsedError;
   Error? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -29,7 +30,7 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({Status status, Error? error});
+  $Res call({Status status, List<UserResponseModel> userList, Error? error});
 }
 
 /// @nodoc
@@ -46,6 +47,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @override
   $Res call({
     Object? status = null,
+    Object? userList = null,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
@@ -53,6 +55,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
+      userList: null == userList
+          ? _value.userList
+          : userList // ignore: cast_nullable_to_non_nullable
+              as List<UserResponseModel>,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -69,7 +75,7 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       __$$HomeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status status, Error? error});
+  $Res call({Status status, List<UserResponseModel> userList, Error? error});
 }
 
 /// @nodoc
@@ -84,6 +90,7 @@ class __$$HomeStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
+    Object? userList = null,
     Object? error = freezed,
   }) {
     return _then(_$HomeStateImpl(
@@ -91,6 +98,10 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
+      userList: null == userList
+          ? _value._userList
+          : userList // ignore: cast_nullable_to_non_nullable
+              as List<UserResponseModel>,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -102,17 +113,30 @@ class __$$HomeStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$HomeStateImpl implements _HomeState {
-  const _$HomeStateImpl({this.status = Status.initial, this.error});
+  const _$HomeStateImpl(
+      {this.status = Status.initial,
+      final List<UserResponseModel> userList = const [],
+      this.error})
+      : _userList = userList;
 
   @override
   @JsonKey()
   final Status status;
+  final List<UserResponseModel> _userList;
+  @override
+  @JsonKey()
+  List<UserResponseModel> get userList {
+    if (_userList is EqualUnmodifiableListView) return _userList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_userList);
+  }
+
   @override
   final Error? error;
 
   @override
   String toString() {
-    return 'HomeState(status: $status, error: $error)';
+    return 'HomeState(status: $status, userList: $userList, error: $error)';
   }
 
   @override
@@ -121,11 +145,13 @@ class _$HomeStateImpl implements _HomeState {
         (other.runtimeType == runtimeType &&
             other is _$HomeStateImpl &&
             (identical(other.status, status) || other.status == status) &&
+            const DeepCollectionEquality().equals(other._userList, _userList) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, error);
+  int get hashCode => Object.hash(runtimeType, status,
+      const DeepCollectionEquality().hash(_userList), error);
 
   @JsonKey(ignore: true)
   @override
@@ -135,11 +161,15 @@ class _$HomeStateImpl implements _HomeState {
 }
 
 abstract class _HomeState implements HomeState {
-  const factory _HomeState({final Status status, final Error? error}) =
-      _$HomeStateImpl;
+  const factory _HomeState(
+      {final Status status,
+      final List<UserResponseModel> userList,
+      final Error? error}) = _$HomeStateImpl;
 
   @override
   Status get status;
+  @override
+  List<UserResponseModel> get userList;
   @override
   Error? get error;
   @override

@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
 import 'package:sovchilar/core/di/service_locator.dart';
+import 'package:sovchilar/features/presentation/home/bloc/home_bloc.dart';
 import 'config/router/navigation_service.dart';
 import 'config/theme/app_theme.dart';
 import 'config/values/strings_constants.dart';
@@ -60,7 +61,10 @@ class MyAppState extends State<MyApp> with WidgetsBindingObserver {
     return MultiBlocProvider(
       providers: [
         BlocProvider<MainBloc>(
-          create: (context) => MainBloc(),
+          create: (context) => getIt<MainBloc>(),
+        ),
+        BlocProvider<HomeBloc>(
+          create: (context) => getIt<HomeBloc>(),
         ),
       ],
       child: MaterialApp.router(

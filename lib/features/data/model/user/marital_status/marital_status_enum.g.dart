@@ -1,40 +1,35 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_status.dart';
+part of 'marital_status_enum.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class UserStatusAdapter extends TypeAdapter<UserStatus> {
+class MaritalStatusAdapter extends TypeAdapter<MaritalStatus> {
   @override
   final int typeId = 0;
 
   @override
-  UserStatus read(BinaryReader reader) {
+  MaritalStatus read(BinaryReader reader) {
     switch (reader.readByte()) {
       case 0:
-        return UserStatus.newUser;
+        return MaritalStatus.divorced;
       case 1:
-        return UserStatus.signed;
-      case 2:
-        return UserStatus.haveSeenIntro;
+        return MaritalStatus.single;
       default:
-        return UserStatus.newUser;
+        return MaritalStatus.divorced;
     }
   }
 
   @override
-  void write(BinaryWriter writer, UserStatus obj) {
+  void write(BinaryWriter writer, MaritalStatus obj) {
     switch (obj) {
-      case UserStatus.newUser:
+      case MaritalStatus.divorced:
         writer.writeByte(0);
         break;
-      case UserStatus.signed:
+      case MaritalStatus.single:
         writer.writeByte(1);
-        break;
-      case UserStatus.haveSeenIntro:
-        writer.writeByte(2);
         break;
     }
   }
@@ -45,7 +40,7 @@ class UserStatusAdapter extends TypeAdapter<UserStatus> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is UserStatusAdapter &&
+      other is MaritalStatusAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

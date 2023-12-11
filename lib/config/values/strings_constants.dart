@@ -10,6 +10,7 @@ abstract class MyStrings {
   static String get yourName => 'yourName'.tr();
 
   static String get age => 'age'.tr();
+  static String get yearsOld => 'yearsOld'.tr();
   static String get yourAge => 'yourAge'.tr();
 
   static String get residency => 'residency'.tr();
@@ -38,6 +39,8 @@ abstract class MyStrings {
   static String get yourSex => 'yourSex'.tr();
   static String get man => 'man'.tr();
   static String get woman => 'woman'.tr();
+  static String get men => 'men'.tr();
+  static String get women => 'women'.tr();
 
   static String get from => 'from'.tr();
   static String get to => 'to'.tr();

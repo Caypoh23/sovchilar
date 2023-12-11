@@ -27,6 +27,10 @@ abstract class MyUrlLauncher {
     return open('tel:$result');
   }
 
+  static Future<bool> telegram(String username) {
+    return browse('t.me/$username');
+  }
+
   static Future<bool> message(String phone) {
     return open('smsto:$phone');
   }

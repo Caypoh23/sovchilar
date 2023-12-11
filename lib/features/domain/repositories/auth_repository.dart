@@ -9,7 +9,6 @@ import 'package:sovchilar/features/data/model/login/google_request/login_google_
 import 'package:sovchilar/features/data/model/login/response/login_response_model.dart';
 import 'package:sovchilar/features/data/model/registration/registration_request_dto.dart';
 import 'package:sovchilar/features/data/model/send_email/response/send_email_response.dart';
-import 'package:sovchilar/features/data/model/user/user_status.dart';
 
 abstract class AuthRepository {
   Future<LoginResponseModel> login(
@@ -33,10 +32,6 @@ abstract class AuthRepository {
   String getRefreshToken();
 
   void setRefreshToken(String token);
-
-  void setUserStatus(UserStatus userStatus);
-
-  UserStatus getUserStatus();
 
   Future<void> getVerificationCode(String mail);
 
@@ -121,16 +116,6 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   void setToken(String token) {
     localStorage.setToken(token);
-  }
-
-  @override
-  void setUserStatus(UserStatus userStatus) {
-    localStorage.setUserStatus(userStatus);
-  }
-
-  @override
-  UserStatus getUserStatus() {
-    return localStorage.getUserStatus();
   }
 
   @override
