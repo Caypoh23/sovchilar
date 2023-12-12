@@ -6,8 +6,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
-import 'package:sovchilar/features/presentation/home/home_screen.dart';
-import 'package:sovchilar/features/presentation/profile/profile_screen.dart';
+import 'package:sovchilar/config/assets/image_constants.dart';
+import 'package:sovchilar/features/presentation/home/home_page.dart';
+import 'package:sovchilar/features/presentation/profile/profile_page.dart';
 import 'package:sovchilar/utils/generic_bloc_state.dart';
 import 'bloc/main_bloc.dart';
 import 'widgets/bottom_navigation_bar.dart';
@@ -31,16 +32,24 @@ class _MainScreenState extends State<MainScreen> {
       builder: (context, state) {
         return WillPopScope(
           onWillPop: bloc.onWillPop,
-          child: Scaffold(
-            extendBody: true,
-            body: IndexedStack(
-              index: state.data!,
-              children: const [
-                HomeScreen(),
-                ProfileScreen(),
-              ],
+          child: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(MyImages.background),
+                fit: BoxFit.cover,
+              ),
             ),
-            bottomNavigationBar: const MainBottomNavigationBar(),
+            child: Scaffold(
+              extendBody: true,
+              body: IndexedStack(
+                index: state.data!,
+                children: const [
+                  HomePage(),
+                  ProfilePage(),
+                ],
+              ),
+              bottomNavigationBar: const MainBottomNavigationBar(),
+            ),
           ),
         );
       },

@@ -54,11 +54,13 @@ class HomeCard extends StatelessWidget {
               description: model.ageLimit,
             ),
             const SizedBox(height: 10),
-            HomeItem(
-              title: MyStrings.additionalInfo,
-              description: model.moreInfo ?? '',
-            ),
-            const SizedBox(height: 10),
+            if (model.moreInfo?.isNotEmpty ?? false) ...[
+              HomeItem(
+                title: MyStrings.additionalInfo,
+                description: model.moreInfo ?? '',
+              ),
+              const SizedBox(height: 10),
+            ],
             HomeItem(
               title: MyStrings.telegram,
               description: model.telegram ?? '',

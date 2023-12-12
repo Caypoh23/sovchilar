@@ -18,15 +18,13 @@ abstract class MySystemUiOverlayStyle {
 
   static const lightStatusBar = SystemUiOverlayStyle(
     systemStatusBarContrastEnforced: false,
-    statusBarColor: Colors.transparent,
+    statusBarColor: Colors.white,
     statusBarBrightness: Brightness.dark,
-    statusBarIconBrightness: Brightness.light,
-  );
-
-  static const lightNavBar = SystemUiOverlayStyle(
+    statusBarIconBrightness: Brightness.dark,
+    //
     systemNavigationBarColor: Colors.white,
     systemNavigationBarContrastEnforced: false,
-    systemNavigationBarDividerColor: Colors.white,
     systemNavigationBarIconBrightness: Brightness.dark,
+    systemNavigationBarDividerColor: Colors.transparent,
   );
 }

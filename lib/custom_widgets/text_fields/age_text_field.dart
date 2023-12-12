@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 // Project imports:
 import 'default_text_field.dart';
 
-class NameTextField extends StatelessWidget {
+class AgeTextField extends StatelessWidget {
   //
   final String labelText;
   final String? initialValue;
@@ -18,7 +18,7 @@ class NameTextField extends StatelessWidget {
   final bool autofocus;
   final bool isRequired;
 
-  const NameTextField({
+  const AgeTextField({
     super.key,
     required this.labelText,
     required this.controller,
@@ -39,13 +39,12 @@ class NameTextField extends StatelessWidget {
       enabled: enabled,
       maxLines: maxLines,
       labelText: labelText,
+      isRequired: isRequired,
       autoFocus: autofocus,
       focusNode: focusNode,
       controller: controller,
-      isRequired: isRequired,
       initialValue: initialValue,
-      keyboardType: TextInputType.text,
-      textCapitalization: TextCapitalization.words,
+      keyboardType: TextInputType.number,
     );
   }
 }

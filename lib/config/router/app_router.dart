@@ -22,11 +22,20 @@ class AppRouter extends $AppRouter {
         CustomRoute(
           path: '/${RouteConstants.main}',
           page: MainScreen.page,
-          transitionsBuilder: TransitionsBuilders.fadeIn,
           children: [
+            CustomRoute(
+              path: '',
+              page: ProfileScreen.page,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+            ),
             CustomRoute(
               path: RouteConstants.postEditor,
               page: PostEditorScreen.page,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+            ),
+            CustomRoute(
+              path: RouteConstants.language,
+              page: LanguageScreen.page,
               transitionsBuilder: TransitionsBuilders.fadeIn,
             ),
           ],

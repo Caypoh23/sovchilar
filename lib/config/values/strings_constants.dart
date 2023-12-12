@@ -9,6 +9,8 @@ abstract class MyStrings {
   static String get name => 'name'.tr();
   static String get yourName => 'yourName'.tr();
 
+  static String get fillFieldsBelow => 'fillFieldsBelow'.tr();
+
   static String get age => 'age'.tr();
   static String get yearsOld => 'yearsOld'.tr();
   static String get yourAge => 'yourAge'.tr();

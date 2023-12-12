@@ -18,4 +18,6 @@ abstract class MyColors {
 
   static const onBackground = Color(0xFF45484F);
   static const grey = Color(0xFF5A5A65);
+  static const greyLite = Color(0xFFD9D9D9);
+  static const greyVarient = Color(0xFF5B5E64);
 }

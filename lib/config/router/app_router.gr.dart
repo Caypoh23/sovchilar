@@ -13,9 +13,10 @@
 import 'package:auto_route/auto_route.dart' as _i6;
 
 // Project imports:
-import 'package:sovchilar/features/presentation/home/home_screen.dart' as _i1;
 import 'package:sovchilar/features/presentation/main/main_screen.dart' as _i2;
 
+import 'package:sovchilar/features/presentation/language/language_screen.dart'
+    as _i1;
 import 'package:sovchilar/features/presentation/post_editor/post_editor_screen.dart'
     as _i3;
 import 'package:sovchilar/features/presentation/profile/profile_screen.dart'
@@ -28,10 +29,10 @@ abstract class $AppRouter extends _i6.RootStackRouter {
 
   @override
   final Map<String, _i6.PageFactory> pagesMap = {
-    HomeScreen.name: (routeData) {
+    LanguageScreen.name: (routeData) {
       return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.HomeScreen(),
+        child: const _i1.LanguageScreen(),
       );
     },
     MainScreen.name: (routeData) {
@@ -62,15 +63,15 @@ abstract class $AppRouter extends _i6.RootStackRouter {
 }
 
 /// generated route for
-/// [_i1.HomeScreen]
-class HomeScreen extends _i6.PageRouteInfo<void> {
-  const HomeScreen({List<_i6.PageRouteInfo>? children})
+/// [_i1.LanguageScreen]
+class LanguageScreen extends _i6.PageRouteInfo<void> {
+  const LanguageScreen({List<_i6.PageRouteInfo>? children})
       : super(
-          HomeScreen.name,
+          LanguageScreen.name,
           initialChildren: children,
         );
 
-  static const String name = 'HomeScreen';
+  static const String name = 'LanguageScreen';
 
   static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
 }

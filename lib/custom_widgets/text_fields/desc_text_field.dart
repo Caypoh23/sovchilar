@@ -2,11 +2,12 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
+import 'package:sovchilar/config/values/strings_constants.dart';
 import 'default_text_field.dart';
 
-class NameTextField extends StatelessWidget {
+class DescTextField extends StatelessWidget {
   //
-  final String labelText;
+  final String? labelText;
   final String? initialValue;
 
   final TextEditingController controller;
@@ -18,18 +19,18 @@ class NameTextField extends StatelessWidget {
   final bool autofocus;
   final bool isRequired;
 
-  const NameTextField({
+  const DescTextField({
     super.key,
-    required this.labelText,
     required this.controller,
+    this.labelText,
     this.initialValue,
     //
     this.focusNode,
-    this.maxLines = 1,
+    this.maxLines = 10,
     //
     this.enabled = true,
     this.autofocus = false,
-    this.isRequired = true,
+    this.isRequired = false,
   });
 
   @override
@@ -37,8 +38,8 @@ class NameTextField extends StatelessWidget {
     return MyTextField(
       key: key,
       enabled: enabled,
+      minLines: 10,
       maxLines: maxLines,
-      labelText: labelText,
       autoFocus: autofocus,
       focusNode: focusNode,
       controller: controller,
@@ -46,6 +47,7 @@ class NameTextField extends StatelessWidget {
       initialValue: initialValue,
       keyboardType: TextInputType.text,
       textCapitalization: TextCapitalization.words,
+      labelText: labelText ?? MyStrings.additionalInfo,
     );
   }
 }

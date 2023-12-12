@@ -1,8 +1,9 @@
 key,ru
-appName,Сваты
+appName,Sovchilar
 name,Имя
 yourName,Ваше Имя
 age,Возраст
+yearsOld,Лет
 yourAge,Ваш возраст
 residency,Место жительства
 nationality,Национальность
@@ -33,3 +34,4 @@ pay,Оплатить
 cancel,Отмена
 cardNumber,Номер карты (Uzcard/Humo)
 dateOfExpiry,Срок действия
+fillFieldsBelow,Заполните поля снизу

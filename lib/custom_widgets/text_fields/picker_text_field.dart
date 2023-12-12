@@ -2,33 +2,36 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
+import 'package:sovchilar/config/values/color_constants.dart';
 import 'default_text_field.dart';
 
-class NameTextField extends StatelessWidget {
+class PickerTextField extends StatelessWidget {
   //
-  final String labelText;
-  final String? initialValue;
+  final String? labelText;
 
   final TextEditingController controller;
 
-  final FocusNode? focusNode;
+  final Widget? suffixIcon;
+
+  final void Function() onTap;
+
+  final int minLines;
   final int maxLines;
 
   final bool enabled;
-  final bool autofocus;
   final bool isRequired;
 
-  const NameTextField({
+  const PickerTextField({
     super.key,
     required this.labelText,
     required this.controller,
-    this.initialValue,
+    required this.onTap,
+    this.suffixIcon,
     //
-    this.focusNode,
+    this.minLines = 1,
     this.maxLines = 1,
     //
     this.enabled = true,
-    this.autofocus = false,
     this.isRequired = true,
   });
 
@@ -36,16 +39,22 @@ class NameTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return MyTextField(
       key: key,
+      onTap: onTap,
+      readOnly: true,
+      isRequired: isRequired,
       enabled: enabled,
+      minLines: minLines,
       maxLines: maxLines,
       labelText: labelText,
-      autoFocus: autofocus,
-      focusNode: focusNode,
       controller: controller,
-      isRequired: isRequired,
-      initialValue: initialValue,
-      keyboardType: TextInputType.text,
-      textCapitalization: TextCapitalization.words,
+      suffixIcon: suffixIcon ?? _suffixIcon,
+    );
+  }
+
+  Widget get _suffixIcon {
+    return const Icon(
+      Icons.arrow_drop_down,
+      color: MyColors.greyLite,
     );
   }
 }

@@ -1,6 +1,9 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
+// Project imports:
+import 'package:sovchilar/config/values/gradient_constants.dart';
+
 class MyTabBar extends StatelessWidget {
   //
   final Function(int)? onTap;
@@ -30,24 +33,32 @@ class MyTabBar extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
         ),
         padding: const EdgeInsets.symmetric(vertical: 12),
-        child: TabBar(
-          onTap: onTap,
-          padding: EdgeInsets.zero,
-          controller: tabController,
-          labelColor: Colors.black,
-          labelPadding: EdgeInsets.zero,
-          indicatorColor: Colors.white,
-          indicatorPadding: EdgeInsets.zero,
-          unselectedLabelColor: Colors.white,
-          indicator: BoxDecoration(
-            color: Colors.white,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: Colors.white,
+            ),
           ),
-          splashBorderRadius: BorderRadius.circular(16),
-          labelStyle: Theme.of(context).textTheme.bodyMedium,
-          unselectedLabelStyle: Theme.of(context).textTheme.bodyMedium,
-          overlayColor: MaterialStateProperty.all(Colors.transparent),
-          tabs: tabLabels.map((item) => Tab(text: item, height: 45)).toList(),
+          child: TabBar(
+            onTap: onTap,
+            padding: EdgeInsets.zero,
+            controller: tabController,
+            labelColor: Colors.white,
+            labelPadding: EdgeInsets.zero,
+            indicatorColor: Colors.white,
+            indicatorPadding: EdgeInsets.zero,
+            unselectedLabelColor: Colors.black,
+            indicator: BoxDecoration(
+              gradient: MyGradients.primary,
+              borderRadius: BorderRadius.circular(16),
+            ),
+            splashBorderRadius: BorderRadius.circular(16),
+            labelStyle: Theme.of(context).textTheme.bodyMedium,
+            unselectedLabelStyle: Theme.of(context).textTheme.bodyMedium,
+            overlayColor: MaterialStateProperty.all(Colors.transparent),
+            tabs: tabLabels.map((item) => Tab(text: item, height: 45)).toList(),
+          ),
         ),
       ),
     );

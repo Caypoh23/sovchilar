@@ -30,7 +30,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     try {
       final data = await userRepository.fetchList();
       emit(state.copyWith(
-          userList: data.userList ?? [], status: Status.success));
+        userList: data.userList ?? [],
+        status: Status.success,
+      ));
     } catch (e) {
       emit(state.copyWith(status: Status.initial));
     }

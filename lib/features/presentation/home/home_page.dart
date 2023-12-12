@@ -1,26 +1,21 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Package imports:
-import 'package:auto_route/auto_route.dart';
-
 // Project imports:
 import 'package:sovchilar/config/values/strings_constants.dart';
-import 'package:sovchilar/custom_widgets/app_bar/no_app_bar.dart';
 import 'package:sovchilar/custom_widgets/tab_bar.dart';
 import 'pages/men/men_page.dart';
 import 'pages/women/women_page.dart';
 
-@RoutePage()
-class HomeScreen extends StatefulWidget {
+class HomePage extends StatefulWidget {
   //
-  const HomeScreen({super.key});
+  const HomePage({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
+class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   //
   late TabController _tabController;
@@ -39,10 +34,9 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: const MyNoAppBar(),
-        body: Column(
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(

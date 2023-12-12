@@ -23,11 +23,6 @@ class UserApiImpl implements UserApi {
     try {
       final res = await api.get(
         NetworkConstants.personals(page),
-        queryParameters: {
-          'page': page,
-          'limit': 10,
-          'order': 'desc',
-        },
       );
       return UserResponseListModel.fromJson(res);
     } catch (e) {

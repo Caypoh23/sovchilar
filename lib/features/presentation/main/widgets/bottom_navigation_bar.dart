@@ -21,24 +21,35 @@ class MainBottomNavigationBar extends StatelessWidget {
 
     return BlocBuilder<MainBloc, GenericBlocState<int>>(
       builder: (context, state) {
-        return NavigationBar(
-          height: 60,
-          backgroundColor: Colors.white,
-          surfaceTintColor: Theme.of(context).colorScheme.primary,
-          indicatorColor: Theme.of(context).colorScheme.secondary,
-          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-          onDestinationSelected: (int index) => bloc.add(
-            OnItemPressed(newIndex: index),
+        return Container(
+          decoration: const BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 10,
+                offset: Offset(0, -5),
+              ),
+            ],
           ),
-          selectedIndex: state.data!,
-          destinations: const [
-            MainBottomNavigationItem(
-              icon: MyIcons.home,
+          child: NavigationBar(
+            height: 60,
+            backgroundColor: Colors.white,
+            surfaceTintColor: Theme.of(context).colorScheme.primary,
+            indicatorColor: Theme.of(context).colorScheme.secondary,
+            labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+            onDestinationSelected: (int index) => bloc.add(
+              OnItemPressed(newIndex: index),
             ),
-            MainBottomNavigationItem(
-              icon: MyIcons.person,
-            ),
-          ],
+            selectedIndex: state.data!,
+            destinations: const [
+              MainBottomNavigationItem(
+                icon: MyIcons.home,
+              ),
+              MainBottomNavigationItem(
+                icon: MyIcons.person,
+              ),
+            ],
+          ),
         );
       },
     );

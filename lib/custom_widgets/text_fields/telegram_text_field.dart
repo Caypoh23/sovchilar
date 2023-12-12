@@ -2,11 +2,12 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
+import 'package:sovchilar/config/values/strings_constants.dart';
 import 'default_text_field.dart';
 
-class NameTextField extends StatelessWidget {
+class TelegramTextField extends StatelessWidget {
   //
-  final String labelText;
+  final String? labelText;
   final String? initialValue;
 
   final TextEditingController controller;
@@ -18,10 +19,10 @@ class NameTextField extends StatelessWidget {
   final bool autofocus;
   final bool isRequired;
 
-  const NameTextField({
+  const TelegramTextField({
     super.key,
-    required this.labelText,
     required this.controller,
+    this.labelText,
     this.initialValue,
     //
     this.focusNode,
@@ -38,7 +39,6 @@ class NameTextField extends StatelessWidget {
       key: key,
       enabled: enabled,
       maxLines: maxLines,
-      labelText: labelText,
       autoFocus: autofocus,
       focusNode: focusNode,
       controller: controller,
@@ -46,6 +46,7 @@ class NameTextField extends StatelessWidget {
       initialValue: initialValue,
       keyboardType: TextInputType.text,
       textCapitalization: TextCapitalization.words,
+      labelText: labelText ?? MyStrings.yourTelegram,
     );
   }
 }

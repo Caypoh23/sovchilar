@@ -10,10 +10,13 @@ class MyNoAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isLight;
   final Color backgroundColor;
 
+  final Color statusBarColor;
+
   const MyNoAppBar({
     super.key,
     this.isLight = false,
     this.backgroundColor = Colors.transparent,
+    this.statusBarColor = Colors.transparent,
   });
 
   @override
@@ -23,8 +26,8 @@ class MyNoAppBar extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: 0,
       backgroundColor: backgroundColor,
       systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: statusBarColor,
         systemStatusBarContrastEnforced: false,
-        statusBarColor: Colors.transparent,
         statusBarBrightness: isLight ? Brightness.dark : Brightness.light,
         statusBarIconBrightness: isLight ? Brightness.light : Brightness.dark,
       ),
