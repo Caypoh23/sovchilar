@@ -8,6 +8,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:injectable/injectable.dart';
 
 // Project imports:
+import 'package:sovchilar/app.dart';
 import 'app_router.dart';
 
 @singleton
@@ -19,6 +20,10 @@ class NavigationService {
 
   void clearFocus(BuildContext context) {
     FocusScope.of(context).requestFocus(FocusNode());
+  }
+
+  void updateLocale(String lang, BuildContext context) {
+    MyApp.of(context)!.updateLocale(lang);
   }
 
   //

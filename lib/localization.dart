@@ -23,6 +23,7 @@ class _MyLocalizationState extends State<MyLocalization> {
   //
   final list = [
     const Locale('ru'),
+    const Locale('uz'),
   ];
 
   void updateLocale() {

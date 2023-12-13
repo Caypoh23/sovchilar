@@ -7,24 +7,10 @@ import 'storage_constants.dart';
 
 abstract class AuthLocalStorage {
   void setToken(String token);
-
   String getToken();
 
   void setRefreshToken(String token);
-
   String getRefreshToken();
-
-  void setUserName(String name);
-
-  String getUserName();
-
-  void setUserId(int id);
-
-  int getUserId();
-
-  void setUserPhone(String phone);
-
-  String getUserPhone();
 }
 
 @LazySingleton(as: AuthLocalStorage)
@@ -52,41 +38,5 @@ class AuthLocalStorageImpl implements AuthLocalStorage {
   void setRefreshToken(String token) {
     final box = Hive.box(StorageConstants.appBox);
     box.put(StorageConstants.refreshToken, token);
-  }
-
-  @override
-  int getUserId() {
-    final box = Hive.box(StorageConstants.appBox);
-    return box.get(StorageConstants.userId, defaultValue: -1);
-  }
-
-  @override
-  void setUserId(int id) {
-    final box = Hive.box(StorageConstants.appBox);
-    box.put(StorageConstants.userId, id);
-  }
-
-  @override
-  String getUserName() {
-    final box = Hive.box(StorageConstants.appBox);
-    return box.get(StorageConstants.userName, defaultValue: '');
-  }
-
-  @override
-  void setUserName(String name) {
-    final box = Hive.box(StorageConstants.appBox);
-    box.put(StorageConstants.userName, name);
-  }
-
-  @override
-  String getUserPhone() {
-    final box = Hive.box(StorageConstants.appBox);
-    return box.get(StorageConstants.userPhone, defaultValue: '');
-  }
-
-  @override
-  void setUserPhone(String phone) {
-    final box = Hive.box(StorageConstants.appBox);
-    box.put(StorageConstants.userPhone, phone);
   }
 }

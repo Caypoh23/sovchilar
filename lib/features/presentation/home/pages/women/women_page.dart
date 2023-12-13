@@ -29,6 +29,8 @@ class HomeWomenPage extends StatelessWidget {
             itemCount: list.length,
             padding: const EdgeInsets.symmetric(
               horizontal: 20,
+            ).copyWith(
+              bottom: 20,
             ),
             itemBuilder: (_, int index) {
               final model = list[index];

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'post_editor_cubit.dart';
+part of 'language_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,28 +15,29 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$PostEditorState {
+mixin _$LanguageState {
   Status get status => throw _privateConstructorUsedError;
+  ProfileLanguage? get lang => throw _privateConstructorUsedError;
   Error? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $PostEditorStateCopyWith<PostEditorState> get copyWith =>
+  $LanguageStateCopyWith<LanguageState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PostEditorStateCopyWith<$Res> {
-  factory $PostEditorStateCopyWith(
-          PostEditorState value, $Res Function(PostEditorState) then) =
-      _$PostEditorStateCopyWithImpl<$Res, PostEditorState>;
+abstract class $LanguageStateCopyWith<$Res> {
+  factory $LanguageStateCopyWith(
+          LanguageState value, $Res Function(LanguageState) then) =
+      _$LanguageStateCopyWithImpl<$Res, LanguageState>;
   @useResult
-  $Res call({Status status, Error? error});
+  $Res call({Status status, ProfileLanguage? lang, Error? error});
 }
 
 /// @nodoc
-class _$PostEditorStateCopyWithImpl<$Res, $Val extends PostEditorState>
-    implements $PostEditorStateCopyWith<$Res> {
-  _$PostEditorStateCopyWithImpl(this._value, this._then);
+class _$LanguageStateCopyWithImpl<$Res, $Val extends LanguageState>
+    implements $LanguageStateCopyWith<$Res> {
+  _$LanguageStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -47,6 +48,7 @@ class _$PostEditorStateCopyWithImpl<$Res, $Val extends PostEditorState>
   @override
   $Res call({
     Object? status = null,
+    Object? lang = freezed,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
@@ -54,6 +56,10 @@ class _$PostEditorStateCopyWithImpl<$Res, $Val extends PostEditorState>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
+      lang: freezed == lang
+          ? _value.lang
+          : lang // ignore: cast_nullable_to_non_nullable
+              as ProfileLanguage?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -63,35 +69,40 @@ class _$PostEditorStateCopyWithImpl<$Res, $Val extends PostEditorState>
 }
 
 /// @nodoc
-abstract class _$$PostEditorStateImplCopyWith<$Res>
-    implements $PostEditorStateCopyWith<$Res> {
-  factory _$$PostEditorStateImplCopyWith(_$PostEditorStateImpl value,
-          $Res Function(_$PostEditorStateImpl) then) =
-      __$$PostEditorStateImplCopyWithImpl<$Res>;
+abstract class _$$LanguageStateImplCopyWith<$Res>
+    implements $LanguageStateCopyWith<$Res> {
+  factory _$$LanguageStateImplCopyWith(
+          _$LanguageStateImpl value, $Res Function(_$LanguageStateImpl) then) =
+      __$$LanguageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status status, Error? error});
+  $Res call({Status status, ProfileLanguage? lang, Error? error});
 }
 
 /// @nodoc
-class __$$PostEditorStateImplCopyWithImpl<$Res>
-    extends _$PostEditorStateCopyWithImpl<$Res, _$PostEditorStateImpl>
-    implements _$$PostEditorStateImplCopyWith<$Res> {
-  __$$PostEditorStateImplCopyWithImpl(
-      _$PostEditorStateImpl _value, $Res Function(_$PostEditorStateImpl) _then)
+class __$$LanguageStateImplCopyWithImpl<$Res>
+    extends _$LanguageStateCopyWithImpl<$Res, _$LanguageStateImpl>
+    implements _$$LanguageStateImplCopyWith<$Res> {
+  __$$LanguageStateImplCopyWithImpl(
+      _$LanguageStateImpl _value, $Res Function(_$LanguageStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? status = null,
+    Object? lang = freezed,
     Object? error = freezed,
   }) {
-    return _then(_$PostEditorStateImpl(
+    return _then(_$LanguageStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
+      lang: freezed == lang
+          ? _value.lang
+          : lang // ignore: cast_nullable_to_non_nullable
+              as ProfileLanguage?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -102,50 +113,60 @@ class __$$PostEditorStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PostEditorStateImpl implements _PostEditorState {
-  const _$PostEditorStateImpl({this.status = Status.initial, this.error});
+class _$LanguageStateImpl implements _LanguageState {
+  const _$LanguageStateImpl(
+      {this.status = Status.initial,
+      this.lang = ProfileLanguage.uz,
+      this.error});
 
   @override
   @JsonKey()
   final Status status;
   @override
+  @JsonKey()
+  final ProfileLanguage? lang;
+  @override
   final Error? error;
 
   @override
   String toString() {
-    return 'PostEditorState(status: $status, error: $error)';
+    return 'LanguageState(status: $status, lang: $lang, error: $error)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostEditorStateImpl &&
+            other is _$LanguageStateImpl &&
             (identical(other.status, status) || other.status == status) &&
+            (identical(other.lang, lang) || other.lang == lang) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, error);
+  int get hashCode => Object.hash(runtimeType, status, lang, error);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PostEditorStateImplCopyWith<_$PostEditorStateImpl> get copyWith =>
-      __$$PostEditorStateImplCopyWithImpl<_$PostEditorStateImpl>(
-          this, _$identity);
+  _$$LanguageStateImplCopyWith<_$LanguageStateImpl> get copyWith =>
+      __$$LanguageStateImplCopyWithImpl<_$LanguageStateImpl>(this, _$identity);
 }
 
-abstract class _PostEditorState implements PostEditorState {
-  const factory _PostEditorState({final Status status, final Error? error}) =
-      _$PostEditorStateImpl;
+abstract class _LanguageState implements LanguageState {
+  const factory _LanguageState(
+      {final Status status,
+      final ProfileLanguage? lang,
+      final Error? error}) = _$LanguageStateImpl;
 
   @override
   Status get status;
   @override
+  ProfileLanguage? get lang;
+  @override
   Error? get error;
   @override
   @JsonKey(ignore: true)
-  _$$PostEditorStateImplCopyWith<_$PostEditorStateImpl> get copyWith =>
+  _$$LanguageStateImplCopyWith<_$LanguageStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

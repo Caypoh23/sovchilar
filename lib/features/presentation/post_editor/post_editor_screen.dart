@@ -96,13 +96,13 @@ class PostEditorScreen extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               PickerTextField(
-                labelText: MyStrings.children,
+                labelText: MyStrings.country,
                 onTap: () {},
                 controller: TextEditingController(),
               ),
               const SizedBox(height: 24),
               PickerTextField(
-                labelText: MyStrings.children,
+                labelText: MyStrings.city,
                 onTap: () {},
                 controller: TextEditingController(),
               ),

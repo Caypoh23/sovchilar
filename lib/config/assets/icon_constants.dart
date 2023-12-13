@@ -11,4 +11,7 @@ abstract class MyIcons {
   static const closeRounded = '${MyAssets.icons}/close_rounded.svg';
 
   static const arrowLeft = '${MyAssets.icons}/arrow_left.svg';
+
+  static const radioOff = '${MyAssets.icons}/radio_off.svg';
+  static const radioOn = '${MyAssets.icons}/radio_on.svg';
 }

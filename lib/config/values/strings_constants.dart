@@ -54,4 +54,10 @@ abstract class MyStrings {
   static String get cancel => 'cancel'.tr();
   static String get cardNumber => 'cardNumber'.tr();
   static String get dateOfExpiry => 'dateOfExpiry'.tr();
+
+  static String get save => 'save'.tr();
+  static String get delete => 'delete'.tr();
+  static String get ruLang => 'ruLang'.tr();
+  static String get uzLang => 'uzLang'.tr();
+  static String get chooseLanguage => 'chooseLanguage'.tr();
 }

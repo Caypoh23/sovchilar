@@ -37,8 +37,8 @@ class DescTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return MyTextField(
       key: key,
+      minLines: 7,
       enabled: enabled,
-      minLines: 10,
       maxLines: maxLines,
       autoFocus: autofocus,
       focusNode: focusNode,
@@ -46,6 +46,7 @@ class DescTextField extends StatelessWidget {
       isRequired: isRequired,
       initialValue: initialValue,
       keyboardType: TextInputType.text,
+      contentPadding: const EdgeInsets.all(16),
       textCapitalization: TextCapitalization.words,
       labelText: labelText ?? MyStrings.additionalInfo,
     );

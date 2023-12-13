@@ -42,5 +42,5 @@ Future<void> _setUpHive() async {
   Hive.registerAdapter(UserResponseModelAdapter());
 
   await Hive.openBox(StorageConstants.appBox);
-  await Hive.openBox(StorageConstants.userStatusBox);
+  await Hive.openBox(StorageConstants.usersBox);
 }

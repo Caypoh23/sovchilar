@@ -14,29 +14,8 @@ class MySPHelper {
 
   //
 
-  static int? get id => _prefs.getInt(MySPKeys.id);
-  static set id(int? value) => _setData(MySPKeys.id, value);
-
-  static String? get token => _prefs.getString(MySPKeys.token);
-  static set token(String? value) => _setData(MySPKeys.token, value);
-
-  static String get lang => _prefs.getString(MySPKeys.lang) ?? 'ru';
+  static String get lang => _prefs.getString(MySPKeys.lang) ?? 'uz';
   static set lang(String value) => _setData(MySPKeys.lang, value);
-
-  //
-
-  static String? get frbToken => _prefs.getString(MySPKeys.frbToken);
-  static set frbToken(String? value) => _setData(MySPKeys.frbToken, value);
-
-  static DateTime? get frbTokenDT =>
-      DateTime.tryParse(_prefs.getString(MySPKeys.frbTokenDT) ?? '');
-  static set frbTokenDT(DateTime? value) =>
-      _setData(MySPKeys.frbTokenDT, value?.toIso8601String());
-
-  static bool get isFrbTokenSaved =>
-      _prefs.getBool(MySPKeys.isFrbTokenSaved) ?? false;
-  static set isFrbTokenSaved(bool? value) =>
-      _setData(MySPKeys.isFrbTokenSaved, value);
 
   //
 
@@ -64,7 +43,7 @@ class MySPHelper {
 
   //
 
-  static _setData(String key, dynamic value) {
+  static void _setData(String key, dynamic value) {
     if (value == null) {
       _prefs.remove(key);
     } else if (value is String) {
@@ -75,6 +54,6 @@ class MySPHelper {
       _prefs.setInt(key, value);
     } else if (value is List<String>) {
       _prefs.setStringList(key, value);
-    } else {}
+    }
   }
 }

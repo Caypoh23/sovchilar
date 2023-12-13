@@ -9,6 +9,10 @@ import 'package:sovchilar/features/data/model/user/user_response/user_response_m
 abstract class UserApi {
   //
   Future<UserResponseListModel> fetchList([int page]);
+
+  ///
+  /// Local
+  ///
 }
 
 @LazySingleton(as: UserApi)

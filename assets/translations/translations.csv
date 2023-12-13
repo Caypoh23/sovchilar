@@ -1,37 +1,42 @@
-key,ru
-appName,Sovchilar
-name,Имя
-yourName,Ваше Имя
-age,Возраст
-yearsOld,Лет
-yourAge,Ваш возраст
-residency,Место жительства
-nationality,Национальность
-familyStatus,Семейное положение
-divorced,Разведен(а)
-notMarried,Не был(а) женат(замужем)
-children,Дети
-haveChildren,У меня есть ребенок
-noChildren,У меня нет детей
-ageLimit,Возрастное ограничение
-additionalInfoShort,Доп. информация
-additionalInfo,Дополнительная информация
-telegram,Телеграм
-yourTelegram,Ваш телеграм
-password,Пароль
-loginOrSignUp,Войти или Зарегистрироваться
-postAd,Разместить объявление
-yourSex,Ваш пол
-man,Мужчина
-woman,Женщина
-men,Мужчины
-women,Женщины
-from,От
-to,До
-country,Страна
-city,Город
-pay,Оплатить
-cancel,Отмена
-cardNumber,Номер карты (Uzcard/Humo)
-dateOfExpiry,Срок действия
-fillFieldsBelow,Заполните поля снизу
+key,ru,uz
+appName,Sovchilar,Sovchilar
+name,Имя,
+yourName,Ваше Имя,
+age,Возраст,
+yearsOld,Лет,
+yourAge,Ваш возраст,
+residency,Место жительства,
+nationality,Национальность,
+familyStatus,Семейное положение,
+divorced,Разведен(а),
+notMarried,Не был(а) женат(замужем),
+children,Дети,
+haveChildren,У меня есть ребенок,
+noChildren,У меня нет детей,
+ageLimit,Возрастное ограничение,
+additionalInfoShort,Доп. информация,
+additionalInfo,Дополнительная информация,
+telegram,Телеграм,
+yourTelegram,Ваш телеграм,
+password,Пароль,
+loginOrSignUp,Войти или Зарегистрироваться,
+postAd,Разместить объявление,
+yourSex,Ваш пол,
+man,Мужчина,
+woman,Женщина,
+men,Мужчины,
+women,Женщины,
+from,От,
+to,До,
+country,Страна,
+city,Город,
+pay,Оплатить,
+cancel,Отмена,Bekor qilish
+cardNumber,Номер карты (Uzcard/Humo),
+dateOfExpiry,Срок действия,
+fillFieldsBelow,Заполните поля снизу,
+save,Сохранить,O'zgarishlarni saqlash
+delete,Удалить,Ochirish
+ruLang,Русский,Русский
+uzLang,O'zbek,O'zbek
+chooseLanguage,Выберите язык,Tilni tanlang
