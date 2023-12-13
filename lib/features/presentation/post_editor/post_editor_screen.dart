@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'package:sovchilar/config/enums/children_enum.dart';
 import 'package:sovchilar/config/enums/cities_enum.dart';
 import 'package:sovchilar/config/enums/countries_enum.dart';
-
-// Project imports:
 import 'package:sovchilar/config/values/strings_constants.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
 import 'package:sovchilar/custom_widgets/buttons/gradient_button.dart';

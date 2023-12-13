@@ -8,13 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+
+// Project imports:
 import 'package:sovchilar/config/enums/cities_enum.dart';
 import 'package:sovchilar/config/enums/countries_enum.dart';
 import 'package:sovchilar/config/router/app_router.gr.dart';
 import 'package:sovchilar/config/router/navigation_service.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
-
-// Project imports:
 import 'package:sovchilar/features/data/model/ad/request/ad_request_model.dart';
 import 'package:sovchilar/features/data/model/user/gender/gender_enum.dart';
 import 'package:sovchilar/features/data/model/user/marital_status/marital_status_enum.dart';

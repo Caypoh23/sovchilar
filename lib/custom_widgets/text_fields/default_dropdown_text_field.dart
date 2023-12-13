@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:sovchilar/config/values/strings_constants.dart';
 import 'package:sovchilar/config/values/color_constants.dart';
+import 'package:sovchilar/config/values/strings_constants.dart';
 
 class MyDropdownTextField extends StatefulWidget {
   //
