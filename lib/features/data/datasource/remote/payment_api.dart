@@ -40,7 +40,7 @@ class PaymentApiImpl implements PaymentApi {
         NetworkConstants.payment,
         data: model.toJson(),
       );
-      return PaymentResponseModel.fromJson(res);
+      return PaymentResponseModel.fromJson(res['result']);
     } catch (e) {
       rethrow;
     }

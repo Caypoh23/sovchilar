@@ -67,7 +67,7 @@ class PaymentCubit extends Cubit<PaymentState> {
   }
 
   FutureOr<void> confirm() async {
-    // if (!isCodeFormValid) return;
+    if (!isCodeFormValid) return;
 
     emit(state.copyWith(status: Status.loading));
     try {
