@@ -10,7 +10,7 @@ _$LoginResponseModelImpl _$$LoginResponseModelImplFromJson(
         Map<String, dynamic> json) =>
     _$LoginResponseModelImpl(
       token: json['token'] as String?,
-      userId: json['userId'] as String?,
+      userId: json['userId'] as int?,
     );
 
 Map<String, dynamic> _$$LoginResponseModelImplToJson(

@@ -9,7 +9,7 @@ import 'package:sovchilar/features/data/model/payment/reponse/payment_response_m
 
 abstract class PaymentApi {
   //
-  Future<String> fetchPrice();
+  Future<int> fetchPrice();
 
   Future<PaymentResponseModel> addPayment(CreditCardRequestModel model);
   Future<void> confirmPayment(String sessionId, String otp);
@@ -24,7 +24,7 @@ class PaymentApiImpl implements PaymentApi {
 
   //
   @override
-  Future<String> fetchPrice() async {
+  Future<int> fetchPrice() async {
     try {
       final res = await api.get(NetworkConstants.price);
       return res['price'];

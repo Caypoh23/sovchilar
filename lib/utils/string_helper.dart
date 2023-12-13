@@ -18,6 +18,14 @@ abstract class MyStringHelper {
     return mask;
   }
 
+  static formatNumber(data) {
+    final number = data is double ? data : double.tryParse('$data');
+    if (number == null) return null;
+
+    final formatter = NumberFormat('#,###');
+    return formatter.format(number).replaceAll(',', ' ');
+  }
+
   static String compactNumber(int count) =>
       NumberFormat.compact().format(count);
 }

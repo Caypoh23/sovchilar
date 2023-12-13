@@ -18,6 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PostEditorState {
   Status get status => throw _privateConstructorUsedError;
   Gender get gender => throw _privateConstructorUsedError;
+  MaritalStatus? get maritalStatus => throw _privateConstructorUsedError;
+  bool? get hasChildren => throw _privateConstructorUsedError;
+  CountriesEnum? get country => throw _privateConstructorUsedError;
+  CitiesEnum? get city => throw _privateConstructorUsedError;
   Error? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,7 +35,14 @@ abstract class $PostEditorStateCopyWith<$Res> {
           PostEditorState value, $Res Function(PostEditorState) then) =
       _$PostEditorStateCopyWithImpl<$Res, PostEditorState>;
   @useResult
-  $Res call({Status status, Gender gender, Error? error});
+  $Res call(
+      {Status status,
+      Gender gender,
+      MaritalStatus? maritalStatus,
+      bool? hasChildren,
+      CountriesEnum? country,
+      CitiesEnum? city,
+      Error? error});
 }
 
 /// @nodoc
@@ -49,6 +60,10 @@ class _$PostEditorStateCopyWithImpl<$Res, $Val extends PostEditorState>
   $Res call({
     Object? status = null,
     Object? gender = null,
+    Object? maritalStatus = freezed,
+    Object? hasChildren = freezed,
+    Object? country = freezed,
+    Object? city = freezed,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
@@ -60,6 +75,22 @@ class _$PostEditorStateCopyWithImpl<$Res, $Val extends PostEditorState>
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as Gender,
+      maritalStatus: freezed == maritalStatus
+          ? _value.maritalStatus
+          : maritalStatus // ignore: cast_nullable_to_non_nullable
+              as MaritalStatus?,
+      hasChildren: freezed == hasChildren
+          ? _value.hasChildren
+          : hasChildren // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      country: freezed == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as CountriesEnum?,
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as CitiesEnum?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -76,7 +107,14 @@ abstract class _$$PostEditorStateImplCopyWith<$Res>
       __$$PostEditorStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status status, Gender gender, Error? error});
+  $Res call(
+      {Status status,
+      Gender gender,
+      MaritalStatus? maritalStatus,
+      bool? hasChildren,
+      CountriesEnum? country,
+      CitiesEnum? city,
+      Error? error});
 }
 
 /// @nodoc
@@ -92,6 +130,10 @@ class __$$PostEditorStateImplCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? gender = null,
+    Object? maritalStatus = freezed,
+    Object? hasChildren = freezed,
+    Object? country = freezed,
+    Object? city = freezed,
     Object? error = freezed,
   }) {
     return _then(_$PostEditorStateImpl(
@@ -103,6 +145,22 @@ class __$$PostEditorStateImplCopyWithImpl<$Res>
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as Gender,
+      maritalStatus: freezed == maritalStatus
+          ? _value.maritalStatus
+          : maritalStatus // ignore: cast_nullable_to_non_nullable
+              as MaritalStatus?,
+      hasChildren: freezed == hasChildren
+          ? _value.hasChildren
+          : hasChildren // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      country: freezed == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as CountriesEnum?,
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as CitiesEnum?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -115,7 +173,13 @@ class __$$PostEditorStateImplCopyWithImpl<$Res>
 
 class _$PostEditorStateImpl implements _PostEditorState {
   const _$PostEditorStateImpl(
-      {this.status = Status.initial, this.gender = Gender.male, this.error});
+      {this.status = Status.initial,
+      this.gender = Gender.male,
+      this.maritalStatus,
+      this.hasChildren,
+      this.country,
+      this.city,
+      this.error});
 
   @override
   @JsonKey()
@@ -124,11 +188,19 @@ class _$PostEditorStateImpl implements _PostEditorState {
   @JsonKey()
   final Gender gender;
   @override
+  final MaritalStatus? maritalStatus;
+  @override
+  final bool? hasChildren;
+  @override
+  final CountriesEnum? country;
+  @override
+  final CitiesEnum? city;
+  @override
   final Error? error;
 
   @override
   String toString() {
-    return 'PostEditorState(status: $status, gender: $gender, error: $error)';
+    return 'PostEditorState(status: $status, gender: $gender, maritalStatus: $maritalStatus, hasChildren: $hasChildren, country: $country, city: $city, error: $error)';
   }
 
   @override
@@ -138,11 +210,25 @@ class _$PostEditorStateImpl implements _PostEditorState {
             other is _$PostEditorStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.gender, gender) || other.gender == gender) &&
+            const DeepCollectionEquality()
+                .equals(other.maritalStatus, maritalStatus) &&
+            (identical(other.hasChildren, hasChildren) ||
+                other.hasChildren == hasChildren) &&
+            const DeepCollectionEquality().equals(other.country, country) &&
+            const DeepCollectionEquality().equals(other.city, city) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, gender, error);
+  int get hashCode => Object.hash(
+      runtimeType,
+      status,
+      gender,
+      const DeepCollectionEquality().hash(maritalStatus),
+      hasChildren,
+      const DeepCollectionEquality().hash(country),
+      const DeepCollectionEquality().hash(city),
+      error);
 
   @JsonKey(ignore: true)
   @override
@@ -156,12 +242,24 @@ abstract class _PostEditorState implements PostEditorState {
   const factory _PostEditorState(
       {final Status status,
       final Gender gender,
+      final MaritalStatus? maritalStatus,
+      final bool? hasChildren,
+      final CountriesEnum? country,
+      final CitiesEnum? city,
       final Error? error}) = _$PostEditorStateImpl;
 
   @override
   Status get status;
   @override
   Gender get gender;
+  @override
+  MaritalStatus? get maritalStatus;
+  @override
+  bool? get hasChildren;
+  @override
+  CountriesEnum? get country;
+  @override
+  CitiesEnum? get city;
   @override
   Error? get error;
   @override

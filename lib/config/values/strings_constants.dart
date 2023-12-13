@@ -62,4 +62,7 @@ abstract class MyStrings {
   static String get ruLang => 'ruLang'.tr();
   static String get uzLang => 'uzLang'.tr();
   static String get chooseLanguage => 'chooseLanguage'.tr();
+
+  static String get requiredField => 'requiredField'.tr();
+  static String get strongPassword => 'strongPassword'.tr();
 }

@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sovchilar/config/enums/children_enum.dart';
+import 'package:sovchilar/config/enums/cities_enum.dart';
+import 'package:sovchilar/config/enums/countries_enum.dart';
 
 // Project imports:
 import 'package:sovchilar/config/values/strings_constants.dart';
@@ -14,18 +17,32 @@ import 'package:sovchilar/custom_widgets/text_fields/age_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/desc_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/name_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/picker_text_field.dart';
+import 'package:sovchilar/custom_widgets/text_fields/telegram_text_field.dart';
+import 'package:sovchilar/features/data/model/user/marital_status/marital_status_enum.dart';
 import 'package:sovchilar/features/presentation/post_editor/cubit/post_editor_cubit.dart';
 import 'widgets/gender_selector.dart';
 
 @RoutePage()
-class PostEditorScreen extends StatelessWidget {
+class PostEditorScreen extends StatefulWidget {
   //
   const PostEditorScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final cubit = getIt<PostEditorCubit>();
+  State<PostEditorScreen> createState() => _PostEditorScreenState();
+}
 
+class _PostEditorScreenState extends State<PostEditorScreen> {
+  //
+  late final PostEditorCubit cubit;
+
+  @override
+  void initState() {
+    super.initState();
+    cubit = getIt<PostEditorCubit>();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => cubit,
       child: BlocBuilder<PostEditorCubit, PostEditorState>(
@@ -34,100 +51,136 @@ class PostEditorScreen extends StatelessWidget {
             child: Scaffold(
               backgroundColor: Colors.white,
               body: SafeArea(
-                child: ListView(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 24,
-                    horizontal: 16,
+                child: Form(
+                  key: cubit.formKey,
+                  child: ListView(
+                    cacheExtent: 1000,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 24,
+                      horizontal: 16,
+                    ),
+                    children: [
+                      Text(
+                        MyStrings.fillFieldsBelow,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                      ),
+                      const SizedBox(height: 24),
+                      NameTextField(
+                        labelText: MyStrings.yourName,
+                        controller: cubit.nameController,
+                      ),
+                      const SizedBox(height: 24),
+                      AgeTextField(
+                        labelText: MyStrings.yourAge,
+                        controller: cubit.ageController,
+                      ),
+                      const SizedBox(height: 24),
+                      const GenderSelectorWidget(),
+                      const SizedBox(height: 24),
+                      NameTextField(
+                        labelText: MyStrings.nationality,
+                        controller: cubit.nationalityController,
+                      ),
+                      const SizedBox(height: 24),
+                      PickerTextField(
+                        labelText: MyStrings.familyStatus,
+                        onChanged: (value) {
+                          cubit.onMaritalStatusChanged(
+                            MaritalStatus.values.firstWhere(
+                              (element) => element.name == value,
+                            ),
+                          );
+                        },
+                        items: MaritalStatus.values.map((e) => e.name).toList(),
+                      ),
+                      const SizedBox(height: 24),
+                      PickerTextField(
+                        onChanged: (value) {
+                          cubit.onChildrenChanged(
+                            ChildrenEnum.values
+                                .firstWhere((element) => element.name == value)
+                                .hasChildren,
+                          );
+                        },
+                        labelText: MyStrings.children,
+                        items: ChildrenEnum.values.map((e) => e.name).toList(),
+                      ),
+                      const SizedBox(height: 24),
+                      Text(
+                        MyStrings.ageLimit,
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              fontSize: 14,
+                            ),
+                      ),
+                      const SizedBox(height: 12),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: AgeTextField(
+                              labelText: MyStrings.from,
+                              controller: cubit.fromController,
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: AgeTextField(
+                              labelText: MyStrings.to,
+                              controller: cubit.toController,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 24),
+                      TelegramTextField(
+                        controller: cubit.telegramController,
+                      ),
+                      const SizedBox(height: 24),
+                      PickerTextField(
+                        labelText: MyStrings.country,
+                        onChanged: (value) {
+                          cubit.onCountryChanged(
+                            CountriesEnum.values.firstWhere(
+                              (element) => element.name == value,
+                            ),
+                          );
+                        },
+                        items: CountriesEnum.values.map((e) => e.name).toList(),
+                      ),
+                      const SizedBox(height: 24),
+                      PickerTextField(
+                        labelText: MyStrings.city,
+                        onChanged: (value) {
+                          cubit.onCityChanged(
+                            CitiesEnum.values.firstWhere(
+                              (element) => element.name == value,
+                            ),
+                          );
+                        },
+                        items: CitiesEnum.values.map((e) => e.name).toList(),
+                      ),
+                      const SizedBox(height: 24),
+                      DescTextField(
+                        controller: cubit.additionalInfoController,
+                      ),
+                      const SizedBox(height: 24),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          MyGradientButton(
+                            onTap: () {
+                              if (cubit.validateForm()) {
+                                cubit.onSubmitAd();
+                              }
+                            },
+                            label: '${MyStrings.pay} ${cubit.price} UZS',
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                  children: [
-                    Text(
-                      MyStrings.fillFieldsBelow,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
-                    ),
-                    const SizedBox(height: 24),
-                    NameTextField(
-                      labelText: MyStrings.yourName,
-                      controller: TextEditingController(),
-                    ),
-                    const SizedBox(height: 24),
-                    AgeTextField(
-                      labelText: MyStrings.yourAge,
-                      controller: TextEditingController(),
-                    ),
-                    const SizedBox(height: 24),
-                    const GenderSelectorWidget(),
-                    const SizedBox(height: 24),
-                    NameTextField(
-                      labelText: MyStrings.nationality,
-                      controller: TextEditingController(),
-                    ),
-                    const SizedBox(height: 24),
-                    PickerTextField(
-                      labelText: MyStrings.familyStatus,
-                      onTap: () {},
-                      controller: TextEditingController(),
-                    ),
-                    const SizedBox(height: 24),
-                    PickerTextField(
-                      labelText: MyStrings.children,
-                      onTap: () {},
-                      controller: TextEditingController(),
-                    ),
-                    const SizedBox(height: 24),
-                    Text(
-                      MyStrings.ageLimit,
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            fontSize: 14,
-                          ),
-                    ),
-                    const SizedBox(height: 12),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: AgeTextField(
-                            labelText: MyStrings.from,
-                            controller: TextEditingController(),
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: AgeTextField(
-                            labelText: MyStrings.to,
-                            controller: TextEditingController(),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 24),
-                    PickerTextField(
-                      labelText: MyStrings.country,
-                      onTap: () {},
-                      controller: TextEditingController(),
-                    ),
-                    const SizedBox(height: 24),
-                    PickerTextField(
-                      labelText: MyStrings.city,
-                      onTap: () {},
-                      controller: TextEditingController(),
-                    ),
-                    const SizedBox(height: 24),
-                    DescTextField(
-                      controller: TextEditingController(),
-                    ),
-                    const SizedBox(height: 24),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        MyGradientButton(
-                          label: '${MyStrings.pay} ${cubit.price} UZS',
-                          onTap: () {},
-                        ),
-                      ],
-                    ),
-                  ],
                 ),
               ),
             ),

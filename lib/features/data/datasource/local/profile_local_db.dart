@@ -6,8 +6,8 @@ import 'package:injectable/injectable.dart';
 import 'storage_constants.dart';
 
 abstract class ProfileLocalStorage {
-  String getPrice();
-  void setPrice(String price);
+  int getPrice();
+  void setPrice(int price);
 
   String getTelegram();
   void setTelegram(String telegram);
@@ -17,13 +17,13 @@ abstract class ProfileLocalStorage {
 class ProfileLocalStorageImpl implements ProfileLocalStorage {
   //
   @override
-  String getPrice() {
+  int getPrice() {
     final box = Hive.box(StorageConstants.profileBox);
     return box.get(StorageConstants.price, defaultValue: '');
   }
 
   @override
-  void setPrice(String price) {
+  void setPrice(int price) {
     final box = Hive.box(StorageConstants.profileBox);
     box.put(StorageConstants.price, price);
   }

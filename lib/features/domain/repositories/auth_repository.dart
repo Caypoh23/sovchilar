@@ -20,6 +20,9 @@ abstract class AuthRepository {
   ///
   String getToken();
   void setToken(String token);
+
+  int getUserId();
+  void setUserId(int userId);
 }
 
 @LazySingleton(as: AuthRepository)
@@ -48,12 +51,14 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  String getToken() {
-    return localStorage.getToken();
-  }
+  String getToken() => localStorage.getToken();
 
   @override
-  void setToken(String token) {
-    localStorage.setToken(token);
-  }
+  void setToken(String token) => localStorage.setToken(token);
+
+  @override
+  int getUserId() => localStorage.getUserId();
+
+  @override
+  void setUserId(int userId) => localStorage.setUserId(userId);
 }

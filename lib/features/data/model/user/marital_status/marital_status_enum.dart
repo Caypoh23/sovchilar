@@ -28,4 +28,14 @@ extension MaritalStatusExtension on MaritalStatus {
         return MyStrings.notMarried;
     }
   }
+
+  String get code {
+    switch (this) {
+      case MaritalStatus.divorced:
+        return 'divorced';
+
+      default:
+        return 'single';
+    }
+  }
 }

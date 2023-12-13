@@ -25,4 +25,14 @@ extension GenderExtension on Gender {
         return MyStrings.man;
     }
   }
+
+  String get code {
+    switch (this) {
+      case Gender.female:
+        return 'female';
+
+      default:
+        return 'male';
+    }
+  }
 }

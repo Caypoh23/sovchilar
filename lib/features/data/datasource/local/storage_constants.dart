@@ -7,6 +7,7 @@ class StorageConstants {
   //
   static String token = 'token';
   static String refreshToken = 'refreshToken';
+  static String userId = 'userId';
 
   static String language = 'language';
 

@@ -25,7 +25,7 @@ class ProfileScreen extends StatelessWidget {
               right: 20,
               child: GestureDetector(
                 onTap: () {
-                  context.router.push(const LanguageScreen());
+                  context.router.push(const LanguageRoute());
                 },
                 child: Icon(
                   Icons.language,
@@ -41,7 +41,7 @@ class ProfileScreen extends StatelessWidget {
                     label: MyStrings.postAd,
                     onTap: () {
                       context.router.push(
-                        const PostEditorScreen(),
+                        const PostEditorRoute(),
                       );
                     },
                   ),

@@ -11,6 +11,9 @@ abstract class AuthLocalStorage {
 
   String getRefreshToken();
   void setRefreshToken(String token);
+
+  int getUserId();
+  void setUserId(int userId);
 }
 
 @LazySingleton(as: AuthLocalStorage)
@@ -38,5 +41,17 @@ class AuthLocalStorageImpl implements AuthLocalStorage {
   void setRefreshToken(String token) {
     final box = Hive.box(StorageConstants.appBox);
     box.put(StorageConstants.refreshToken, token);
+  }
+
+  @override
+  int getUserId() {
+    final box = Hive.box(StorageConstants.appBox);
+    return box.get(StorageConstants.userId);
+  }
+
+  @override
+  void setUserId(int userId) {
+    final box = Hive.box(StorageConstants.appBox);
+    box.put(StorageConstants.userId, userId);
   }
 }

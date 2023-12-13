@@ -2,21 +2,16 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:sovchilar/config/values/color_constants.dart';
-import 'default_text_field.dart';
+import 'default_dropdown_text_field.dart';
 
 class PickerTextField extends StatelessWidget {
   //
   final String? labelText;
 
-  final TextEditingController controller;
+  final String? initialValue;
+  final List<String> items;
 
-  final Widget? suffixIcon;
-
-  final void Function() onTap;
-
-  final int minLines;
-  final int maxLines;
+  final Function(String?)? onChanged;
 
   final bool enabled;
   final bool isRequired;
@@ -24,12 +19,10 @@ class PickerTextField extends StatelessWidget {
   const PickerTextField({
     super.key,
     required this.labelText,
-    required this.controller,
-    required this.onTap,
-    this.suffixIcon,
+    required this.items,
+    required this.onChanged,
     //
-    this.minLines = 1,
-    this.maxLines = 1,
+    this.initialValue,
     //
     this.enabled = true,
     this.isRequired = true,
@@ -37,24 +30,23 @@ class PickerTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MyTextField(
-      key: key,
-      onTap: onTap,
-      readOnly: true,
-      isRequired: isRequired,
+    return MyDropdownTextField(
       enabled: enabled,
-      minLines: minLines,
-      maxLines: maxLines,
+      onChanged: onChanged,
       labelText: labelText,
-      controller: controller,
-      suffixIcon: suffixIcon ?? _suffixIcon,
-    );
-  }
-
-  Widget get _suffixIcon {
-    return const Icon(
-      Icons.arrow_drop_down,
-      color: MyColors.greyLite,
+      isRequired: isRequired,
+      initialValue: initialValue,
+      items: items
+          .map(
+            (item) => DropdownMenuItem(
+              value: item,
+              child: Text(
+                item,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ),
+          )
+          .toList(),
     );
   }
 }

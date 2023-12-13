@@ -9,7 +9,7 @@ class LoginResponseModel with _$LoginResponseModel {
   //
   const factory LoginResponseModel({
     String? token,
-    String? userId,
+    int? userId,
   }) = _LoginResponseModel;
 
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) =>

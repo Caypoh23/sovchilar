@@ -21,7 +21,10 @@ class LoaderWidget extends StatelessWidget {
           ? CupertinoActivityIndicator(
               color: color,
             )
-          : CircularProgressIndicator(color: color),
+          : CircularProgressIndicator(
+              color: color,
+              strokeWidth: 3,
+            ),
     );
   }
 }

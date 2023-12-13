@@ -6,8 +6,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
+import 'package:sovchilar/core/di/service_locator.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_bloc.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_event.dart';
+import 'package:sovchilar/features/presentation/payment/cubit/payment_cubit.dart';
 import 'splash_screen_bloc.dart';
 
 @RoutePage()
@@ -25,10 +27,11 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    final bloc = SplashScreenBloc();
+    final bloc = getIt<SplashScreenBloc>();
     bloc.checkStatus();
 
     context.read<HomeBloc>().add(OnFetchAds());
+    context.read<PaymentCubit>().onFetchPrice();
   }
 
   @override

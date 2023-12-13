@@ -35,7 +35,6 @@ class AgeTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyTextField(
-      key: key,
       enabled: enabled,
       maxLines: maxLines,
       labelText: labelText,

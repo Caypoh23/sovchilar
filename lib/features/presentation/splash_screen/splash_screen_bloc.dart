@@ -1,32 +1,30 @@
+// Package imports:
+import 'package:injectable/injectable.dart';
+
 // Project imports:
 import 'package:sovchilar/config/router/app_router.gr.dart';
 import 'package:sovchilar/config/router/navigation_service.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
+import 'package:sovchilar/core/network/dio_client.dart';
 import 'package:sovchilar/features/domain/repositories/auth_repository.dart';
 
+@injectable
 class SplashScreenBloc {
   //
-  final repository = getIt<AuthRepository>();
+  final AuthRepository repository;
+
+  SplashScreenBloc(this.repository);
 
   void checkStatus() async {
-    Future.delayed(
-      const Duration(seconds: 2),
-    );
+    getIt<NavigationService>().push(const MainRoute());
 
-    getIt<NavigationService>().replace(const MainScreen());
+    final token = repository.getToken();
+    if (token.isEmpty) {
+      getIt<NavigationService>().push(const AuthRoute());
+      return;
+    }
 
-    // // final UserStatus status = authRepository.getUserStatus();
-    // // Future.delayed(const Duration(seconds: 3)).then((_) async {
-    // //   switch (status) {
-    // //     case UserStatus.signed:
-    // //       final token = await authRepository
-    // //           .refreshToken(authRepository.getRefreshToken());
-    // //       DioClient.setToken(token.access);
-
-    // //       NavigationService.newRootScreen(MainScreen.route);
-    // //       break;
-
-    // //   }
-    // });
+    DioClient.setToken(token);
+    getIt<NavigationService>().push(const ProfileRoute());
   }
 }

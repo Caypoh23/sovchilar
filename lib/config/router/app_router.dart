@@ -5,7 +5,7 @@ import 'package:auto_route/auto_route.dart';
 import 'app_router.gr.dart';
 import 'route_constants.dart';
 
-@AutoRouterConfig(replaceInRouteName: 'Page|View,Route')
+@AutoRouterConfig(replaceInRouteName: 'Page|View|Screen,Route')
 class AppRouter extends $AppRouter {
   //
   @override
@@ -15,27 +15,32 @@ class AppRouter extends $AppRouter {
   List<AutoRoute> get routes => [
         CustomRoute(
           path: '/${RouteConstants.splash}',
-          page: SplashScreen.page,
+          page: SplashRoute.page,
           initial: true,
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
         CustomRoute(
           path: '/${RouteConstants.main}',
-          page: MainScreen.page,
+          page: MainRoute.page,
           children: [
             CustomRoute(
               path: '',
-              page: ProfileScreen.page,
+              page: AuthRoute.page,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+            ),
+            CustomRoute(
+              path: RouteConstants.profile,
+              page: ProfileRoute.page,
               transitionsBuilder: TransitionsBuilders.fadeIn,
             ),
             CustomRoute(
               path: RouteConstants.postEditor,
-              page: PostEditorScreen.page,
+              page: PostEditorRoute.page,
               transitionsBuilder: TransitionsBuilders.fadeIn,
             ),
             CustomRoute(
               path: RouteConstants.language,
-              page: LanguageScreen.page,
+              page: LanguageRoute.page,
               transitionsBuilder: TransitionsBuilders.fadeIn,
             ),
           ],

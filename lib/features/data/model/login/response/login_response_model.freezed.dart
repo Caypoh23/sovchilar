@@ -21,7 +21,7 @@ LoginResponseModel _$LoginResponseModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$LoginResponseModel {
   String? get token => throw _privateConstructorUsedError;
-  String? get userId => throw _privateConstructorUsedError;
+  int? get userId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $LoginResponseModelCopyWith<$Res> {
           LoginResponseModel value, $Res Function(LoginResponseModel) then) =
       _$LoginResponseModelCopyWithImpl<$Res, LoginResponseModel>;
   @useResult
-  $Res call({String? token, String? userId});
+  $Res call({String? token, int? userId});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$LoginResponseModelCopyWithImpl<$Res, $Val extends LoginResponseModel>
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
     ) as $Val);
   }
 }
@@ -75,7 +75,7 @@ abstract class _$$LoginResponseModelImplCopyWith<$Res>
       __$$LoginResponseModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? token, String? userId});
+  $Res call({String? token, int? userId});
 }
 
 /// @nodoc
@@ -100,7 +100,7 @@ class __$$LoginResponseModelImplCopyWithImpl<$Res>
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
     ));
   }
 }
@@ -116,7 +116,7 @@ class _$LoginResponseModelImpl implements _LoginResponseModel {
   @override
   final String? token;
   @override
-  final String? userId;
+  final int? userId;
 
   @override
   String toString() {
@@ -152,8 +152,8 @@ class _$LoginResponseModelImpl implements _LoginResponseModel {
 }
 
 abstract class _LoginResponseModel implements LoginResponseModel {
-  const factory _LoginResponseModel(
-      {final String? token, final String? userId}) = _$LoginResponseModelImpl;
+  const factory _LoginResponseModel({final String? token, final int? userId}) =
+      _$LoginResponseModelImpl;
 
   factory _LoginResponseModel.fromJson(Map<String, dynamic> json) =
       _$LoginResponseModelImpl.fromJson;
@@ -161,7 +161,7 @@ abstract class _LoginResponseModel implements LoginResponseModel {
   @override
   String? get token;
   @override
-  String? get userId;
+  int? get userId;
   @override
   @JsonKey(ignore: true)
   _$$LoginResponseModelImplCopyWith<_$LoginResponseModelImpl> get copyWith =>

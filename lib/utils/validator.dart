@@ -2,6 +2,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
+import 'package:sovchilar/config/values/strings_constants.dart';
 
 /*========================Email Validator==============================================*/
 class Validator {
@@ -16,7 +17,7 @@ class Validator {
 
   bool validateStrongPassword(value) {
     var pattern =
-        '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@\$%^&*-]).{8,}\$';
+        '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@\$%^&*-]).{6,}\$';
     RegExp regex = RegExp(pattern);
     return (regex.hasMatch(value)) ? false : true;
   }
@@ -53,11 +54,20 @@ class PasswordFormValidator {
     return null;
   }
 
+  static String? validateStrongPassword(String? value) {
+    if (value.toString().isEmpty) {
+      return MyStrings.requiredField;
+    } else if (Validator().validateStrongPassword(value.toString())) {
+      return MyStrings.strongPassword;
+    }
+    return null;
+  }
+
   static String? validatePasswordMatch(
       {String? value, String? confirmPassword}) {
     if (value!.isEmpty) {
       return 'strCPasswordEmpty'.tr();
-    } else if (value.length < 8) {
+    } else if (value.length < 5) {
       return 'strInvalidPassword'.tr();
     } else if (value != confirmPassword) {
       return 'strPasswordMatc'.tr();

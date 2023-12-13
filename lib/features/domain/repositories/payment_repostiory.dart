@@ -11,7 +11,7 @@ abstract class PaymentRepository {
   ///
   /// Remote API
   ///
-  Future<String> fetchPrice();
+  Future<int> fetchPrice();
 
   Future<PaymentResponseModel> addPayment(CreditCardRequestModel model);
   Future<void> confirmPayment(String sessionId, String otp);
@@ -19,8 +19,8 @@ abstract class PaymentRepository {
   ///
   /// Local
   ///
-  String getPrice();
-  void setPrice(String price);
+  int getPrice();
+  void setPrice(int price);
 }
 
 @LazySingleton(as: PaymentRepository)
@@ -32,7 +32,7 @@ class PaymentRepositoryImpl implements PaymentRepository {
   PaymentRepositoryImpl(this.api, this.localStorage);
 
   @override
-  Future<String> fetchPrice() async {
+  Future<int> fetchPrice() async {
     try {
       return await api.fetchPrice();
     } catch (e) {
@@ -61,8 +61,8 @@ class PaymentRepositoryImpl implements PaymentRepository {
   //
 
   @override
-  String getPrice() => localStorage.getPrice();
+  int getPrice() => localStorage.getPrice();
 
   @override
-  void setPrice(String price) => localStorage.setPrice(price);
+  void setPrice(int price) => localStorage.setPrice(price);
 }

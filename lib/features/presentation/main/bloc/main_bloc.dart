@@ -11,6 +11,7 @@ import 'main_event.dart';
 
 @injectable
 class MainBloc extends Bloc<MainEvent, GenericBlocState<int>> {
+  //
   MainBloc() : super(GenericBlocState.success(0)) {
     on<OnItemPressed>(_onItemPressed);
   }

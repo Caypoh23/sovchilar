@@ -8,121 +8,142 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i6;
+import 'package:auto_route/auto_route.dart' as _i7;
+import 'package:sovchilar/features/presentation/auth/auth_screen.dart' as _i1;
 import 'package:sovchilar/features/presentation/language/language_screen.dart'
-    as _i1;
-import 'package:sovchilar/features/presentation/main/main_screen.dart' as _i2;
+    as _i2;
+import 'package:sovchilar/features/presentation/main/main_screen.dart' as _i3;
 import 'package:sovchilar/features/presentation/post_editor/post_editor_screen.dart'
-    as _i3;
-import 'package:sovchilar/features/presentation/profile/profile_screen.dart'
     as _i4;
-import 'package:sovchilar/features/presentation/splash_screen/splash_screen.dart'
+import 'package:sovchilar/features/presentation/profile/profile_screen.dart'
     as _i5;
+import 'package:sovchilar/features/presentation/splash_screen/splash_screen.dart'
+    as _i6;
 
-abstract class $AppRouter extends _i6.RootStackRouter {
+abstract class $AppRouter extends _i7.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i6.PageFactory> pagesMap = {
-    LanguageScreen.name: (routeData) {
-      return _i6.AutoRoutePage<dynamic>(
+  final Map<String, _i7.PageFactory> pagesMap = {
+    AuthRoute.name: (routeData) {
+      return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.LanguageScreen(),
+        child: const _i1.AuthScreen(),
       );
     },
-    MainScreen.name: (routeData) {
-      return _i6.AutoRoutePage<dynamic>(
+    LanguageRoute.name: (routeData) {
+      return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.MainScreen(),
+        child: const _i2.LanguageScreen(),
       );
     },
-    PostEditorScreen.name: (routeData) {
-      return _i6.AutoRoutePage<dynamic>(
+    MainRoute.name: (routeData) {
+      return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.PostEditorScreen(),
+        child: const _i3.MainScreen(),
       );
     },
-    ProfileScreen.name: (routeData) {
-      return _i6.AutoRoutePage<dynamic>(
+    PostEditorRoute.name: (routeData) {
+      return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.ProfileScreen(),
+        child: const _i4.PostEditorScreen(),
       );
     },
-    SplashScreen.name: (routeData) {
-      return _i6.AutoRoutePage<dynamic>(
+    ProfileRoute.name: (routeData) {
+      return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.SplashScreen(),
+        child: const _i5.ProfileScreen(),
+      );
+    },
+    SplashRoute.name: (routeData) {
+      return _i7.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i6.SplashScreen(),
       );
     },
   };
 }
 
 /// generated route for
-/// [_i1.LanguageScreen]
-class LanguageScreen extends _i6.PageRouteInfo<void> {
-  const LanguageScreen({List<_i6.PageRouteInfo>? children})
+/// [_i1.AuthScreen]
+class AuthRoute extends _i7.PageRouteInfo<void> {
+  const AuthRoute({List<_i7.PageRouteInfo>? children})
       : super(
-          LanguageScreen.name,
+          AuthRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'LanguageScreen';
+  static const String name = 'AuthRoute';
 
-  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
+  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i2.MainScreen]
-class MainScreen extends _i6.PageRouteInfo<void> {
-  const MainScreen({List<_i6.PageRouteInfo>? children})
+/// [_i2.LanguageScreen]
+class LanguageRoute extends _i7.PageRouteInfo<void> {
+  const LanguageRoute({List<_i7.PageRouteInfo>? children})
       : super(
-          MainScreen.name,
+          LanguageRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'MainScreen';
+  static const String name = 'LanguageRoute';
 
-  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
+  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i3.PostEditorScreen]
-class PostEditorScreen extends _i6.PageRouteInfo<void> {
-  const PostEditorScreen({List<_i6.PageRouteInfo>? children})
+/// [_i3.MainScreen]
+class MainRoute extends _i7.PageRouteInfo<void> {
+  const MainRoute({List<_i7.PageRouteInfo>? children})
       : super(
-          PostEditorScreen.name,
+          MainRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'PostEditorScreen';
+  static const String name = 'MainRoute';
 
-  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
+  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i4.ProfileScreen]
-class ProfileScreen extends _i6.PageRouteInfo<void> {
-  const ProfileScreen({List<_i6.PageRouteInfo>? children})
+/// [_i4.PostEditorScreen]
+class PostEditorRoute extends _i7.PageRouteInfo<void> {
+  const PostEditorRoute({List<_i7.PageRouteInfo>? children})
       : super(
-          ProfileScreen.name,
+          PostEditorRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'ProfileScreen';
+  static const String name = 'PostEditorRoute';
 
-  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
+  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i5.SplashScreen]
-class SplashScreen extends _i6.PageRouteInfo<void> {
-  const SplashScreen({List<_i6.PageRouteInfo>? children})
+/// [_i5.ProfileScreen]
+class ProfileRoute extends _i7.PageRouteInfo<void> {
+  const ProfileRoute({List<_i7.PageRouteInfo>? children})
       : super(
-          SplashScreen.name,
+          ProfileRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'SplashScreen';
+  static const String name = 'ProfileRoute';
 
-  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
+  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i6.SplashScreen]
+class SplashRoute extends _i7.PageRouteInfo<void> {
+  const SplashRoute({List<_i7.PageRouteInfo>? children})
+      : super(
+          SplashRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SplashRoute';
+
+  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
 }

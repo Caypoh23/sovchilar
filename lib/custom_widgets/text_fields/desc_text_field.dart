@@ -36,7 +36,6 @@ class DescTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyTextField(
-      key: key,
       minLines: 7,
       enabled: enabled,
       maxLines: maxLines,
