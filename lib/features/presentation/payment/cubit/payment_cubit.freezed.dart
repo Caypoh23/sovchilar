@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$PaymentState {
   Status get status => throw _privateConstructorUsedError;
+  PaymentResponseModel? get payment => throw _privateConstructorUsedError;
   Error? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +31,9 @@ abstract class $PaymentStateCopyWith<$Res> {
           PaymentState value, $Res Function(PaymentState) then) =
       _$PaymentStateCopyWithImpl<$Res, PaymentState>;
   @useResult
-  $Res call({Status status, Error? error});
+  $Res call({Status status, PaymentResponseModel? payment, Error? error});
+
+  $PaymentResponseModelCopyWith<$Res>? get payment;
 }
 
 /// @nodoc
@@ -47,6 +50,7 @@ class _$PaymentStateCopyWithImpl<$Res, $Val extends PaymentState>
   @override
   $Res call({
     Object? status = null,
+    Object? payment = freezed,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
@@ -54,11 +58,27 @@ class _$PaymentStateCopyWithImpl<$Res, $Val extends PaymentState>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
+      payment: freezed == payment
+          ? _value.payment
+          : payment // ignore: cast_nullable_to_non_nullable
+              as PaymentResponseModel?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as Error?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PaymentResponseModelCopyWith<$Res>? get payment {
+    if (_value.payment == null) {
+      return null;
+    }
+
+    return $PaymentResponseModelCopyWith<$Res>(_value.payment!, (value) {
+      return _then(_value.copyWith(payment: value) as $Val);
+    });
   }
 }
 
@@ -70,7 +90,10 @@ abstract class _$$PaymentStateImplCopyWith<$Res>
       __$$PaymentStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status status, Error? error});
+  $Res call({Status status, PaymentResponseModel? payment, Error? error});
+
+  @override
+  $PaymentResponseModelCopyWith<$Res>? get payment;
 }
 
 /// @nodoc
@@ -85,6 +108,7 @@ class __$$PaymentStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
+    Object? payment = freezed,
     Object? error = freezed,
   }) {
     return _then(_$PaymentStateImpl(
@@ -92,6 +116,10 @@ class __$$PaymentStateImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
+      payment: freezed == payment
+          ? _value.payment
+          : payment // ignore: cast_nullable_to_non_nullable
+              as PaymentResponseModel?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -103,17 +131,20 @@ class __$$PaymentStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PaymentStateImpl implements _PaymentState {
-  const _$PaymentStateImpl({this.status = Status.initial, this.error});
+  const _$PaymentStateImpl(
+      {this.status = Status.initial, this.payment, this.error});
 
   @override
   @JsonKey()
   final Status status;
   @override
+  final PaymentResponseModel? payment;
+  @override
   final Error? error;
 
   @override
   String toString() {
-    return 'PaymentState(status: $status, error: $error)';
+    return 'PaymentState(status: $status, payment: $payment, error: $error)';
   }
 
   @override
@@ -122,11 +153,12 @@ class _$PaymentStateImpl implements _PaymentState {
         (other.runtimeType == runtimeType &&
             other is _$PaymentStateImpl &&
             (identical(other.status, status) || other.status == status) &&
+            (identical(other.payment, payment) || other.payment == payment) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, error);
+  int get hashCode => Object.hash(runtimeType, status, payment, error);
 
   @JsonKey(ignore: true)
   @override
@@ -136,11 +168,15 @@ class _$PaymentStateImpl implements _PaymentState {
 }
 
 abstract class _PaymentState implements PaymentState {
-  const factory _PaymentState({final Status status, final Error? error}) =
-      _$PaymentStateImpl;
+  const factory _PaymentState(
+      {final Status status,
+      final PaymentResponseModel? payment,
+      final Error? error}) = _$PaymentStateImpl;
 
   @override
   Status get status;
+  @override
+  PaymentResponseModel? get payment;
   @override
   Error? get error;
   @override

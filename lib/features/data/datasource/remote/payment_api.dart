@@ -12,7 +12,7 @@ abstract class PaymentApi {
   Future<int> fetchPrice();
 
   Future<PaymentResponseModel> addPayment(CreditCardRequestModel model);
-  Future<void> confirmPayment(String sessionId, String otp);
+  Future<void> confirmPayment(int sessionId, int otp);
 }
 
 @LazySingleton(as: PaymentApi)
@@ -47,7 +47,7 @@ class PaymentApiImpl implements PaymentApi {
   }
 
   @override
-  Future<void> confirmPayment(String sessionId, String otp) async {
+  Future<void> confirmPayment(int sessionId, int otp) async {
     try {
       await api.post(
         NetworkConstants.confirmPayment,

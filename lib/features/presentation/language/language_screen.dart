@@ -56,11 +56,10 @@ class LanguageScreen extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(
                     horizontal: 16,
                   ),
-                  onTap: () {
+                  onTap: () async {
                     context.read<LanguageCubit>().onSavePressed();
-                    context.router.pop();
-                    getIt<NavigationService>()
-                        .updateLocale(state.lang!.name, context);
+                    await context.router.pop();
+                    getIt<NavigationService>().updateLocale(state.lang!.name);
                   },
                 ),
                 const SafeArea(

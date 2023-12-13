@@ -8,6 +8,34 @@ abstract class MyStringHelper {
     return data.replaceAll(RegExp(r'\D'), '');
   }
 
+  static String removeSpaces(String data) {
+    return data.replaceAll(' ', '');
+  }
+
+  static String? obfuscateCardNumber(String? data) {
+    if (data == null) return null;
+
+    final text = removeNonNumbers(data);
+    if (text.length < 4) return data;
+
+    final first = text.substring(0, 4);
+    final last = text.substring(text.length - 2, text.length);
+
+    return '$first **** **$last';
+  }
+
+  static String? formatAsExpiryDate(String? data) {
+    if (data == null) return null;
+
+    final text = removeNonNumbers(data);
+    if (text.length < 4) return data;
+
+    final month = text.substring(0, 2);
+    final year = text.substring(2, 4);
+
+    return '$year$month';
+  }
+
   static String phoneMask(String? data) {
     if (data == null) return '';
 

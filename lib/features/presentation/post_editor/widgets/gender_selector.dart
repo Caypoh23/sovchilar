@@ -33,21 +33,21 @@ class GenderSelectorWidget extends StatelessWidget {
             Row(
               children: [
                 MyCheckbox(
-                  isChecked: state.gender == Gender.male,
-                  label: MyStrings.man,
-                  onChanged: (value) {
-                    if (value ?? false) {
-                      cubit.onGenderChanged(Gender.male);
-                    }
-                  },
-                ),
-                const SizedBox(width: 24),
-                MyCheckbox(
                   isChecked: state.gender == Gender.female,
                   label: MyStrings.woman,
                   onChanged: (value) {
                     if (value ?? false) {
                       cubit.onGenderChanged(Gender.female);
+                    }
+                  },
+                ),
+                const SizedBox(width: 24),
+                MyCheckbox(
+                  isChecked: state.gender == Gender.male,
+                  label: MyStrings.man,
+                  onChanged: (value) {
+                    if (value ?? false) {
+                      cubit.onGenderChanged(Gender.male);
                     }
                   },
                 ),

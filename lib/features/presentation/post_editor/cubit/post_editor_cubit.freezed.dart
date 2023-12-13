@@ -210,25 +210,18 @@ class _$PostEditorStateImpl implements _PostEditorState {
             other is _$PostEditorStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.gender, gender) || other.gender == gender) &&
-            const DeepCollectionEquality()
-                .equals(other.maritalStatus, maritalStatus) &&
+            (identical(other.maritalStatus, maritalStatus) ||
+                other.maritalStatus == maritalStatus) &&
             (identical(other.hasChildren, hasChildren) ||
                 other.hasChildren == hasChildren) &&
-            const DeepCollectionEquality().equals(other.country, country) &&
-            const DeepCollectionEquality().equals(other.city, city) &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.city, city) || other.city == city) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      status,
-      gender,
-      const DeepCollectionEquality().hash(maritalStatus),
-      hasChildren,
-      const DeepCollectionEquality().hash(country),
-      const DeepCollectionEquality().hash(city),
-      error);
+  int get hashCode => Object.hash(runtimeType, status, gender, maritalStatus,
+      hasChildren, country, city, error);
 
   @JsonKey(ignore: true)
   @override

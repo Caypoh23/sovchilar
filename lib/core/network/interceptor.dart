@@ -1,20 +1,24 @@
 // Package imports:
 import 'package:dio/dio.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 // Project imports:
+import 'package:sovchilar/config/router/navigation_service.dart';
+import 'package:sovchilar/core/di/service_locator.dart';
 
 class CustomInterceptor extends Interceptor {
   //
   @override
   Future onError(DioException err, ErrorInterceptorHandler handler) async {
-    int statusCode = (err.response?.statusCode ?? 0);
     if (err.type == DioExceptionType.connectionTimeout ||
         err.type == DioExceptionType.sendTimeout ||
         err.type == DioExceptionType.receiveTimeout) {
-      // NavigationService.showErrorToast('common.low_internet_connection'.tr());
+      getIt<NavigationService>()
+          .showErrorToast('common.low_internet_connection'.tr());
       return handler.next(err);
-    } else if (statusCode >= 400 && statusCode <= 500) {
-      // NavigationService.showErrorToast((text).toString());
+    } else {
+      final text = err.response?.data?['message'];
+      getIt<NavigationService>().showErrorToast(text.toString());
     }
 
     return handler.next(err);

@@ -22,6 +22,7 @@ import 'package:sovchilar/features/domain/repositories/ad_repository.dart';
 import 'package:sovchilar/features/domain/repositories/payment_repostiory.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_bloc.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_event.dart';
+import 'package:sovchilar/features/presentation/payment/payment_dialog.dart';
 import 'package:sovchilar/utils/generic_bloc_state.dart';
 import 'package:sovchilar/utils/string_helper.dart';
 
@@ -70,21 +71,24 @@ class PostEditorCubit extends Cubit<PostEditorState> {
   void onCityChanged(CitiesEnum? city) => emit(state.copyWith(city: city));
 
   //
-  bool validateForm() => formKey.currentState!.validate();
+  bool get isFormValid => formKey.currentState!.validate();
 
   //
 
   FutureOr<void> onPayPressed() async {
+    if (!isFormValid) return;
+
     emit(state.copyWith(status: Status.loading));
     try {
-      // TODO: open dialog to pay
-      emit(state.copyWith(status: Status.success));
+      await getIt<NavigationService>().showDialog(
+        dialog: PaymentDialog(),
+      );
     } catch (e) {
       emit(state.copyWith(status: Status.initial));
     }
   }
 
-  FutureOr<void> onSubmitAd() async {
+  FutureOr<void> _onSubmitAd() async {
     emit(state.copyWith(status: Status.loading));
     try {
       final model = AdRequestModel(

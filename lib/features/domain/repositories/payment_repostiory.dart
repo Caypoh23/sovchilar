@@ -14,7 +14,7 @@ abstract class PaymentRepository {
   Future<int> fetchPrice();
 
   Future<PaymentResponseModel> addPayment(CreditCardRequestModel model);
-  Future<void> confirmPayment(String sessionId, String otp);
+  Future<void> confirmPayment(int sessionId, int otp);
 
   ///
   /// Local
@@ -50,7 +50,7 @@ class PaymentRepositoryImpl implements PaymentRepository {
   }
 
   @override
-  Future<void> confirmPayment(String sessionId, String otp) async {
+  Future<void> confirmPayment(int sessionId, int otp) async {
     try {
       await api.confirmPayment(sessionId, otp);
     } catch (e) {

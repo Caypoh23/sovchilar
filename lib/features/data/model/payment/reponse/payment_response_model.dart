@@ -10,9 +10,9 @@ part 'payment_response_model.g.dart';
 class PaymentResponseModel with _$PaymentResponseModel {
   //
   const factory PaymentResponseModel({
-    String? transactionId,
+    int? transactionId,
     String? otpSentPhone,
-    @JsonKey(name: 'session') String? sessionId,
+    @JsonKey(name: 'session') int? sessionId,
   }) = _PaymentResponseModel;
 
   factory PaymentResponseModel.fromJson(Map<String, dynamic> json) =>

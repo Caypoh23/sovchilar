@@ -26,6 +26,8 @@ man,Мужчина,
 woman,Женщина,
 men,Мужчины,
 women,Женщины,
+male,Мужской,
+female,Женский,
 from,От,
 to,До,
 country,Страна,
@@ -40,3 +42,9 @@ delete,Удалить,Ochirish
 ruLang,Русский,Русский
 uzLang,O'zbek,O'zbek
 chooseLanguage,Выберите язык,Tilni tanlang
+requiredField,Обязательное поле,
+strongPassword,"Пароль должен содержать 6 символов и (A-Z), (!@#), (0-9).",
+confirmationCode,Код из смс,
+confirm,Подтвердить,
+confirmCodeDesc,Для подтверждения оплаты вам отправлен смс с кодом на номер,
+requestIsSentToModeration,Ваше объявление отправлено на проверку и в ближайшее время будет опубликован,

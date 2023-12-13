@@ -9,9 +9,9 @@ part of 'payment_response_model.dart';
 _$PaymentResponseModelImpl _$$PaymentResponseModelImplFromJson(
         Map<String, dynamic> json) =>
     _$PaymentResponseModelImpl(
-      transactionId: json['transactionId'] as String?,
+      transactionId: json['transactionId'] as int?,
       otpSentPhone: json['otpSentPhone'] as String?,
-      sessionId: json['session'] as String?,
+      sessionId: json['session'] as int?,
     );
 
 Map<String, dynamic> _$$PaymentResponseModelImplToJson(

@@ -1,16 +1,12 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Package imports:
-import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
-
 // Project imports:
-import 'package:sovchilar/config/values/strings_constants.dart';
 import 'default_text_field.dart';
 
-class ExpireDateTextField extends StatelessWidget {
+class NumberTextField extends StatelessWidget {
   //
-  final String? labelText;
+  final String labelText;
   final String? initialValue;
 
   final TextEditingController controller;
@@ -22,10 +18,10 @@ class ExpireDateTextField extends StatelessWidget {
   final bool autofocus;
   final bool isRequired;
 
-  const ExpireDateTextField({
+  const NumberTextField({
     super.key,
+    required this.labelText,
     required this.controller,
-    this.labelText,
     this.initialValue,
     //
     this.focusNode,
@@ -39,16 +35,16 @@ class ExpireDateTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyTextField(
+      maxLength: 2,
       enabled: enabled,
       maxLines: maxLines,
+      labelText: labelText,
+      isRequired: isRequired,
       autoFocus: autofocus,
       focusNode: focusNode,
       controller: controller,
-      isRequired: isRequired,
       initialValue: initialValue,
       keyboardType: TextInputType.number,
-      labelText: labelText ?? MyStrings.dateOfExpiry,
-      inputFormatters: [CreditCardExpirationDateFormatter()],
     );
   }
 }

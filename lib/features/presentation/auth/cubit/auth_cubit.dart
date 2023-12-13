@@ -34,7 +34,7 @@ class AuthCubit extends Cubit<AuthState> {
   AuthCubit(this.repository) : super(const AuthState());
 
   //
-  bool validateForm() => formKey.currentState!.validate();
+  bool get isFormValid => formKey.currentState!.validate();
 
   //
   FutureOr<void> login() async {

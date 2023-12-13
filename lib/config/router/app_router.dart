@@ -1,11 +1,13 @@
 // Package imports:
 import 'package:auto_route/auto_route.dart';
+import 'package:injectable/injectable.dart';
 
 // Project imports:
 import 'app_router.gr.dart';
 import 'route_constants.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page|View|Screen,Route')
+@lazySingleton
 class AppRouter extends $AppRouter {
   //
   @override

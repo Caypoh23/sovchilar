@@ -13,13 +13,14 @@ import 'package:sovchilar/config/values/strings_constants.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
 import 'package:sovchilar/custom_widgets/buttons/gradient_button.dart';
 import 'package:sovchilar/custom_widgets/keyboard_escape.dart';
-import 'package:sovchilar/custom_widgets/text_fields/age_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/desc_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/name_text_field.dart';
+import 'package:sovchilar/custom_widgets/text_fields/number_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/picker_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/telegram_text_field.dart';
 import 'package:sovchilar/features/data/model/user/marital_status/marital_status_enum.dart';
 import 'package:sovchilar/features/presentation/post_editor/cubit/post_editor_cubit.dart';
+import 'package:sovchilar/utils/generic_bloc_state.dart';
 import 'widgets/gender_selector.dart';
 
 @RoutePage()
@@ -64,7 +65,7 @@ class _PostEditorScreenState extends State<PostEditorScreen> {
                         MyStrings.fillFieldsBelow,
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                              color: Theme.of(context).colorScheme.primary,
+                              color: Theme.of(context).colorScheme.secondary,
                             ),
                       ),
                       const SizedBox(height: 24),
@@ -73,7 +74,7 @@ class _PostEditorScreenState extends State<PostEditorScreen> {
                         controller: cubit.nameController,
                       ),
                       const SizedBox(height: 24),
-                      AgeTextField(
+                      NumberTextField(
                         labelText: MyStrings.yourAge,
                         controller: cubit.ageController,
                       ),
@@ -119,14 +120,14 @@ class _PostEditorScreenState extends State<PostEditorScreen> {
                       Row(
                         children: [
                           Expanded(
-                            child: AgeTextField(
+                            child: NumberTextField(
                               labelText: MyStrings.from,
                               controller: cubit.fromController,
                             ),
                           ),
                           const SizedBox(width: 8),
                           Expanded(
-                            child: AgeTextField(
+                            child: NumberTextField(
                               labelText: MyStrings.to,
                               controller: cubit.toController,
                             ),
@@ -170,11 +171,8 @@ class _PostEditorScreenState extends State<PostEditorScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           MyGradientButton(
-                            onTap: () {
-                              if (cubit.validateForm()) {
-                                cubit.onSubmitAd();
-                              }
-                            },
+                            onTap: cubit.onPayPressed,
+                            isLoading: state.status == Status.loading,
                             label: '${MyStrings.pay} ${cubit.price} UZS',
                           ),
                         ],

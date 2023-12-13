@@ -65,4 +65,8 @@ abstract class MyStrings {
 
   static String get requiredField => 'requiredField'.tr();
   static String get strongPassword => 'strongPassword'.tr();
+
+  static String get confirmationCode => 'confirmationCode'.tr();
+  static String get confirm => 'confirm'.tr();
+  static String get confirmCodeDesc => 'confirmCodeDesc'.tr();
 }

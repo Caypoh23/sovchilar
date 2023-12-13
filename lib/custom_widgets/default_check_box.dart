@@ -33,9 +33,9 @@ class MyCheckbox extends StatelessWidget {
               ),
               side: BorderSide(
                 width: 1,
-                color: Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.secondary,
               ),
-              activeColor: Theme.of(context).colorScheme.primary,
+              activeColor: Theme.of(context).colorScheme.secondary,
             ),
           ),
           if (label != null) ...[

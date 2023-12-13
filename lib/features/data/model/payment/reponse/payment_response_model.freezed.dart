@@ -20,10 +20,10 @@ PaymentResponseModel _$PaymentResponseModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PaymentResponseModel {
-  String? get transactionId => throw _privateConstructorUsedError;
+  int? get transactionId => throw _privateConstructorUsedError;
   String? get otpSentPhone => throw _privateConstructorUsedError;
   @JsonKey(name: 'session')
-  String? get sessionId => throw _privateConstructorUsedError;
+  int? get sessionId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,9 +38,9 @@ abstract class $PaymentResponseModelCopyWith<$Res> {
       _$PaymentResponseModelCopyWithImpl<$Res, PaymentResponseModel>;
   @useResult
   $Res call(
-      {String? transactionId,
+      {int? transactionId,
       String? otpSentPhone,
-      @JsonKey(name: 'session') String? sessionId});
+      @JsonKey(name: 'session') int? sessionId});
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$PaymentResponseModelCopyWithImpl<$Res,
       transactionId: freezed == transactionId
           ? _value.transactionId
           : transactionId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       otpSentPhone: freezed == otpSentPhone
           ? _value.otpSentPhone
           : otpSentPhone // ignore: cast_nullable_to_non_nullable
@@ -73,7 +73,7 @@ class _$PaymentResponseModelCopyWithImpl<$Res,
       sessionId: freezed == sessionId
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
     ) as $Val);
   }
 }
@@ -87,9 +87,9 @@ abstract class _$$PaymentResponseModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? transactionId,
+      {int? transactionId,
       String? otpSentPhone,
-      @JsonKey(name: 'session') String? sessionId});
+      @JsonKey(name: 'session') int? sessionId});
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ class __$$PaymentResponseModelImplCopyWithImpl<$Res>
       transactionId: freezed == transactionId
           ? _value.transactionId
           : transactionId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       otpSentPhone: freezed == otpSentPhone
           ? _value.otpSentPhone
           : otpSentPhone // ignore: cast_nullable_to_non_nullable
@@ -119,7 +119,7 @@ class __$$PaymentResponseModelImplCopyWithImpl<$Res>
       sessionId: freezed == sessionId
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
     ));
   }
 }
@@ -136,12 +136,12 @@ class _$PaymentResponseModelImpl implements _PaymentResponseModel {
       _$$PaymentResponseModelImplFromJson(json);
 
   @override
-  final String? transactionId;
+  final int? transactionId;
   @override
   final String? otpSentPhone;
   @override
   @JsonKey(name: 'session')
-  final String? sessionId;
+  final int? sessionId;
 
   @override
   String toString() {
@@ -184,21 +184,21 @@ class _$PaymentResponseModelImpl implements _PaymentResponseModel {
 
 abstract class _PaymentResponseModel implements PaymentResponseModel {
   const factory _PaymentResponseModel(
-          {final String? transactionId,
+          {final int? transactionId,
           final String? otpSentPhone,
-          @JsonKey(name: 'session') final String? sessionId}) =
+          @JsonKey(name: 'session') final int? sessionId}) =
       _$PaymentResponseModelImpl;
 
   factory _PaymentResponseModel.fromJson(Map<String, dynamic> json) =
       _$PaymentResponseModelImpl.fromJson;
 
   @override
-  String? get transactionId;
+  int? get transactionId;
   @override
   String? get otpSentPhone;
   @override
   @JsonKey(name: 'session')
-  String? get sessionId;
+  int? get sessionId;
   @override
   @JsonKey(ignore: true)
   _$$PaymentResponseModelImplCopyWith<_$PaymentResponseModelImpl>
