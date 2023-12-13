@@ -8,13 +8,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sovchilar/config/assets/icon_constants.dart';
 import 'package:sovchilar/config/values/strings_constants.dart';
 import 'package:sovchilar/custom_widgets/cards/info_card.dart';
-import 'package:sovchilar/features/data/model/user/user_response/user_response_model.dart';
+import 'package:sovchilar/features/data/model/user/response/ad_response_model.dart';
 import 'package:sovchilar/utils/url_helper.dart';
 import 'item.dart';
 
 class HomeCard extends StatelessWidget {
   //
-  final UserResponseModel model;
+  final AdResponseModel model;
 
   const HomeCard({
     super.key,

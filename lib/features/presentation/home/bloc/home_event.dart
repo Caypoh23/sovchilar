@@ -1,3 +1,3 @@
 sealed class HomeEvent {}
 
-class OnFetchUsers extends HomeEvent {}
+class OnFetchAds extends HomeEvent {}

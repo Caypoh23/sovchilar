@@ -43,6 +43,8 @@ abstract class MyStrings {
   static String get woman => 'woman'.tr();
   static String get men => 'men'.tr();
   static String get women => 'women'.tr();
+  static String get male => 'male'.tr();
+  static String get female => 'female'.tr();
 
   static String get from => 'from'.tr();
   static String get to => 'to'.tr();

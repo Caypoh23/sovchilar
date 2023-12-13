@@ -24,7 +24,7 @@ class HomeWomenPage extends StatelessWidget {
             .toList();
 
         return MyRefresher(
-          onRefresh: () => context.read<HomeBloc>().add(OnFetchUsers()),
+          onRefresh: () => context.read<HomeBloc>().add(OnFetchAds()),
           child: ListView.builder(
             itemCount: list.length,
             padding: const EdgeInsets.symmetric(

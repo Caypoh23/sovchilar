@@ -6,11 +6,11 @@ import 'package:injectable/injectable.dart';
 import 'storage_constants.dart';
 
 abstract class AuthLocalStorage {
-  void setToken(String token);
   String getToken();
+  void setToken(String token);
 
-  void setRefreshToken(String token);
   String getRefreshToken();
+  void setRefreshToken(String token);
 }
 
 @LazySingleton(as: AuthLocalStorage)

@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // Project imports:
 import 'package:sovchilar/core/di/service_locator.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_bloc.dart';
+import 'package:sovchilar/features/presentation/payment/cubit/payment_cubit.dart';
 import 'config/router/navigation_service.dart';
 import 'config/theme/app_theme.dart';
 import 'config/values/strings_constants.dart';
@@ -62,6 +63,9 @@ class MyAppState extends State<MyApp> with WidgetsBindingObserver {
       providers: [
         BlocProvider<MainBloc>(
           create: (context) => getIt<MainBloc>(),
+        ),
+        BlocProvider<PaymentCubit>(
+          create: (context) => getIt<PaymentCubit>(),
         ),
         BlocProvider<HomeBloc>(
           create: (context) => getIt<HomeBloc>(),

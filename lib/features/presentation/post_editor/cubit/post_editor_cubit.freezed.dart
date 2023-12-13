@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$PostEditorState {
   Status get status => throw _privateConstructorUsedError;
+  Gender get gender => throw _privateConstructorUsedError;
   Error? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +31,7 @@ abstract class $PostEditorStateCopyWith<$Res> {
           PostEditorState value, $Res Function(PostEditorState) then) =
       _$PostEditorStateCopyWithImpl<$Res, PostEditorState>;
   @useResult
-  $Res call({Status status, Error? error});
+  $Res call({Status status, Gender gender, Error? error});
 }
 
 /// @nodoc
@@ -47,6 +48,7 @@ class _$PostEditorStateCopyWithImpl<$Res, $Val extends PostEditorState>
   @override
   $Res call({
     Object? status = null,
+    Object? gender = null,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
@@ -54,6 +56,10 @@ class _$PostEditorStateCopyWithImpl<$Res, $Val extends PostEditorState>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -70,7 +76,7 @@ abstract class _$$PostEditorStateImplCopyWith<$Res>
       __$$PostEditorStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status status, Error? error});
+  $Res call({Status status, Gender gender, Error? error});
 }
 
 /// @nodoc
@@ -85,6 +91,7 @@ class __$$PostEditorStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
+    Object? gender = null,
     Object? error = freezed,
   }) {
     return _then(_$PostEditorStateImpl(
@@ -92,6 +99,10 @@ class __$$PostEditorStateImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -103,17 +114,21 @@ class __$$PostEditorStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PostEditorStateImpl implements _PostEditorState {
-  const _$PostEditorStateImpl({this.status = Status.initial, this.error});
+  const _$PostEditorStateImpl(
+      {this.status = Status.initial, this.gender = Gender.male, this.error});
 
   @override
   @JsonKey()
   final Status status;
   @override
+  @JsonKey()
+  final Gender gender;
+  @override
   final Error? error;
 
   @override
   String toString() {
-    return 'PostEditorState(status: $status, error: $error)';
+    return 'PostEditorState(status: $status, gender: $gender, error: $error)';
   }
 
   @override
@@ -122,11 +137,12 @@ class _$PostEditorStateImpl implements _PostEditorState {
         (other.runtimeType == runtimeType &&
             other is _$PostEditorStateImpl &&
             (identical(other.status, status) || other.status == status) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, error);
+  int get hashCode => Object.hash(runtimeType, status, gender, error);
 
   @JsonKey(ignore: true)
   @override
@@ -137,11 +153,15 @@ class _$PostEditorStateImpl implements _PostEditorState {
 }
 
 abstract class _PostEditorState implements PostEditorState {
-  const factory _PostEditorState({final Status status, final Error? error}) =
-      _$PostEditorStateImpl;
+  const factory _PostEditorState(
+      {final Status status,
+      final Gender gender,
+      final Error? error}) = _$PostEditorStateImpl;
 
   @override
   Status get status;
+  @override
+  Gender get gender;
   @override
   Error? get error;
   @override

@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final bloc = SplashScreenBloc();
     bloc.checkStatus();
 
-    context.read<HomeBloc>().add(OnFetchUsers());
+    context.read<HomeBloc>().add(OnFetchAds());
   }
 
   @override

@@ -6,12 +6,12 @@ part 'login_response_model.g.dart';
 
 @freezed
 class LoginResponseModel with _$LoginResponseModel {
+  //
   const factory LoginResponseModel({
-    String? refresh,
-    String? access,
+    String? token,
+    String? userId,
   }) = _LoginResponseModel;
 
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) =>
       _$LoginResponseModelFromJson(json);
 }
-
