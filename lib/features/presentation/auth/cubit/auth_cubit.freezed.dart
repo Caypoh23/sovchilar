@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AuthState {
   Status get status => throw _privateConstructorUsedError;
   String? get token => throw _privateConstructorUsedError;
-  AuthType? get authType => throw _privateConstructorUsedError;
+  UsernameType? get usernameType => throw _privateConstructorUsedError;
   Error? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,7 +31,8 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call({Status status, String? token, AuthType? authType, Error? error});
+  $Res call(
+      {Status status, String? token, UsernameType? usernameType, Error? error});
 }
 
 /// @nodoc
@@ -49,7 +50,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   $Res call({
     Object? status = null,
     Object? token = freezed,
-    Object? authType = freezed,
+    Object? usernameType = freezed,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
@@ -61,10 +62,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String?,
-      authType: freezed == authType
-          ? _value.authType
-          : authType // ignore: cast_nullable_to_non_nullable
-              as AuthType?,
+      usernameType: freezed == usernameType
+          ? _value.usernameType
+          : usernameType // ignore: cast_nullable_to_non_nullable
+              as UsernameType?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -81,7 +82,8 @@ abstract class _$$AuthStateImplCopyWith<$Res>
       __$$AuthStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status status, String? token, AuthType? authType, Error? error});
+  $Res call(
+      {Status status, String? token, UsernameType? usernameType, Error? error});
 }
 
 /// @nodoc
@@ -97,7 +99,7 @@ class __$$AuthStateImplCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? token = freezed,
-    Object? authType = freezed,
+    Object? usernameType = freezed,
     Object? error = freezed,
   }) {
     return _then(_$AuthStateImpl(
@@ -109,10 +111,10 @@ class __$$AuthStateImplCopyWithImpl<$Res>
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String?,
-      authType: freezed == authType
-          ? _value.authType
-          : authType // ignore: cast_nullable_to_non_nullable
-              as AuthType?,
+      usernameType: freezed == usernameType
+          ? _value.usernameType
+          : usernameType // ignore: cast_nullable_to_non_nullable
+              as UsernameType?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -127,7 +129,7 @@ class _$AuthStateImpl implements _AuthState {
   const _$AuthStateImpl(
       {this.status = Status.initial,
       this.token = '',
-      this.authType,
+      this.usernameType,
       this.error});
 
   @override
@@ -137,13 +139,13 @@ class _$AuthStateImpl implements _AuthState {
   @JsonKey()
   final String? token;
   @override
-  final AuthType? authType;
+  final UsernameType? usernameType;
   @override
   final Error? error;
 
   @override
   String toString() {
-    return 'AuthState(status: $status, token: $token, authType: $authType, error: $error)';
+    return 'AuthState(status: $status, token: $token, usernameType: $usernameType, error: $error)';
   }
 
   @override
@@ -153,13 +155,14 @@ class _$AuthStateImpl implements _AuthState {
             other is _$AuthStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.token, token) || other.token == token) &&
-            (identical(other.authType, authType) ||
-                other.authType == authType) &&
+            (identical(other.usernameType, usernameType) ||
+                other.usernameType == usernameType) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, token, authType, error);
+  int get hashCode =>
+      Object.hash(runtimeType, status, token, usernameType, error);
 
   @JsonKey(ignore: true)
   @override
@@ -172,7 +175,7 @@ abstract class _AuthState implements AuthState {
   const factory _AuthState(
       {final Status status,
       final String? token,
-      final AuthType? authType,
+      final UsernameType? usernameType,
       final Error? error}) = _$AuthStateImpl;
 
   @override
@@ -180,7 +183,7 @@ abstract class _AuthState implements AuthState {
   @override
   String? get token;
   @override
-  AuthType? get authType;
+  UsernameType? get usernameType;
   @override
   Error? get error;
   @override

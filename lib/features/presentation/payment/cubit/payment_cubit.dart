@@ -74,7 +74,7 @@ class PaymentCubit extends Cubit<PaymentState> {
         int.parse(confirmCodeController.text),
       );
       emit(state.copyWith(status: Status.success));
-      await getIt<NavigationService>().pop();
+      await getIt<NavigationService>().pop(true);
       await getIt<NavigationService>().showAlertDialog(
         content: Text(
           MyStrings.requestIsSentToModeration,

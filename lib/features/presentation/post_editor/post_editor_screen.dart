@@ -12,13 +12,16 @@ import 'package:sovchilar/config/enums/countries_enum.dart';
 import 'package:sovchilar/config/values/strings_constants.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
 import 'package:sovchilar/custom_widgets/buttons/gradient_button.dart';
+import 'package:sovchilar/custom_widgets/expanded_section.dart';
 import 'package:sovchilar/custom_widgets/keyboard_escape.dart';
 import 'package:sovchilar/custom_widgets/text_fields/desc_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/name_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/number_text_field.dart';
+import 'package:sovchilar/custom_widgets/text_fields/phone_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/picker_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/telegram_text_field.dart';
 import 'package:sovchilar/features/data/model/user/marital_status/marital_status_enum.dart';
+import 'package:sovchilar/features/presentation/auth/cubit/auth_cubit.dart';
 import 'package:sovchilar/features/presentation/post_editor/cubit/post_editor_cubit.dart';
 import 'package:sovchilar/utils/generic_bloc_state.dart';
 import 'widgets/gender_selector.dart';
@@ -48,6 +51,8 @@ class _PostEditorScreenState extends State<PostEditorScreen> {
       create: (context) => cubit,
       child: BlocBuilder<PostEditorCubit, PostEditorState>(
         builder: (context, state) {
+          final usernameType = state.usernameType;
+
           return KeyboardEscape(
             child: Scaffold(
               backgroundColor: Colors.white,
@@ -134,9 +139,31 @@ class _PostEditorScreenState extends State<PostEditorScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 24),
-                      TelegramTextField(
-                        controller: cubit.telegramController,
+                      PickerTextField(
+                        labelText: MyStrings.usernameType,
+                        onChanged: (type) {
+                          cubit.onUsernameTypeChanged(
+                            UsernameType.values.firstWhere(
+                              (element) => element.name == type,
+                            ),
+                          );
+                        },
+                        items: UsernameType.values.map((e) => e.name).toList(),
+                      ),
+                      ExpandedSection(
+                        expand: usernameType != null,
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 24),
+                            usernameType == UsernameType.telegram
+                                ? TelegramTextField(
+                                    controller: cubit.usernameController,
+                                  )
+                                : PhoneTextField(
+                                    controller: cubit.usernameController,
+                                  ),
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 24),
                       PickerTextField(

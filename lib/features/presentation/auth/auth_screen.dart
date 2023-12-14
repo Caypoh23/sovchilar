@@ -31,7 +31,7 @@ class AuthScreen extends StatelessWidget {
       create: (context) => cubit,
       child: BlocBuilder<AuthCubit, AuthState>(
         builder: (context, state) {
-          final authType = state.authType;
+          final usernameType = state.usernameType;
 
           return KeyboardEscape(
             child: Scaffold(
@@ -46,20 +46,20 @@ class AuthScreen extends StatelessWidget {
                       PickerTextField(
                         labelText: MyStrings.authType,
                         onChanged: (type) {
-                          cubit.onAuthTypeChanged(
-                            AuthType.values.firstWhere(
+                          cubit.onUsernameTypeChanged(
+                            UsernameType.values.firstWhere(
                               (element) => element.name == type,
                             ),
                           );
                         },
-                        items: AuthType.values.map((e) => e.name).toList(),
+                        items: UsernameType.values.map((e) => e.name).toList(),
                       ),
                       ExpandedSection(
-                        expand: authType != null,
+                        expand: usernameType != null,
                         child: Column(
                           children: [
                             const SizedBox(height: 24),
-                            state.authType == AuthType.telegram
+                            usernameType == UsernameType.telegram
                                 ? TelegramTextField(
                                     controller: cubit.usernameController,
                                   )

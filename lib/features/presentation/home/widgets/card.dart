@@ -63,17 +63,24 @@ class HomeCard extends StatelessWidget {
             ],
             HomeItem(
               title: MyStrings.telegram,
-              description: model.telegram ?? '',
+              description:
+                  model.telegram?.startsWith(RegExp(r'^\+|[0-9]')) ?? false
+                      ? 't.me/${model.telegram}'
+                      : '${model.telegram}',
               onTap: () => MyUrlLauncher.telegram('${model.telegram}'),
             ),
+            const SizedBox(height: 10),
           ],
         ),
         Positioned(
           bottom: 0,
           right: 0,
           left: 0,
-          child: SvgPicture.asset(
-            MyIcons.telegram,
+          child: GestureDetector(
+            onTap: () => MyUrlLauncher.telegram('${model.telegram}'),
+            child: SvgPicture.asset(
+              MyIcons.telegram,
+            ),
           ),
         )
       ],

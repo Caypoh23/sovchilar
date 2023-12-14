@@ -23,13 +23,13 @@ import 'package:sovchilar/utils/string_helper.dart';
 part 'auth_state.dart';
 part 'auth_cubit.freezed.dart';
 
-enum AuthType {
+enum UsernameType {
   telegram,
   phoneNumber;
 
   String get name {
     switch (this) {
-      case AuthType.phoneNumber:
+      case UsernameType.phoneNumber:
         return MyStrings.phoneNumber;
       default:
         return MyStrings.telegram;
@@ -52,13 +52,14 @@ class AuthCubit extends Cubit<AuthState> {
   //
   bool get isFormValid => formKey.currentState!.validate();
 
-  void onAuthTypeChanged(AuthType type) => emit(state.copyWith(authType: type));
+  void onUsernameTypeChanged(UsernameType type) =>
+      emit(state.copyWith(usernameType: type));
 
   //
   FutureOr<void> login() async {
     emit(state.copyWith(status: Status.loading));
     try {
-      final username = state.authType == AuthType.telegram
+      final username = state.usernameType == UsernameType.telegram
           ? usernameController.text
           : MyStringHelper.removeNonNumbers(
               usernameController.text,

@@ -19,6 +19,7 @@ import 'package:sovchilar/features/data/model/user/gender/gender_enum.dart';
 import 'package:sovchilar/features/data/model/user/marital_status/marital_status_enum.dart';
 import 'package:sovchilar/features/domain/repositories/ad_repository.dart';
 import 'package:sovchilar/features/domain/repositories/payment_repostiory.dart';
+import 'package:sovchilar/features/presentation/auth/cubit/auth_cubit.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_bloc.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_event.dart';
 import 'package:sovchilar/features/presentation/payment/payment_confirm_dialog.dart';
@@ -42,7 +43,7 @@ class PostEditorCubit extends Cubit<PostEditorState> {
   final nationalityController = TextEditingController();
   final fromController = TextEditingController();
   final toController = TextEditingController();
-  final telegramController = TextEditingController();
+  final usernameController = TextEditingController();
   final additionalInfoController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
@@ -69,6 +70,9 @@ class PostEditorCubit extends Cubit<PostEditorState> {
       emit(state.copyWith(country: country));
 
   void onCityChanged(CitiesEnum? city) => emit(state.copyWith(city: city));
+
+  void onUsernameTypeChanged(UsernameType type) =>
+      emit(state.copyWith(usernameType: type));
 
   //
   bool get isFormValid => formKey.currentState!.validate();
@@ -101,6 +105,12 @@ class PostEditorCubit extends Cubit<PostEditorState> {
   FutureOr<void> _onSubmitAd() async {
     emit(state.copyWith(status: Status.loading));
     try {
+      final username = state.usernameType == UsernameType.telegram
+          ? usernameController.text
+          : MyStringHelper.removeNonNumbers(
+              usernameController.text,
+            );
+
       final model = AdRequestModel(
         name: nameController.text,
         age: int.parse(ageController.text),
@@ -109,7 +119,7 @@ class PostEditorCubit extends Cubit<PostEditorState> {
         children: state.hasChildren,
         fromAge: int.parse(fromController.text),
         tillAge: int.parse(toController.text),
-        telegram: telegramController.text,
+        telegram: username,
         city: state.city!.name,
         country: state.country!.name,
         moreInfo: additionalInfoController.text,

@@ -5,6 +5,7 @@ class PostEditorState with _$PostEditorState {
   const factory PostEditorState({
     @Default(Status.initial) Status status,
     @Default(Gender.female) Gender gender,
+    UsernameType? usernameType,
     MaritalStatus? maritalStatus,
     bool? hasChildren,
     CountriesEnum? country,

@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PostEditorState {
   Status get status => throw _privateConstructorUsedError;
   Gender get gender => throw _privateConstructorUsedError;
+  UsernameType? get usernameType => throw _privateConstructorUsedError;
   MaritalStatus? get maritalStatus => throw _privateConstructorUsedError;
   bool? get hasChildren => throw _privateConstructorUsedError;
   CountriesEnum? get country => throw _privateConstructorUsedError;
@@ -38,6 +39,7 @@ abstract class $PostEditorStateCopyWith<$Res> {
   $Res call(
       {Status status,
       Gender gender,
+      UsernameType? usernameType,
       MaritalStatus? maritalStatus,
       bool? hasChildren,
       CountriesEnum? country,
@@ -60,6 +62,7 @@ class _$PostEditorStateCopyWithImpl<$Res, $Val extends PostEditorState>
   $Res call({
     Object? status = null,
     Object? gender = null,
+    Object? usernameType = freezed,
     Object? maritalStatus = freezed,
     Object? hasChildren = freezed,
     Object? country = freezed,
@@ -75,6 +78,10 @@ class _$PostEditorStateCopyWithImpl<$Res, $Val extends PostEditorState>
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as Gender,
+      usernameType: freezed == usernameType
+          ? _value.usernameType
+          : usernameType // ignore: cast_nullable_to_non_nullable
+              as UsernameType?,
       maritalStatus: freezed == maritalStatus
           ? _value.maritalStatus
           : maritalStatus // ignore: cast_nullable_to_non_nullable
@@ -110,6 +117,7 @@ abstract class _$$PostEditorStateImplCopyWith<$Res>
   $Res call(
       {Status status,
       Gender gender,
+      UsernameType? usernameType,
       MaritalStatus? maritalStatus,
       bool? hasChildren,
       CountriesEnum? country,
@@ -130,6 +138,7 @@ class __$$PostEditorStateImplCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? gender = null,
+    Object? usernameType = freezed,
     Object? maritalStatus = freezed,
     Object? hasChildren = freezed,
     Object? country = freezed,
@@ -145,6 +154,10 @@ class __$$PostEditorStateImplCopyWithImpl<$Res>
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as Gender,
+      usernameType: freezed == usernameType
+          ? _value.usernameType
+          : usernameType // ignore: cast_nullable_to_non_nullable
+              as UsernameType?,
       maritalStatus: freezed == maritalStatus
           ? _value.maritalStatus
           : maritalStatus // ignore: cast_nullable_to_non_nullable
@@ -175,6 +188,7 @@ class _$PostEditorStateImpl implements _PostEditorState {
   const _$PostEditorStateImpl(
       {this.status = Status.initial,
       this.gender = Gender.female,
+      this.usernameType,
       this.maritalStatus,
       this.hasChildren,
       this.country,
@@ -188,6 +202,8 @@ class _$PostEditorStateImpl implements _PostEditorState {
   @JsonKey()
   final Gender gender;
   @override
+  final UsernameType? usernameType;
+  @override
   final MaritalStatus? maritalStatus;
   @override
   final bool? hasChildren;
@@ -200,7 +216,7 @@ class _$PostEditorStateImpl implements _PostEditorState {
 
   @override
   String toString() {
-    return 'PostEditorState(status: $status, gender: $gender, maritalStatus: $maritalStatus, hasChildren: $hasChildren, country: $country, city: $city, error: $error)';
+    return 'PostEditorState(status: $status, gender: $gender, usernameType: $usernameType, maritalStatus: $maritalStatus, hasChildren: $hasChildren, country: $country, city: $city, error: $error)';
   }
 
   @override
@@ -210,6 +226,8 @@ class _$PostEditorStateImpl implements _PostEditorState {
             other is _$PostEditorStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.usernameType, usernameType) ||
+                other.usernameType == usernameType) &&
             (identical(other.maritalStatus, maritalStatus) ||
                 other.maritalStatus == maritalStatus) &&
             (identical(other.hasChildren, hasChildren) ||
@@ -220,8 +238,8 @@ class _$PostEditorStateImpl implements _PostEditorState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, gender, maritalStatus,
-      hasChildren, country, city, error);
+  int get hashCode => Object.hash(runtimeType, status, gender, usernameType,
+      maritalStatus, hasChildren, country, city, error);
 
   @JsonKey(ignore: true)
   @override
@@ -235,6 +253,7 @@ abstract class _PostEditorState implements PostEditorState {
   const factory _PostEditorState(
       {final Status status,
       final Gender gender,
+      final UsernameType? usernameType,
       final MaritalStatus? maritalStatus,
       final bool? hasChildren,
       final CountriesEnum? country,
@@ -245,6 +264,8 @@ abstract class _PostEditorState implements PostEditorState {
   Status get status;
   @override
   Gender get gender;
+  @override
+  UsernameType? get usernameType;
   @override
   MaritalStatus? get maritalStatus;
   @override
