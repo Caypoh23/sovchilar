@@ -8,14 +8,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:sovchilar/config/router/app_router.gr.dart';
 
 // Project imports:
 import 'package:sovchilar/config/router/navigation_service.dart';
+import 'package:sovchilar/config/values/strings_constants.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
 import 'package:sovchilar/features/data/model/credit_card/request/credit_card_request_model.dart';
 import 'package:sovchilar/features/data/model/payment/reponse/payment_response_model.dart';
 import 'package:sovchilar/features/domain/repositories/payment_repostiory.dart';
-import 'package:sovchilar/features/presentation/payment/payment_confirm_dialog.dart';
 import 'package:sovchilar/utils/generic_bloc_state.dart';
 import 'package:sovchilar/utils/string_helper.dart';
 
@@ -56,11 +57,8 @@ class PaymentCubit extends Cubit<PaymentState> {
 
       final data = await repository.addPayment(model);
       emit(state.copyWith(payment: data, status: Status.success));
-      getIt<NavigationService>().showDialog(
-        dialog: PaymentConfirmDialog(
-          cardNumber: data.otpSentPhone ?? '',
-        ),
-      );
+
+      getIt<NavigationService>().pop(true);
     } catch (e) {
       emit(state.copyWith(status: Status.initial));
     }
@@ -77,10 +75,18 @@ class PaymentCubit extends Cubit<PaymentState> {
       );
       emit(state.copyWith(status: Status.success));
       await getIt<NavigationService>().pop();
-
-      getIt<NavigationService>().showAlertDialog(onOkPressed: () {
-        getIt<NavigationService>().pop(true);
-      });
+      await getIt<NavigationService>().showAlertDialog(
+        content: Text(
+          MyStrings.requestIsSentToModeration,
+          style: const TextStyle(
+            fontSize: 14,
+          ),
+        ),
+        onOkPressed: () async {
+          await getIt<NavigationService>().pop();
+          getIt<NavigationService>().pushAndRemoveUntil(const ProfileRoute());
+        },
+      );
     } catch (e) {
       emit(state.copyWith(status: Status.initial));
     }

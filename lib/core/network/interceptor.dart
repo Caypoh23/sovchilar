@@ -17,7 +17,8 @@ class CustomInterceptor extends Interceptor {
           .showErrorToast('common.low_internet_connection'.tr());
       return handler.next(err);
     } else {
-      final text = err.response?.data?['message'];
+      final text = err.response?.data?['message'] ??
+          err.response?.data?['error']['errorMessage'];
       getIt<NavigationService>().showErrorToast(text.toString());
     }
 

@@ -12,7 +12,6 @@ import 'package:injectable/injectable.dart';
 // Project imports:
 import 'package:sovchilar/config/enums/cities_enum.dart';
 import 'package:sovchilar/config/enums/countries_enum.dart';
-import 'package:sovchilar/config/router/app_router.gr.dart';
 import 'package:sovchilar/config/router/navigation_service.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
 import 'package:sovchilar/features/data/model/ad/request/ad_request_model.dart';
@@ -22,6 +21,7 @@ import 'package:sovchilar/features/domain/repositories/ad_repository.dart';
 import 'package:sovchilar/features/domain/repositories/payment_repostiory.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_bloc.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_event.dart';
+import 'package:sovchilar/features/presentation/payment/payment_confirm_dialog.dart';
 import 'package:sovchilar/features/presentation/payment/payment_dialog.dart';
 import 'package:sovchilar/utils/generic_bloc_state.dart';
 import 'package:sovchilar/utils/string_helper.dart';
@@ -80,9 +80,19 @@ class PostEditorCubit extends Cubit<PostEditorState> {
 
     emit(state.copyWith(status: Status.loading));
     try {
-      await getIt<NavigationService>().showDialog(
-        dialog: PaymentDialog(),
+      final navigation = getIt<NavigationService>();
+      final paymentResult = await navigation.showDialog(
+        dialog: const PaymentDialog(),
       );
+      if (paymentResult == true) {
+        final confirmResult = await navigation.showDialog(
+          dialog: const PaymentConfirmDialog(),
+        );
+
+        if (confirmResult == true) {
+          await _onSubmitAd();
+        }
+      }
     } catch (e) {
       emit(state.copyWith(status: Status.initial));
     }
@@ -110,7 +120,6 @@ class PostEditorCubit extends Cubit<PostEditorState> {
       await adRepository.postAd(model);
       emit(state.copyWith(status: Status.success));
       homeBloc.add(OnFetchAds());
-      getIt<NavigationService>().push(const ProfileRoute());
     } catch (e) {
       emit(state.copyWith(status: Status.initial));
     }

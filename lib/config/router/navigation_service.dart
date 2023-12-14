@@ -11,6 +11,7 @@ import 'package:injectable/injectable.dart';
 // Project imports:
 import 'package:sovchilar/app.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
+import 'package:sovchilar/custom_widgets/buttons/default_ink_well.dart';
 import 'app_router.dart';
 
 @singleton
@@ -36,6 +37,16 @@ class NavigationService {
 
   Future<dynamic> push<T>(PageRouteInfo route) {
     return router.push<T>(route);
+  }
+
+  Future<dynamic> pushAndRemoveUntil<T>(
+    PageRouteInfo route, {
+    String untilRouteName = '/',
+  }) async {
+    return await router.pushAndPopUntil<T>(
+      route,
+      predicate: (route) => route.settings.name == untilRouteName,
+    );
   }
 
   Future<dynamic> replaceNamed<T>(String routeName) {
@@ -114,9 +125,16 @@ class NavigationService {
         return AlertDialog(
           title: title,
           content: content,
+          backgroundColor: Colors.white,
           actions: [
-            TextButton(
-              onPressed: onOkPressed,
+            MyInkWell(
+              onTap: onOkPressed,
+              margin: const EdgeInsets.all(8),
+              padding: const EdgeInsets.symmetric(
+                vertical: 12,
+                horizontal: 16,
+              ),
+              borderRadius: BorderRadius.circular(8),
               child: Text(
                 'OK',
                 style: TextStyle(

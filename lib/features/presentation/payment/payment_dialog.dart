@@ -16,12 +16,12 @@ import 'cubit/payment_cubit.dart';
 
 class PaymentDialog extends StatelessWidget {
   //
-  final cubit = getIt<PaymentCubit>();
-
-  PaymentDialog({super.key});
+  const PaymentDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<PaymentCubit>();
+
     return BlocBuilder<PaymentCubit, PaymentState>(
       builder: (context, state) {
         return KeyboardEscape(

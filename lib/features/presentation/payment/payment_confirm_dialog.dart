@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
 import 'package:sovchilar/config/values/strings_constants.dart';
-import 'package:sovchilar/core/di/service_locator.dart';
 import 'package:sovchilar/custom_widgets/buttons/gradient_button.dart';
 import 'package:sovchilar/custom_widgets/keyboard_escape.dart';
 import 'package:sovchilar/custom_widgets/text_fields/code_text_field.dart';
@@ -14,14 +13,13 @@ import 'cubit/payment_cubit.dart';
 
 class PaymentConfirmDialog extends StatelessWidget {
   //
-  final String cardNumber;
 
-  final cubit = getIt<PaymentCubit>();
-
-  PaymentConfirmDialog({super.key, required this.cardNumber});
+  const PaymentConfirmDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<PaymentCubit>();
+
     return BlocBuilder<PaymentCubit, PaymentState>(
       builder: (context, state) {
         return KeyboardEscape(
@@ -39,14 +37,14 @@ class PaymentConfirmDialog extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '${MyStrings.confirmCodeDesc} $cardNumber',
+                    '${MyStrings.confirmCodeDesc} ${state.payment?.otpSentPhone ?? ''}',
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const SizedBox(height: 24),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 24),
                     child: CodeTextField(
-                      controller: cubit.cardNumberController,
+                      controller: cubit.confirmCodeController,
                     ),
                   ),
                   const SizedBox(height: 24),

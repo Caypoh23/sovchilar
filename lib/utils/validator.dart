@@ -83,9 +83,9 @@ class PasswordFormValidator {
 class PhoneNumberValidate {
   static String? validateMobile(String? value) {
     if (value?.isEmpty ?? true) {
-      return 'strPhoneEmEmpty'.tr();
+      return MyStrings.requiredField;
     } else if (!isPhoneValid(value ?? '')) {
-      return 'strPhoneNumberInvalid'.tr();
+      return MyStrings.invalidFormat;
     }
     return null;
   }

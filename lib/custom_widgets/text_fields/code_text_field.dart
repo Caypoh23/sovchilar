@@ -36,7 +36,7 @@ class CodeTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyTextField(
-      maxLength: 5,
+      maxLength: 6,
       enabled: enabled,
       maxLines: maxLines,
       autoFocus: autofocus,
