@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:sovchilar/config/router/app_router.gr.dart';
 
 // Project imports:
+import 'package:sovchilar/config/router/app_router.gr.dart';
 import 'package:sovchilar/config/router/navigation_service.dart';
 import 'package:sovchilar/config/values/strings_constants.dart';
 import 'package:sovchilar/core/di/service_locator.dart';

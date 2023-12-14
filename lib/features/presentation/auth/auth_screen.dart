@@ -9,8 +9,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sovchilar/config/values/strings_constants.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
 import 'package:sovchilar/custom_widgets/buttons/gradient_button.dart';
+import 'package:sovchilar/custom_widgets/expanded_section.dart';
 import 'package:sovchilar/custom_widgets/keyboard_escape.dart';
 import 'package:sovchilar/custom_widgets/text_fields/password_text_field.dart';
+import 'package:sovchilar/custom_widgets/text_fields/phone_text_field.dart';
+import 'package:sovchilar/custom_widgets/text_fields/picker_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/telegram_text_field.dart';
 import 'package:sovchilar/features/presentation/auth/cubit/auth_cubit.dart';
 import 'package:sovchilar/utils/generic_bloc_state.dart';
@@ -28,6 +31,8 @@ class AuthScreen extends StatelessWidget {
       create: (context) => cubit,
       child: BlocBuilder<AuthCubit, AuthState>(
         builder: (context, state) {
+          final authType = state.authType;
+
           return KeyboardEscape(
             child: Scaffold(
               body: SafeArea(
@@ -38,8 +43,31 @@ class AuthScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TelegramTextField(
-                        controller: cubit.telegramController,
+                      PickerTextField(
+                        labelText: MyStrings.authType,
+                        onChanged: (type) {
+                          cubit.onAuthTypeChanged(
+                            AuthType.values.firstWhere(
+                              (element) => element.name == type,
+                            ),
+                          );
+                        },
+                        items: AuthType.values.map((e) => e.name).toList(),
+                      ),
+                      ExpandedSection(
+                        expand: authType != null,
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 24),
+                            state.authType == AuthType.telegram
+                                ? TelegramTextField(
+                                    controller: cubit.usernameController,
+                                  )
+                                : PhoneTextField(
+                                    controller: cubit.usernameController,
+                                  ),
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 24),
                       PasswordTextField(

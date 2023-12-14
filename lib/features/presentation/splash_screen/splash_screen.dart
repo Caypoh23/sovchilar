@@ -9,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_bloc.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_event.dart';
-import 'package:sovchilar/features/presentation/payment/cubit/payment_cubit.dart';
 import 'splash_screen_bloc.dart';
 
 @RoutePage()
@@ -31,7 +30,6 @@ class _SplashScreenState extends State<SplashScreen> {
     bloc.checkStatus();
 
     context.read<HomeBloc>().add(OnFetchAds());
-    context.read<PaymentCubit>().onFetchPrice();
   }
 
   @override
@@ -42,15 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: Text(
-          'Splash Screen',
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.black,
-          ),
-        ),
-      ),
+      body: Center(),
     );
   }
 }

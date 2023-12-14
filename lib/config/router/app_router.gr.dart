@@ -8,16 +8,11 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-
-// Package imports:
 import 'package:auto_route/auto_route.dart' as _i7;
-
-// Project imports:
 import 'package:sovchilar/features/presentation/auth/auth_screen.dart' as _i1;
-import 'package:sovchilar/features/presentation/main/main_screen.dart' as _i3;
-
 import 'package:sovchilar/features/presentation/language/language_screen.dart'
     as _i2;
+import 'package:sovchilar/features/presentation/main/main_screen.dart' as _i3;
 import 'package:sovchilar/features/presentation/post_editor/post_editor_screen.dart'
     as _i4;
 import 'package:sovchilar/features/presentation/profile/profile_screen.dart'

@@ -37,6 +37,7 @@ abstract class MyStrings {
 
   static String get password => 'password'.tr();
   static String get loginOrSignUp => 'loginOrSignUp'.tr();
+  static String get authType => 'authType'.tr();
   static String get postAd => 'postAd'.tr();
 
   static String get yourSex => 'yourSex'.tr();

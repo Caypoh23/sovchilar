@@ -1,3 +1,6 @@
+// Flutter imports:
+import 'package:flutter/services.dart';
+
 // Package imports:
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:intl/intl.dart';
@@ -44,6 +47,34 @@ abstract class MyStringHelper {
 
     final mask = formatAsPhoneNumber(text)!;
     return mask;
+  }
+
+  static TextInputFormatter telegramFormatter() {
+    return TextInputFormatter.withFunction(
+      (oldValue, newValue) {
+        if (newValue.text.isNotEmpty && newValue.text[0] != '@') {
+          return TextEditingValue(
+            text: '@${newValue.text}',
+          );
+        }
+        return newValue;
+      },
+    );
+  }
+
+  static String telegramMask(String? data) {
+    if (data == null) return '';
+    final mask = clearTelegramUsername(data);
+
+    return '@$mask';
+  }
+
+  static String clearTelegramUsername(String data) {
+    return data
+        .replaceAll('https://t.me/', '')
+        .replaceAll('t.me/', '')
+        .replaceAll('@', '')
+        .trim();
   }
 
   static formatNumber(data) {

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
-import 'package:sovchilar/config/values/strings_constants.dart';
 
 // Project imports:
+import 'package:sovchilar/config/values/strings_constants.dart';
 import 'package:sovchilar/utils/string_helper.dart';
 import 'package:sovchilar/utils/validator.dart';
 import 'default_text_field.dart';
@@ -31,7 +31,7 @@ class PhoneTextField extends StatelessWidget {
     //
     this.enabled = true,
     this.autoFocus = false,
-    this.isRequired = false,
+    this.isRequired = true,
   });
 
   @override
@@ -40,9 +40,11 @@ class PhoneTextField extends StatelessWidget {
 
     return MyTextField(
       key: key,
+      canClear: true,
       enabled: enabled,
       autoFocus: autoFocus,
       controller: controller,
+      isRequired: isRequired,
       inputFormatters: [mask],
       keyboardType: TextInputType.phone,
       labelText: labelText ?? MyStrings.phoneNumber,

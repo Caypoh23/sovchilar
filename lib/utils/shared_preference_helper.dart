@@ -14,7 +14,7 @@ class MySPHelper {
 
   //
 
-  static String get lang => _prefs.getString(MySPKeys.lang) ?? 'uz';
+  static String get lang => _prefs.getString(MySPKeys.lang) ?? 'ru';
   static set lang(String value) => _setData(MySPKeys.lang, value);
 
   //

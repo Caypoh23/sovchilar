@@ -174,7 +174,7 @@ class __$$PostEditorStateImplCopyWithImpl<$Res>
 class _$PostEditorStateImpl implements _PostEditorState {
   const _$PostEditorStateImpl(
       {this.status = Status.initial,
-      this.gender = Gender.male,
+      this.gender = Gender.female,
       this.maritalStatus,
       this.hasChildren,
       this.country,

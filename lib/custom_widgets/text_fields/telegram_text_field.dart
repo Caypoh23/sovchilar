@@ -1,9 +1,9 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 // Project imports:
 import 'package:sovchilar/config/values/strings_constants.dart';
+import 'package:sovchilar/utils/string_helper.dart';
 import 'default_text_field.dart';
 
 class TelegramTextField extends StatelessWidget {
@@ -48,18 +48,7 @@ class TelegramTextField extends StatelessWidget {
       keyboardType: TextInputType.text,
       textCapitalization: TextCapitalization.words,
       labelText: labelText ?? MyStrings.yourTelegram,
-      inputFormatters: [
-        TextInputFormatter.withFunction(
-          (oldValue, newValue) {
-            if (newValue.text.isNotEmpty && newValue.text[0] != '@') {
-              return TextEditingValue(
-                text: '@${newValue.text}',
-              );
-            }
-            return newValue;
-          },
-        ),
-      ],
+      inputFormatters: [MyStringHelper.telegramFormatter()],
     );
   }
 }
