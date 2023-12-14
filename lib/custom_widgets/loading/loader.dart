@@ -23,7 +23,6 @@ class LoaderWidget extends StatelessWidget {
             )
           : CircularProgressIndicator(
               color: color,
-              strokeWidth: 3,
             ),
     );
   }

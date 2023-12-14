@@ -54,7 +54,6 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       isRequired: widget.isRequired,
       initialValue: widget.initialValue,
       keyboardType: TextInputType.visiblePassword,
-      textCapitalization: TextCapitalization.words,
       labelText: widget.labelText ?? MyStrings.password,
       validator: PasswordFormValidator.validateStrongPassword,
       suffixIcon: IconButton(

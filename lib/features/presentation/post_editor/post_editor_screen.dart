@@ -55,11 +55,11 @@ class _PostEditorScreenState extends State<PostEditorScreen> {
                 child: Form(
                   key: cubit.formKey,
                   child: ListView(
-                    cacheExtent: 1000,
                     padding: const EdgeInsets.symmetric(
                       vertical: 24,
                       horizontal: 16,
                     ),
+                    physics: const BouncingScrollPhysics(),
                     children: [
                       Text(
                         MyStrings.fillFieldsBelow,

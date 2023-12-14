@@ -31,6 +31,7 @@ class HomeMenPage extends StatelessWidget {
             ).copyWith(
               bottom: 20,
             ),
+            physics: const ClampingScrollPhysics(),
             itemBuilder: (_, int index) {
               final model = list[index];
 

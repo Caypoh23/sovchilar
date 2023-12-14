@@ -4,15 +4,13 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-class MyRefresher extends StatelessWidget {
+class MyRefresher extends StatefulWidget {
   //
   final Widget child;
   final void Function()? onRefresh;
   final ScrollController? scrollController;
 
-  final controller = RefreshController();
-
-  MyRefresher({
+  const MyRefresher({
     super.key,
     required this.child,
     required this.onRefresh,
@@ -21,20 +19,40 @@ class MyRefresher extends StatelessWidget {
   });
 
   @override
+  State<MyRefresher> createState() => _MyRefresherState();
+}
+
+class _MyRefresherState extends State<MyRefresher> {
+  //
+
+  late final RefreshController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = RefreshController();
+  }
+
+  void updateState() => {if (mounted) setState(() {})};
+
+  @override
   Widget build(BuildContext context) {
-    if (onRefresh == null) return child;
+    if (widget.onRefresh == null) return widget.child;
 
     return SmartRefresher(
       enablePullDown: true,
       enableTwoLevel: true,
       onRefresh: () {
-        onRefresh?.call();
+        widget.onRefresh?.call();
         controller.refreshCompleted();
       },
       controller: controller,
-      scrollController: scrollController,
-      header: const MaterialClassicHeader(),
-      child: child,
+      scrollController: widget.scrollController,
+      header: const WaterDropMaterialHeader(
+        backgroundColor: Colors.white,
+        color: Colors.black,
+      ),
+      child: widget.child,
     );
   }
 }
