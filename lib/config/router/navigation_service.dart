@@ -165,6 +165,9 @@ class NavigationService {
       borderRadius: BorderRadius.circular(15),
       barBlur: 7.0,
       title: 'Error',
+      margin: const EdgeInsets.symmetric(
+        horizontal: 16,
+      ),
       messageText: Text(
         text,
         style: const TextStyle(

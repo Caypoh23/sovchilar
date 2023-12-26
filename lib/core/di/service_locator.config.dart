@@ -8,9 +8,12 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
+// Package imports:
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
+// Project imports:
 import '../../config/router/app_router.dart' as _i5;
 import '../../config/router/navigation_service.dart' as _i12;
 import '../../features/data/datasource/local/ad_local_db.dart' as _i3;
@@ -29,11 +32,12 @@ import '../../features/presentation/language/cubit/language_cubit.dart' as _i10;
 import '../../features/presentation/main/bloc/main_bloc.dart' as _i11;
 import '../../features/presentation/my_ads/bloc/my_ads_bloc.dart' as _i20;
 import '../../features/presentation/payment/cubit/payment_cubit.dart' as _i23;
+import '../network/api_service.dart' as _i4;
+
 import '../../features/presentation/post_editor/cubit/post_editor_cubit.dart'
     as _i22;
 import '../../features/presentation/splash_screen/splash_screen_bloc.dart'
     as _i15;
-import '../network/api_service.dart' as _i4;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt

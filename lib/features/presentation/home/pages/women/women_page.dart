@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stack_appodeal_flutter/stack_appodeal_flutter.dart';
 
 // Project imports:
 import 'package:sovchilar/custom_widgets/refresher.dart';
@@ -10,7 +11,6 @@ import 'package:sovchilar/features/data/model/user/gender/gender_enum.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_bloc.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_event.dart';
 import 'package:sovchilar/features/presentation/home/widgets/card.dart';
-import 'package:stack_appodeal_flutter/stack_appodeal_flutter.dart';
 
 class HomeWomenPage extends StatelessWidget {
   //
@@ -32,7 +32,6 @@ class HomeWomenPage extends StatelessWidget {
               AppodealBanner(
                 key: UniqueKey(),
                 adSize: AppodealBannerSize.BANNER,
-                placement: 'female_banner',
               ),
               ListView.builder(
                 shrinkWrap: true,

@@ -10,8 +10,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 // Project imports:
+import 'package:sovchilar/config/router/app_router.gr.dart';
 import 'package:sovchilar/config/router/navigation_service.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
+import 'package:sovchilar/core/network/custom_exception.dart';
 import 'package:sovchilar/features/data/model/credit_card/request/credit_card_request_model.dart';
 import 'package:sovchilar/features/data/model/payment/reponse/payment_response_model.dart';
 import 'package:sovchilar/features/domain/repositories/payment_repostiory.dart';
@@ -86,6 +88,9 @@ class PaymentCubit extends Cubit<PaymentState> {
       repository.setPrice(price);
       emit(state.copyWith(status: Status.success));
     } catch (e) {
+      if (e is TokenExpiredException) {
+        getIt<NavigationService>().push(const AuthRoute());
+      }
       emit(state.copyWith(status: Status.initial));
     }
   }

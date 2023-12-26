@@ -1,6 +1,10 @@
+// Dart imports:
 import 'dart:io';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:stack_appodeal_flutter/stack_appodeal_flutter.dart';
 
@@ -8,6 +12,7 @@ class AppodealHelper {
   //
   static void init() {
     Appodeal.setLogLevel(Appodeal.LogLevelDebug);
+    Appodeal.setTesting(true);
 
     Appodeal.initialize(
       appKey: Platform.isIOS
