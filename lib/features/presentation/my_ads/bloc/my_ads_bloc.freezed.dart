@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'home_bloc.dart';
+part of 'my_ads_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,28 +15,29 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$HomeState {
+mixin _$MyAdsState {
   Status get status => throw _privateConstructorUsedError;
-  List<AdResponseModel> get adList => throw _privateConstructorUsedError;
+  List<AdResponseModel> get myAdList => throw _privateConstructorUsedError;
   Error? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $HomeStateCopyWith<HomeState> get copyWith =>
+  $MyAdsStateCopyWith<MyAdsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HomeStateCopyWith<$Res> {
-  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
-      _$HomeStateCopyWithImpl<$Res, HomeState>;
+abstract class $MyAdsStateCopyWith<$Res> {
+  factory $MyAdsStateCopyWith(
+          MyAdsState value, $Res Function(MyAdsState) then) =
+      _$MyAdsStateCopyWithImpl<$Res, MyAdsState>;
   @useResult
-  $Res call({Status status, List<AdResponseModel> adList, Error? error});
+  $Res call({Status status, List<AdResponseModel> myAdList, Error? error});
 }
 
 /// @nodoc
-class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
-    implements $HomeStateCopyWith<$Res> {
-  _$HomeStateCopyWithImpl(this._value, this._then);
+class _$MyAdsStateCopyWithImpl<$Res, $Val extends MyAdsState>
+    implements $MyAdsStateCopyWith<$Res> {
+  _$MyAdsStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -47,7 +48,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @override
   $Res call({
     Object? status = null,
-    Object? adList = null,
+    Object? myAdList = null,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
@@ -55,9 +56,9 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
-      adList: null == adList
-          ? _value.adList
-          : adList // ignore: cast_nullable_to_non_nullable
+      myAdList: null == myAdList
+          ? _value.myAdList
+          : myAdList // ignore: cast_nullable_to_non_nullable
               as List<AdResponseModel>,
       error: freezed == error
           ? _value.error
@@ -68,39 +69,39 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
 }
 
 /// @nodoc
-abstract class _$$HomeStateImplCopyWith<$Res>
-    implements $HomeStateCopyWith<$Res> {
-  factory _$$HomeStateImplCopyWith(
-          _$HomeStateImpl value, $Res Function(_$HomeStateImpl) then) =
-      __$$HomeStateImplCopyWithImpl<$Res>;
+abstract class _$$MyAdsStateImplCopyWith<$Res>
+    implements $MyAdsStateCopyWith<$Res> {
+  factory _$$MyAdsStateImplCopyWith(
+          _$MyAdsStateImpl value, $Res Function(_$MyAdsStateImpl) then) =
+      __$$MyAdsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status status, List<AdResponseModel> adList, Error? error});
+  $Res call({Status status, List<AdResponseModel> myAdList, Error? error});
 }
 
 /// @nodoc
-class __$$HomeStateImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$HomeStateImpl>
-    implements _$$HomeStateImplCopyWith<$Res> {
-  __$$HomeStateImplCopyWithImpl(
-      _$HomeStateImpl _value, $Res Function(_$HomeStateImpl) _then)
+class __$$MyAdsStateImplCopyWithImpl<$Res>
+    extends _$MyAdsStateCopyWithImpl<$Res, _$MyAdsStateImpl>
+    implements _$$MyAdsStateImplCopyWith<$Res> {
+  __$$MyAdsStateImplCopyWithImpl(
+      _$MyAdsStateImpl _value, $Res Function(_$MyAdsStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? status = null,
-    Object? adList = null,
+    Object? myAdList = null,
     Object? error = freezed,
   }) {
-    return _then(_$HomeStateImpl(
+    return _then(_$MyAdsStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
-      adList: null == adList
-          ? _value._adList
-          : adList // ignore: cast_nullable_to_non_nullable
+      myAdList: null == myAdList
+          ? _value._myAdList
+          : myAdList // ignore: cast_nullable_to_non_nullable
               as List<AdResponseModel>,
       error: freezed == error
           ? _value.error
@@ -112,23 +113,23 @@ class __$$HomeStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$HomeStateImpl implements _HomeState {
-  const _$HomeStateImpl(
+class _$MyAdsStateImpl implements _MyAdsState {
+  const _$MyAdsStateImpl(
       {this.status = Status.initial,
-      final List<AdResponseModel> adList = const [],
+      final List<AdResponseModel> myAdList = const [],
       this.error})
-      : _adList = adList;
+      : _myAdList = myAdList;
 
   @override
   @JsonKey()
   final Status status;
-  final List<AdResponseModel> _adList;
+  final List<AdResponseModel> _myAdList;
   @override
   @JsonKey()
-  List<AdResponseModel> get adList {
-    if (_adList is EqualUnmodifiableListView) return _adList;
+  List<AdResponseModel> get myAdList {
+    if (_myAdList is EqualUnmodifiableListView) return _myAdList;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_adList);
+    return EqualUnmodifiableListView(_myAdList);
   }
 
   @override
@@ -136,44 +137,44 @@ class _$HomeStateImpl implements _HomeState {
 
   @override
   String toString() {
-    return 'HomeState(status: $status, adList: $adList, error: $error)';
+    return 'MyAdsState(status: $status, myAdList: $myAdList, error: $error)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HomeStateImpl &&
+            other is _$MyAdsStateImpl &&
             (identical(other.status, status) || other.status == status) &&
-            const DeepCollectionEquality().equals(other._adList, _adList) &&
+            const DeepCollectionEquality().equals(other._myAdList, _myAdList) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, status, const DeepCollectionEquality().hash(_adList), error);
+  int get hashCode => Object.hash(runtimeType, status,
+      const DeepCollectionEquality().hash(_myAdList), error);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
-      __$$HomeStateImplCopyWithImpl<_$HomeStateImpl>(this, _$identity);
+  _$$MyAdsStateImplCopyWith<_$MyAdsStateImpl> get copyWith =>
+      __$$MyAdsStateImplCopyWithImpl<_$MyAdsStateImpl>(this, _$identity);
 }
 
-abstract class _HomeState implements HomeState {
-  const factory _HomeState(
+abstract class _MyAdsState implements MyAdsState {
+  const factory _MyAdsState(
       {final Status status,
-      final List<AdResponseModel> adList,
-      final Error? error}) = _$HomeStateImpl;
+      final List<AdResponseModel> myAdList,
+      final Error? error}) = _$MyAdsStateImpl;
 
   @override
   Status get status;
   @override
-  List<AdResponseModel> get adList;
+  List<AdResponseModel> get myAdList;
   @override
   Error? get error;
   @override
   @JsonKey(ignore: true)
-  _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
+  _$$MyAdsStateImplCopyWith<_$MyAdsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

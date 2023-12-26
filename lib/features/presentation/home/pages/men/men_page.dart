@@ -20,7 +20,7 @@ class HomeMenPage extends StatelessWidget {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         final list =
-            state.userList.where((user) => user.gender == Gender.male).toList();
+            state.adList.where((user) => user.gender == Gender.male).toList();
 
         return MyRefresher(
           onRefresh: () => context.read<HomeBloc>().add(OnFetchAds()),

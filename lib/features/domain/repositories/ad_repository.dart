@@ -14,11 +14,16 @@ abstract class AdRepository {
   Future<AdResponseListModel> fetchList([int page]);
   Future<void> postAd(AdRequestModel model);
 
+  Future<AdResponseListModel> fetchMyAds();
+
   ///
   /// Local
   ///
   List<AdResponseModel> getAds();
   void setAds(List<AdResponseModel> list);
+
+  List<AdResponseModel> getMyAds();
+  void setMyAds(List<AdResponseModel> list);
 }
 
 @LazySingleton(as: AdRepository)
@@ -46,6 +51,16 @@ class AdRepositoryImpl implements AdRepository {
       rethrow;
     }
   }
+  //
+
+  @override
+  Future<AdResponseListModel> fetchMyAds() async {
+    try {
+      return await api.fetchMyAds();
+    } catch (e) {
+      rethrow;
+    }
+  }
 
   //
   @override
@@ -53,4 +68,11 @@ class AdRepositoryImpl implements AdRepository {
 
   @override
   void setAds(List<AdResponseModel> list) => localStorage.setAds(list);
+  //
+
+  @override
+  List<AdResponseModel> getMyAds() => localStorage.getMyAds();
+
+  @override
+  void setMyAds(List<AdResponseModel> list) => localStorage.setMyAds(list);
 }

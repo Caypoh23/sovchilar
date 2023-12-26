@@ -11,6 +11,7 @@ import 'package:sovchilar/config/enums/cities_enum.dart';
 import 'package:sovchilar/config/enums/countries_enum.dart';
 import 'package:sovchilar/config/values/strings_constants.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
+import 'package:sovchilar/custom_widgets/app_bar/app_bar.dart';
 import 'package:sovchilar/custom_widgets/buttons/gradient_button.dart';
 import 'package:sovchilar/custom_widgets/expanded_section.dart';
 import 'package:sovchilar/custom_widgets/keyboard_escape.dart';
@@ -56,10 +57,14 @@ class _PostEditorScreenState extends State<PostEditorScreen> {
           return KeyboardEscape(
             child: Scaffold(
               backgroundColor: Colors.white,
+              appBar: MyAppBar(
+                title: MyStrings.postAd,
+              ),
               body: SafeArea(
                 child: Form(
                   key: cubit.formKey,
                   child: ListView(
+                    cacheExtent: 1000,
                     padding: const EdgeInsets.symmetric(
                       vertical: 24,
                       horizontal: 16,

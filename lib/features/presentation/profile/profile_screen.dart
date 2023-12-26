@@ -48,8 +48,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
             ),
-            Center(
-              child: Row(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50),
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   MyGradientButton(
@@ -57,6 +58,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     onTap: () {
                       context.router.push(
                         const PostEditorRoute(),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  MyGradientButton(
+                    label: MyStrings.myAds,
+                    onTap: () {
+                      context.router.push(
+                        const MyAdsRoute(),
                       );
                     },
                   ),

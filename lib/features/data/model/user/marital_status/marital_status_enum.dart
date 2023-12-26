@@ -14,7 +14,10 @@ enum MaritalStatus {
   divorced,
   @HiveField(1)
   @JsonValue('noMarriage')
-  single
+  single,
+  @HiveField(2)
+  @JsonValue('single')
+  unknown,
 }
 
 extension MaritalStatusExtension on MaritalStatus {

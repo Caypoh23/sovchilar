@@ -40,6 +40,7 @@ abstract class MyStrings {
   static String get authType => 'authType'.tr();
   static String get usernameType => 'usernameType'.tr();
   static String get postAd => 'postAd'.tr();
+  static String get myAds => 'myAds'.tr();
 
   static String get yourSex => 'yourSex'.tr();
   static String get man => 'man'.tr();
@@ -75,4 +76,9 @@ abstract class MyStrings {
   static String get confirmCodeDesc => 'confirmCodeDesc'.tr();
   static String get requestIsSentToModeration =>
       'requestIsSentToModeration'.tr();
+
+  static String get adListEmpty => 'adListEmpty'.tr();
+  static String get inModeration => 'inModeration'.tr();
+  static String get published => 'published'.tr();
+  static String get status => 'status'.tr();
 }

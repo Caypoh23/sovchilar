@@ -169,6 +169,7 @@ Map<String, dynamic> _$$AdResponseModelImplToJson(
 const _$MaritalStatusEnumMap = {
   MaritalStatus.divorced: 'divorced',
   MaritalStatus.single: 'noMarriage',
+  MaritalStatus.unknown: 'single',
 };
 
 const _$GenderEnumMap = {

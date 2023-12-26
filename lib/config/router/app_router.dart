@@ -41,6 +41,11 @@ class AppRouter extends $AppRouter {
               transitionsBuilder: TransitionsBuilders.fadeIn,
             ),
             CustomRoute(
+              path: RouteConstants.myAds,
+              page: MyAdsRoute.page,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+            ),
+            CustomRoute(
               path: RouteConstants.language,
               page: LanguageRoute.page,
               transitionsBuilder: TransitionsBuilders.fadeIn,

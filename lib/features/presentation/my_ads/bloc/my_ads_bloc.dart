@@ -10,26 +10,27 @@ import 'package:injectable/injectable.dart';
 import 'package:sovchilar/features/data/model/user/response/ad_response_model.dart';
 import 'package:sovchilar/features/domain/repositories/ad_repository.dart';
 import 'package:sovchilar/utils/generic_bloc_state.dart';
-import 'home_event.dart';
+import 'my_ads_event.dart';
 
-part 'home_state.dart';
-part 'home_bloc.freezed.dart';
+part 'my_ads_state.dart';
+part 'my_ads_bloc.freezed.dart';
 
 @injectable
-class HomeBloc extends Bloc<HomeEvent, HomeState> {
+class MyAdsBloc extends Bloc<MyAdsEvent, MyAdsState> {
   //
   final AdRepository adRepository;
 
-  HomeBloc(this.adRepository) : super(const HomeState()) {
-    on<OnFetchAds>(_onFetchAds);
+  MyAdsBloc(this.adRepository) : super(const MyAdsState()) {
+    on<OnFetchMyAds>(_onFetchAds);
   }
 
-  FutureOr<void> _onFetchAds(OnFetchAds event, Emitter<HomeState> emit) async {
+  FutureOr<void> _onFetchAds(
+      OnFetchMyAds event, Emitter<MyAdsState> emit) async {
     emit(state.copyWith(status: Status.loading));
     try {
-      final data = await adRepository.fetchList();
+      final data = await adRepository.fetchMyAds();
       emit(state.copyWith(
-        adList: data.userList ?? [],
+        myAdList: data.userList ?? [],
         status: Status.success,
       ));
     } catch (e) {

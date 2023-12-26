@@ -12,9 +12,7 @@ abstract class AdApi {
   Future<AdResponseListModel> fetchList([int page]);
   Future<void> postAd(AdRequestModel model);
 
-  ///
-  /// Local
-  ///
+  Future<AdResponseListModel> fetchMyAds();
 }
 
 @LazySingleton(as: AdApi)
@@ -29,6 +27,11 @@ class AdApiImpl implements AdApi {
     try {
       final res = await api.get(
         NetworkConstants.ads(page),
+        queryParameters: {
+          'page': page,
+          'limit': 100,
+          'order': 'desc',
+        },
       );
       return AdResponseListModel.fromJson(res);
     } catch (e) {
@@ -43,6 +46,18 @@ class AdApiImpl implements AdApi {
         NetworkConstants.postAd,
         data: model.toJson(),
       );
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<AdResponseListModel> fetchMyAds() async {
+    try {
+      final res = await api.get(
+        NetworkConstants.myAds,
+      );
+      return AdResponseListModel.fromJson(res);
     } catch (e) {
       rethrow;
     }

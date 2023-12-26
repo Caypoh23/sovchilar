@@ -18,6 +18,7 @@ class NetworkConstants {
 
   static String ads([int page = 1]) => 'api/personals/all';
   static String postAd = 'api/personals/';
+  static String myAds = 'api/personals/';
 
   ///
   /// Payment

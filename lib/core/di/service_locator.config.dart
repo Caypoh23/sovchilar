@@ -8,9 +8,12 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
+// Package imports:
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
+// Project imports:
 import '../../config/router/app_router.dart' as _i5;
 import '../../config/router/navigation_service.dart' as _i12;
 import '../../features/data/datasource/local/ad_local_db.dart' as _i3;
@@ -22,17 +25,19 @@ import '../../features/data/datasource/remote/payment_api.dart' as _i13;
 import '../../features/data/datasource/remote/profile_api.dart' as _i7;
 import '../../features/domain/repositories/ad_repository.dart' as _i17;
 import '../../features/domain/repositories/auth_repository.dart' as _i9;
-import '../../features/domain/repositories/payment_repostiory.dart' as _i20;
+import '../../features/domain/repositories/payment_repostiory.dart' as _i21;
 import '../../features/presentation/auth/cubit/auth_cubit.dart' as _i18;
 import '../../features/presentation/home/bloc/home_bloc.dart' as _i19;
 import '../../features/presentation/language/cubit/language_cubit.dart' as _i10;
 import '../../features/presentation/main/bloc/main_bloc.dart' as _i11;
-import '../../features/presentation/payment/cubit/payment_cubit.dart' as _i22;
+import '../../features/presentation/my_ads/bloc/my_ads_bloc.dart' as _i20;
+import '../../features/presentation/payment/cubit/payment_cubit.dart' as _i23;
+import '../network/api_service.dart' as _i4;
+
 import '../../features/presentation/post_editor/cubit/post_editor_cubit.dart'
-    as _i21;
+    as _i22;
 import '../../features/presentation/splash_screen/splash_screen_bloc.dart'
     as _i15;
-import '../network/api_service.dart' as _i4;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -71,17 +76,18 @@ extension GetItInjectableX on _i1.GetIt {
         ));
     gh.factory<_i18.AuthCubit>(() => _i18.AuthCubit(gh<_i9.AuthRepository>()));
     gh.factory<_i19.HomeBloc>(() => _i19.HomeBloc(gh<_i17.AdRepository>()));
-    gh.lazySingleton<_i20.PaymentRepository>(() => _i20.PaymentRepositoryImpl(
+    gh.factory<_i20.MyAdsBloc>(() => _i20.MyAdsBloc(gh<_i17.AdRepository>()));
+    gh.lazySingleton<_i21.PaymentRepository>(() => _i21.PaymentRepositoryImpl(
           gh<_i13.PaymentApi>(),
           gh<_i14.ProfileLocalStorage>(),
         ));
-    gh.factory<_i21.PostEditorCubit>(() => _i21.PostEditorCubit(
+    gh.factory<_i22.PostEditorCubit>(() => _i22.PostEditorCubit(
           gh<_i17.AdRepository>(),
-          gh<_i20.PaymentRepository>(),
+          gh<_i21.PaymentRepository>(),
           gh<_i19.HomeBloc>(),
         ));
-    gh.factory<_i22.PaymentCubit>(
-        () => _i22.PaymentCubit(gh<_i20.PaymentRepository>()));
+    gh.factory<_i23.PaymentCubit>(
+        () => _i23.PaymentCubit(gh<_i21.PaymentRepository>()));
     return this;
   }
 }

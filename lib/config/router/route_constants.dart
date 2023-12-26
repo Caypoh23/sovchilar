@@ -9,4 +9,6 @@ class RouteConstants {
   static const language = 'language';
 
   static const postEditor = 'post_editor';
+
+  static const myAds = 'my_ads';
 }

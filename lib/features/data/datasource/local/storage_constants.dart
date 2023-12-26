@@ -12,6 +12,7 @@ class StorageConstants {
   static String language = 'language';
 
   static String ads = 'ads';
+  static String myAds = 'myAds';
 
   static String price = 'price';
 
