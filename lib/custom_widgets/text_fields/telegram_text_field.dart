@@ -46,7 +46,6 @@ class TelegramTextField extends StatelessWidget {
       isRequired: isRequired,
       initialValue: initialValue,
       keyboardType: TextInputType.text,
-      textCapitalization: TextCapitalization.words,
       labelText: labelText ?? MyStrings.yourTelegram,
       inputFormatters: [MyStringHelper.telegramFormatter()],
     );

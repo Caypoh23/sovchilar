@@ -60,7 +60,7 @@ class AuthCubit extends Cubit<AuthState> {
     emit(state.copyWith(status: Status.loading));
     try {
       final username = state.usernameType == UsernameType.telegram
-          ? usernameController.text
+          ? usernameController.text.toLowerCase()
           : MyStringHelper.removeNonNumbers(
               usernameController.text,
             );
