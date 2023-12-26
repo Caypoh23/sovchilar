@@ -12,7 +12,9 @@ import 'package:injectable/injectable.dart';
 // Project imports:
 import 'package:sovchilar/config/enums/cities_enum.dart';
 import 'package:sovchilar/config/enums/countries_enum.dart';
+import 'package:sovchilar/config/router/app_router.gr.dart';
 import 'package:sovchilar/config/router/navigation_service.dart';
+import 'package:sovchilar/config/values/strings_constants.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
 import 'package:sovchilar/features/data/model/ad/request/ad_request_model.dart';
 import 'package:sovchilar/features/data/model/user/gender/gender_enum.dart';
@@ -24,6 +26,7 @@ import 'package:sovchilar/features/presentation/home/bloc/home_bloc.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_event.dart';
 import 'package:sovchilar/features/presentation/payment/payment_confirm_dialog.dart';
 import 'package:sovchilar/features/presentation/payment/payment_dialog.dart';
+import 'package:sovchilar/utils/appodeal_helper.dart';
 import 'package:sovchilar/utils/generic_bloc_state.dart';
 import 'package:sovchilar/utils/string_helper.dart';
 
@@ -83,16 +86,22 @@ class PostEditorCubit extends Cubit<PostEditorState> {
     if (!isFormValid) return;
 
     if (state.gender == Gender.female) {
-      await _onSubmitAd();
+      AppodealHelper.showRewardedVideo(
+        onRewardedVideoShown: () async {
+          await _onSubmitAd();
+        },
+      );
       return;
     }
 
     emit(state.copyWith(status: Status.loading));
     try {
       final navigation = getIt<NavigationService>();
+
       final paymentResult = await navigation.showDialog(
         dialog: const PaymentDialog(),
       );
+
       if (paymentResult == true) {
         final confirmResult = await navigation.showDialog(
           dialog: const PaymentConfirmDialog(),
@@ -100,8 +109,24 @@ class PostEditorCubit extends Cubit<PostEditorState> {
 
         if (confirmResult == true) {
           await _onSubmitAd();
+          emit(state.copyWith(status: Status.success));
+
+          await getIt<NavigationService>().showAlertDialog(
+            content: Text(
+              MyStrings.requestIsSentToModeration,
+              style: const TextStyle(
+                fontSize: 14,
+              ),
+            ),
+            onOkPressed: () async {
+              await getIt<NavigationService>().pop();
+              getIt<NavigationService>()
+                  .pushAndRemoveUntil(const ProfileRoute());
+            },
+          );
         }
       }
+      emit(state.copyWith(status: Status.initial));
     } catch (e) {
       emit(state.copyWith(status: Status.initial));
     }

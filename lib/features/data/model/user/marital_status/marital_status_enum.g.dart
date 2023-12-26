@@ -17,8 +17,6 @@ class MaritalStatusAdapter extends TypeAdapter<MaritalStatus> {
         return MaritalStatus.divorced;
       case 1:
         return MaritalStatus.single;
-      case 2:
-        return MaritalStatus.unknown;
       default:
         return MaritalStatus.divorced;
     }
@@ -32,9 +30,6 @@ class MaritalStatusAdapter extends TypeAdapter<MaritalStatus> {
         break;
       case MaritalStatus.single:
         writer.writeByte(1);
-        break;
-      case MaritalStatus.unknown:
-        writer.writeByte(2);
         break;
     }
   }

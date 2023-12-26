@@ -5,12 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 
 // Project imports:
-import 'package:sovchilar/config/assets/image_constants.dart';
-import 'package:sovchilar/config/values/color_constants.dart';
+import 'package:sovchilar/config/enums/card_type_enum.dart';
 import 'package:sovchilar/config/values/strings_constants.dart';
 import 'default_text_field.dart';
 
-class CreditCardTextField extends StatelessWidget {
+class CreditCardTextField extends StatefulWidget {
   //
   final String? labelText;
   final String? initialValue;
@@ -39,40 +38,65 @@ class CreditCardTextField extends StatelessWidget {
   });
 
   @override
+  State<CreditCardTextField> createState() => _CreditCardTextFieldState();
+}
+
+class _CreditCardTextFieldState extends State<CreditCardTextField> {
+  //
+  CardType cardType = CardType.unknown;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.controller.addListener(_updateCardType);
+  }
+
+  void updateState() => {if (mounted) setState(() {})};
+
+  @override
   Widget build(BuildContext context) {
     return MyTextField(
-      enabled: enabled,
-      maxLines: maxLines,
-      autoFocus: autofocus,
-      focusNode: focusNode,
-      controller: controller,
-      isRequired: isRequired,
+      canClear: true,
+      enabled: widget.enabled,
+      maxLines: widget.maxLines,
+      autoFocus: widget.autofocus,
+      focusNode: widget.focusNode,
+      controller: widget.controller,
+      isRequired: widget.isRequired,
       prefixIcon: prefixIcon,
-      initialValue: initialValue,
+      initialValue: widget.initialValue,
       keyboardType: TextInputType.number,
-      labelText: labelText ?? MyStrings.cardNumber,
+      labelText: widget.labelText ?? MyStrings.cardNumber,
       inputFormatters: [CreditCardNumberInputFormatter()],
     );
   }
 
   Widget? get prefixIcon {
-    if (controller.text.contains('8600')) {
-      return Image.asset(
-        MyImages.uzcard,
-        width: 40,
-        height: 40,
-      );
-    } else if (controller.text.contains('9860')) {
-      return Image.asset(
-        MyImages.humo,
-        width: 40,
-        height: 40,
-      );
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: Image.asset(
+        cardType.image,
+        width: 24,
+        height: 24,
+      ),
+    );
+  }
+
+  void _updateCardType() {
+    if (widget.controller.text.contains('8600') ||
+        widget.controller.text.contains('5614')) {
+      cardType = CardType.uzcard;
+    } else if (widget.controller.text.contains('9860')) {
+      cardType = CardType.humo;
     } else {
-      return const Icon(
-        Icons.credit_card,
-        color: MyColors.grey,
-      );
+      cardType = CardType.unknown;
     }
+    updateState();
+  }
+
+  @override
+  void dispose() {
+    widget.controller.removeListener(_updateCardType);
+    super.dispose();
   }
 }

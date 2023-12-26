@@ -1,4 +1,12 @@
 PODS:
+  - APDIABAdapter (3.2.0.0):
+    - Appodeal (= 3.2.0)
+  - Appodeal (3.2.0):
+    - Protobuf
+    - StackConsentManager (~> 1.2.0)
+    - StackIAB (~> 2.2.1)
+    - StackModules (~> 1.5.0)
+    - StackProtobuf (~> 0.8.0)
   - connectivity_plus (0.0.1):
     - Flutter
     - ReachabilitySwift
@@ -11,11 +19,13 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - OMSDK_Appodeal (1.4.2.0)
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
   - permission_handler_apple (9.1.1):
     - Flutter
+  - Protobuf (3.25.1)
   - ReachabilitySwift (5.0.0)
   - shared_preferences_foundation (0.0.1):
     - Flutter
@@ -23,6 +33,61 @@ PODS:
   - sqflite (0.0.3):
     - Flutter
     - FMDB (>= 2.7.5)
+  - stack_appodeal_flutter (3.2.0):
+    - APDIABAdapter (= 3.2.0.0)
+    - Appodeal (= 3.2.0)
+    - Flutter
+  - StackConsentManager (1.2.6)
+  - StackIAB (2.2.3):
+    - StackIAB/StackIABAssets (= 2.2.3)
+    - StackIAB/StackMRAIDKit (= 2.2.3)
+    - StackIAB/StackNASTKit (= 2.2.3)
+    - StackIAB/StackOpenMeasure (= 2.2.3)
+    - StackIAB/StackRichMedia (= 2.2.3)
+    - StackIAB/StackVASTAssets (= 2.2.3)
+    - StackIAB/StackVASTKit (= 2.2.3)
+    - StackIAB/StackVideoPlayer (= 2.2.3)
+    - StackIAB/StackXML (= 2.2.3)
+    - StackModules (~> 1.5.0)
+  - StackIAB/StackIABAssets (2.2.3):
+    - StackModules (~> 1.5.0)
+  - StackIAB/StackMRAIDKit (2.2.3):
+    - StackIAB/StackIABAssets
+    - StackIAB/StackOpenMeasure
+    - StackModules (~> 1.5.0)
+  - StackIAB/StackNASTKit (2.2.3):
+    - StackIAB/StackVASTKit
+    - StackModules (~> 1.5.0)
+  - StackIAB/StackOpenMeasure (2.2.3):
+    - OMSDK_Appodeal (~> 1.4.2.0)
+    - StackModules (~> 1.5.0)
+  - StackIAB/StackRichMedia (2.2.3):
+    - StackIAB/StackIABAssets
+    - StackIAB/StackVASTAssets
+    - StackIAB/StackVideoPlayer
+    - StackModules (~> 1.5.0)
+  - StackIAB/StackVASTAssets (2.2.3):
+    - StackIAB/StackIABAssets
+    - StackIAB/StackXML
+    - StackModules (~> 1.5.0)
+  - StackIAB/StackVASTKit (2.2.3):
+    - StackIAB/StackMRAIDKit
+    - StackIAB/StackVASTAssets
+    - StackIAB/StackVideoPlayer
+    - StackModules (~> 1.5.0)
+  - StackIAB/StackVideoPlayer (2.2.3):
+    - StackModules (~> 1.5.0)
+  - StackIAB/StackXML (2.2.3):
+    - StackModules (~> 1.5.0)
+  - StackModules (1.5.6):
+    - StackModules/StackProductPresentation (= 1.5.6)
+  - StackModules/StackFoundation (1.5.6)
+  - StackModules/StackProductPresentation (1.5.6):
+    - StackModules/StackUIKit
+  - StackModules/StackUIKit (1.5.6):
+    - StackModules/StackFoundation
+  - StackProtobuf (0.8.5):
+    - Protobuf (~> 3.13)
   - Toast (4.0.0)
   - url_launcher_ios (0.0.1):
     - Flutter
@@ -36,11 +101,21 @@ DEPENDENCIES:
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
+  - stack_appodeal_flutter (from `.symlinks/plugins/stack_appodeal_flutter/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
+  https://github.com/appodeal/CocoaPods.git:
+    - APDIABAdapter
+    - Appodeal
+    - OMSDK_Appodeal
+    - StackConsentManager
+    - StackIAB
+    - StackModules
+    - StackProtobuf
   trunk:
     - FMDB
+    - Protobuf
     - ReachabilitySwift
     - Toast
 
@@ -61,23 +136,34 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   sqflite:
     :path: ".symlinks/plugins/sqflite/ios"
+  stack_appodeal_flutter:
+    :path: ".symlinks/plugins/stack_appodeal_flutter/ios"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
+  APDIABAdapter: 3cc370d94b752b3b48925464d305dbfa1f0c8251
+  Appodeal: f6ba905663895050549fa1e78b464a5e104a331b
   connectivity_plus: 07c49e96d7fc92bc9920617b83238c4d178b446a
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   flutter_secure_storage: 23fc622d89d073675f2eaa109381aefbcf5a49be
   fluttertoast: 31b00dabfa7fb7bacd9e7dbee580d7a2ff4bf265
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  OMSDK_Appodeal: f4e97878c54edd6be63259a4ba38a5491be6226a
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
+  Protobuf: d94761c33f1239c0a43a0817ca1a5f7f7c900241
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
   sqflite: 31f7eba61e3074736dff8807a9b41581e4f7f15a
+  stack_appodeal_flutter: 53e64d0aaac1728d038fba6e2c2103c0e6ffcd19
+  StackConsentManager: 84236919432139434ec78f65552bcd1e7ab249aa
+  StackIAB: 13b2ec9602f1e8f142e0d8768655e7cbc29657cf
+  StackModules: 5fb97f9516fa9d3ccfce93c17da32a2486465907
+  StackProtobuf: 6b78e9e5c5f7ead500a5d1527e569c4d49599a74
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   url_launcher_ios: bf5ce03e0e2088bad9cc378ea97fa0ed5b49673b
 
-PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
+PODFILE CHECKSUM: 68365e203737aaa262041d116a53279661291286
 
 COCOAPODS: 1.14.3

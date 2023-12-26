@@ -94,6 +94,7 @@ class MyButton extends StatelessWidget {
     required this.onTap,
     this.labelStyle = const TextStyle(
       fontSize: 16,
+      color: Colors.white,
       fontWeight: FontWeight.w700,
     ),
     this.onLongPress,
@@ -125,7 +126,7 @@ class MyButton extends StatelessWidget {
         width: width,
         margin: margin,
         padding: padding,
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(16),
         onTap: enable && !isLoading ? onTap : null,
         color: color ?? (enable || isLoading ? enabledColor : disabledColor),
         child: Stack(

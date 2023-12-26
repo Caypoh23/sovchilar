@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sovchilar/config/router/navigation_service.dart';
 import 'package:sovchilar/config/values/strings_constants.dart';
 import 'package:sovchilar/core/di/service_locator.dart';
+import 'package:sovchilar/custom_widgets/buttons/default_button.dart';
 import 'package:sovchilar/custom_widgets/buttons/gradient_button.dart';
 import 'package:sovchilar/custom_widgets/keyboard_escape.dart';
 import 'package:sovchilar/custom_widgets/text_fields/credit_card_text_field.dart';
@@ -48,25 +49,17 @@ class PaymentDialog extends StatelessWidget {
                     controller: cubit.expireDateController,
                   ),
                   const SizedBox(height: 24),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      MyGradientButton(
-                        label: MyStrings.pay,
-                        isLoading: state.status == Status.loading,
-                        onTap: cubit.addPayment,
-                      ),
-                    ],
+                  MyGradientButton(
+                    label: MyStrings.pay,
+                    isLoading: state.status == Status.loading,
+                    margin: const EdgeInsets.symmetric(horizontal: 24),
+                    onTap: cubit.addPayment,
                   ),
                   const SizedBox(height: 24),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      MyGradientButton(
-                        label: MyStrings.cancel,
-                        onTap: getIt<NavigationService>().pop,
-                      ),
-                    ],
+                  MyButton.tertiary(
+                    label: MyStrings.cancel,
+                    onTap: getIt<NavigationService>().pop,
+                    margin: const EdgeInsets.symmetric(horizontal: 24),
                   ),
                 ],
               ),

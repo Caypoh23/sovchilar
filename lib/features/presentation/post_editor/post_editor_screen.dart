@@ -203,15 +203,10 @@ class _PostEditorScreenState extends State<PostEditorScreen> {
                         controller: cubit.additionalInfoController,
                       ),
                       const SizedBox(height: 24),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          MyGradientButton(
-                            label: buttonLabel,
-                            onTap: cubit.onPublishPressed,
-                            isLoading: state.status == Status.loading,
-                          ),
-                        ],
+                      MyGradientButton(
+                        label: buttonLabel,
+                        onTap: cubit.onPublishPressed,
+                        isLoading: state.status == Status.loading,
                       ),
                     ],
                   ),

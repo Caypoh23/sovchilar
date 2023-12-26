@@ -69,6 +69,8 @@ class MyAdsCard extends StatelessWidget {
               ? MyStrings.published
               : MyStrings.inModeration,
         ),
+
+        // TODO: delete button
       ],
     );
   }

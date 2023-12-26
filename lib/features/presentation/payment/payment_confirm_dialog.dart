@@ -43,22 +43,14 @@ class PaymentConfirmDialog extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const SizedBox(height: 24),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24),
-                    child: CodeTextField(
-                      controller: cubit.confirmCodeController,
-                    ),
+                  CodeTextField(
+                    controller: cubit.confirmCodeController,
                   ),
                   const SizedBox(height: 24),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      MyGradientButton(
-                        onTap: cubit.confirm,
-                        label: MyStrings.confirm,
-                        isLoading: state.status == Status.loading,
-                      ),
-                    ],
+                  MyGradientButton(
+                    onTap: cubit.confirm,
+                    label: MyStrings.confirm,
+                    isLoading: state.status == Status.loading,
                   ),
                 ],
               ),

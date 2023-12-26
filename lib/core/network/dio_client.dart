@@ -1,5 +1,6 @@
 // Package imports:
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 // Project imports:
 import 'interceptor.dart';
@@ -9,7 +10,7 @@ class DioClient {
   static Dio? _myDio;
 
   static final myDioOptions = BaseOptions(
-    baseUrl: 'http://176.96.241.238:3333/',
+    baseUrl: dotenv.get('API_URL'),
     connectTimeout: const Duration(minutes: 2),
     receiveTimeout: const Duration(minutes: 2),
     // queryParameters: {
