@@ -26,6 +26,10 @@ class AppodealHelper {
     var isCanShow = await Appodeal.canShow(AppodealAdType.RewardedVideo);
     final isLoaded = await Appodeal.isLoaded(AppodealAdType.RewardedVideo);
 
+    if (isCanShow && isLoaded) {
+      await Appodeal.show(AppodealAdType.RewardedVideo);
+    }
+
     Appodeal.setRewardedVideoCallbacks(
       onRewardedVideoClosed: (isFinished) async {
         if (isFinished) {
@@ -35,9 +39,5 @@ class AppodealHelper {
         }
       },
     );
-
-    if (isCanShow && isLoaded) {
-      await Appodeal.show(AppodealAdType.RewardedVideo);
-    }
   }
 }

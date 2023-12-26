@@ -10,6 +10,7 @@ import 'package:sovchilar/features/data/model/user/gender/gender_enum.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_bloc.dart';
 import 'package:sovchilar/features/presentation/home/bloc/home_event.dart';
 import 'package:sovchilar/features/presentation/home/widgets/card.dart';
+import 'package:stack_appodeal_flutter/stack_appodeal_flutter.dart';
 
 class HomeMenPage extends StatelessWidget {
   //
@@ -24,21 +25,33 @@ class HomeMenPage extends StatelessWidget {
 
         return MyRefresher(
           onRefresh: () => context.read<HomeBloc>().add(OnFetchAds()),
-          child: ListView.builder(
-            itemCount: list.length,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-            ).copyWith(
-              bottom: 20,
-            ),
+          child: ListView(
+            padding: EdgeInsets.zero,
             physics: const ClampingScrollPhysics(),
-            itemBuilder: (_, int index) {
-              final model = list[index];
+            children: [
+              AppodealBanner(
+                key: UniqueKey(),
+                adSize: AppodealBannerSize.BANNER,
+                placement: 'male_banner',
+              ),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: list.length,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                ).copyWith(
+                  bottom: 20,
+                ),
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (_, int index) {
+                  final model = list[index];
 
-              return HomeCard(
-                model: model,
-              );
-            },
+                  return HomeCard(
+                    model: model,
+                  );
+                },
+              ),
+            ],
           ),
         );
       },

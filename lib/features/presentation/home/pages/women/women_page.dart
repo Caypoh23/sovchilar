@@ -18,41 +18,43 @@ class HomeWomenPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const AppodealBanner(
-          adSize: AppodealBannerSize.BANNER,
-        ),
-        Expanded(
-          child: BlocBuilder<HomeBloc, HomeState>(
-            builder: (context, state) {
-              final list = state.adList
-                  .where((user) => user.gender == Gender.female)
-                  .toList();
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        final list =
+            state.adList.where((user) => user.gender == Gender.female).toList();
 
-              return MyRefresher(
-                onRefresh: () => context.read<HomeBloc>().add(OnFetchAds()),
-                child: ListView.builder(
-                  itemCount: list.length,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ).copyWith(
-                    bottom: 20,
-                  ),
-                  physics: const ClampingScrollPhysics(),
-                  itemBuilder: (_, int index) {
-                    final model = list[index];
-
-                    return HomeCard(
-                      model: model,
-                    );
-                  },
+        return MyRefresher(
+          onRefresh: () => context.read<HomeBloc>().add(OnFetchAds()),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            physics: const ClampingScrollPhysics(),
+            children: [
+              AppodealBanner(
+                key: UniqueKey(),
+                adSize: AppodealBannerSize.BANNER,
+                placement: 'female_banner',
+              ),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: list.length,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                ).copyWith(
+                  bottom: 20,
                 ),
-              );
-            },
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (_, int index) {
+                  final model = list[index];
+
+                  return HomeCard(
+                    model: model,
+                  );
+                },
+              ),
+            ],
           ),
-        ),
-      ],
+        );
+      },
     );
   }
 }

@@ -21,6 +21,16 @@ abstract class AuthRepository {
   String getToken();
   void setToken(String token);
 
+  //
+
+  String getUsername();
+  void setUsername(String username);
+
+  String getPassword();
+  void setPassword(String password);
+
+  //
+
   int getUserId();
   void setUserId(int userId);
 }
@@ -55,6 +65,18 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   void setToken(String token) => localStorage.setToken(token);
+
+  @override
+  String getUsername() => localStorage.getUsername();
+
+  @override
+  void setUsername(String username) => localStorage.setUsername(username);
+
+  @override
+  String getPassword() => localStorage.getPassword();
+
+  @override
+  void setPassword(String password) => localStorage.setPassword(password);
 
   @override
   int getUserId() => localStorage.getUserId();

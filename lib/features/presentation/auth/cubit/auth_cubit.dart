@@ -78,7 +78,11 @@ class AuthCubit extends Cubit<AuthState> {
 
   void _saveData(LoginResponseModel data) {
     DioClient.setToken(data.token);
+
     repository.setToken(data.token ?? '');
+
+    repository.setUsername(usernameController.text);
+    repository.setPassword(passwordController.text);
     repository.setUserId(data.userId ?? 0);
   }
 }

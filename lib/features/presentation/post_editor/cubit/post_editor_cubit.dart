@@ -86,7 +86,7 @@ class PostEditorCubit extends Cubit<PostEditorState> {
     if (!isFormValid) return;
 
     if (state.gender == Gender.female) {
-      AppodealHelper.showRewardedVideo(
+      await AppodealHelper.showRewardedVideo(
         onRewardedVideoShown: () async {
           await _onSubmitAd();
         },
@@ -109,21 +109,6 @@ class PostEditorCubit extends Cubit<PostEditorState> {
 
         if (confirmResult == true) {
           await _onSubmitAd();
-          emit(state.copyWith(status: Status.success));
-
-          await getIt<NavigationService>().showAlertDialog(
-            content: Text(
-              MyStrings.requestIsSentToModeration,
-              style: const TextStyle(
-                fontSize: 14,
-              ),
-            ),
-            onOkPressed: () async {
-              await getIt<NavigationService>().pop();
-              getIt<NavigationService>()
-                  .pushAndRemoveUntil(const ProfileRoute());
-            },
-          );
         }
       }
       emit(state.copyWith(status: Status.initial));
@@ -158,6 +143,18 @@ class PostEditorCubit extends Cubit<PostEditorState> {
       );
 
       await adRepository.postAd(model);
+      await getIt<NavigationService>().showAlertDialog(
+        content: Text(
+          MyStrings.requestIsSentToModeration,
+          style: const TextStyle(
+            fontSize: 14,
+          ),
+        ),
+        onOkPressed: () async {
+          await getIt<NavigationService>().pop();
+          getIt<NavigationService>().pushAndRemoveUntil(const ProfileRoute());
+        },
+      );
       emit(state.copyWith(status: Status.success));
       homeBloc.add(OnFetchAds());
     } catch (e) {
