@@ -21,6 +21,7 @@ import 'package:sovchilar/custom_widgets/text_fields/number_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/phone_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/picker_text_field.dart';
 import 'package:sovchilar/custom_widgets/text_fields/telegram_text_field.dart';
+import 'package:sovchilar/features/data/model/user/gender/gender_enum.dart';
 import 'package:sovchilar/features/data/model/user/marital_status/marital_status_enum.dart';
 import 'package:sovchilar/features/presentation/auth/cubit/auth_cubit.dart';
 import 'package:sovchilar/features/presentation/post_editor/cubit/post_editor_cubit.dart';
@@ -53,6 +54,9 @@ class _PostEditorScreenState extends State<PostEditorScreen> {
       child: BlocBuilder<PostEditorCubit, PostEditorState>(
         builder: (context, state) {
           final usernameType = state.usernameType;
+          final buttonLabel = state.gender == Gender.female
+              ? MyStrings.publish
+              : '${MyStrings.pay} ${cubit.price} UZS';
 
           return KeyboardEscape(
             child: Scaffold(
@@ -203,9 +207,9 @@ class _PostEditorScreenState extends State<PostEditorScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           MyGradientButton(
-                            onTap: cubit.onPayPressed,
+                            label: buttonLabel,
+                            onTap: cubit.onPublishPressed,
                             isLoading: state.status == Status.loading,
-                            label: '${MyStrings.pay} ${cubit.price} UZS',
                           ),
                         ],
                       ),

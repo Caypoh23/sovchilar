@@ -79,8 +79,13 @@ class PostEditorCubit extends Cubit<PostEditorState> {
 
   //
 
-  FutureOr<void> onPayPressed() async {
+  FutureOr<void> onPublishPressed() async {
     if (!isFormValid) return;
+
+    if (state.gender == Gender.female) {
+      await _onSubmitAd();
+      return;
+    }
 
     emit(state.copyWith(status: Status.loading));
     try {

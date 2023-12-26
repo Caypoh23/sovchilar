@@ -80,5 +80,6 @@ abstract class MyStrings {
   static String get adListEmpty => 'adListEmpty'.tr();
   static String get inModeration => 'inModeration'.tr();
   static String get published => 'published'.tr();
+  static String get publish => 'publish'.tr();
   static String get status => 'status'.tr();
 }
